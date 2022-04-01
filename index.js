@@ -9,6 +9,7 @@ import JsFileDownloader from 'js-file-downloader';
 /**
  * 常用或公用Function \
  * Array: 陣列處理 \
+ * Cookie: Cookie處理
  * Copy: 複製陣列或物件 \
  * Get: 獲取資料或是檔案內容等 \
  * Math: 數學計算 \
@@ -64,6 +65,44 @@ export class Utils {
 	 */
 	sumArray(array) {
 		return array.reduce((a, b) => a + b);
+	}
+
+
+
+	/* Cookie */
+
+	/**
+	 * 將字串Cookie轉為dict
+	 * @param {String} cookie 字串Cookie
+	 * @returns {object} Cookie dict物件
+	 */
+	decodeCookie(cookie) {
+		cookie = cookie.split(';');
+		var result = {};
+
+		for(let c of cookie) {
+			if(c.includes('=')) {
+				var sc = c.split('=');
+				result[sc[0]] = sc[1];
+			}
+		}
+
+		return result;
+	}
+
+	/**
+	 * 將Dict Cookie轉為字串
+	 * @param {object} cookie Dict Cookie
+	 * @returns {String} 字串Cookie
+	 */
+	encodeCookie(cookie) {
+		var result = '';
+
+		for(var key in cookie) {
+			result += `${key}=${cookie[key]};`
+		}
+
+		return result;
 	}
 
 

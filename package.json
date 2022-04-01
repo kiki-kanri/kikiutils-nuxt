@@ -1,6 +1,6 @@
 {
   "name": "kikiutils-nuxt",
-  "version": "1.0.6",
+  "version": "1.0.10",
   "description": "For Nuxt useful utils.",
   "main": "index.js",
   "scripts": {
