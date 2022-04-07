@@ -3,6 +3,9 @@
 import { FileType } from 'file-type/browser';
 import { getFilesFromDataTransferItems } from 'datatransfer-files-promise';
 import JsFileDownloader from 'js-file-downloader';
+import moment from 'moment';
+
+moment.locale('zh-TW');
 
 
 
@@ -11,17 +14,17 @@ import JsFileDownloader from 'js-file-downloader';
  * Array: 陣列處理 \
  * Cookie: Cookie處理
  * Copy: 複製陣列或物件 \
+ * Date and time: 日期與時間處理 \
  * Get: 獲取資料或是檔案內容等 \
  * Math: 數學計算 \
  * Object and Object url: 物件處理與Url轉換等 \
+ * Other: 其餘工具
  * Random string and int: 隨機數字、字串等 \
- * Text: 字串與文字處理 \
- * Time: 時間處理
+ * Text: 字串與文字處理
  */
 export class Utils {
 	constructor(context) {
 		this.$axios = context.$axios;
-		this.week = { 1: '一', 2: '二', 3: '三', 4: '四', 5: '五', 6: '六', 7: '日' };
 	}
 
 	
@@ -115,6 +118,68 @@ export class Utils {
 	 */
 	async copyTextToClipboard(text) {
 		await navigator.clipboard.writeText(text);
+	}
+
+
+
+	/* Date and  time */
+
+	/**
+	 * 計算輸入時間與當前本地時間相差多久
+	 * @param {Number} timestamp 時間戳(不含毫秒)
+	 * @returns {String} 計算完成的時間
+	 */
+	getDateToNow(timestamp) {
+		var date = moment(new Date(timestamp * 1000));
+		return date.fromNow();
+	}
+
+	/**
+	 * 判斷輸入日期是否合法
+	 * @param {String} date 字串日期
+	 * @returns 是否合法
+	 */
+	isDate(date) {
+		if(date == '') return false;
+		date = date.replace(/-/g, '/');
+		var d = new Date(date);
+		if(isNaN(d)) return false;
+		var arr = date.split('/');
+		return (parseInt(arr[0], 10) == d.getFullYear()) && (parseInt(arr[1], 10) == (d.getMonth() + 1)) && (parseInt(arr[2], 10) == d.getDate());
+	}
+
+	/**
+	 * 獲取本地時間
+	 * @param {Boolean} timestamp 是否返回時間戳(不含毫秒)
+	 * @param {Boolean} iso_date 是否僅返回ISO格式日期
+	 * @returns {String | Number} 字串時間或是時間戳
+	 */
+	nowTime(timestamp = false, iso_date = false) {
+		var date = moment();
+		if(timestamp) return date.unix();
+		return date.format(iso_date ? 'YYYY[-]MM[-]DD' : 'YYYY[年]MMMMDo dddd k:m:s');
+	}
+
+	/**
+	 * 將時間戳轉為字串表示
+	 * @param {Number} timestamp 時間戳(不含毫秒)
+	 * @param {Boolean} utc 時間戳時間是否為UTC時間
+	 * @returns {String} 轉換完成的時間
+	 */
+	strTime(timestamp, utc = true) {
+		var newDate = new Date();
+		if(utc) timestamp -= newDate.getTimezoneOffset() * 60;
+		newDate.setTime(timestamp * 1000);
+		return moment(newDate).format('YYYY[年]MMMMDo dddd k:m:s');
+	}
+
+	/**
+	 * 將日期時間字串轉為ISO標準日期字串
+	 * @param {String} date 日期時間字串
+	 * @returns ISO標準日期字串
+	 */
+	toISODate(datetime) {
+		return moment(new Date(datetime)).format('YYYY[-]MM[-]DD');
 	}
 
 
@@ -340,6 +405,18 @@ export class Utils {
 
 
 
+	/* Other */
+
+	/**
+	 * 判斷是否在node server環境下執行
+	 * @returns {Boolean} true | false
+	 */
+	isServer() {
+		return typeof(window) === 'undefined';
+	}
+
+
+
 	/* Random string and int */
 
 	/**
@@ -434,74 +511,6 @@ export class Utils {
 		}
 
 		return html;
-	}
-
-
-
-	/* time */
-
-	/**
-	 * 依據輸入數字(1-7)轉換為周一到周日
-	 * @param {Number} day 1到7
-	 * @returns {String} 轉換完成的日期
-	 */
-	getWeek(day) {
-		return this.week[day];
-	}
-
-	/**
-	 * 獲取本地時間
-	 * @param {Boolean} timestamp 是否返回時間戳
-	 * @returns {String | Number} 字串時間或是時間戳
-	 */
-	nowTime(timestamp = false) {
-		var time = new Date();
-
-		if(timestamp) {
-			return Math.floor(Date.now() / 1000);
-		} else {
-			var day = time.toLocaleDateString();
-			var week = time.getDay();
-			time = time.toLocaleTimeString('zh-TW' , { hour12 : false });
-			week = this.getWeek(week);
-	
-			return `${day} ${week} ${time}`.replace(/\//gi, '-');
-		}
-	}
-
-	/**
-	 * 將時間戳轉為字串表示
-	 * @param {Number} time 時間戳
-	 * @returns {String} 轉換完成的時間
-	 */
-	strTime(time) {
-		var newDate = new Date();
-		time -= newDate.getTimezoneOffset() * 60;
-		newDate.setTime(time * 1000);
-
-		var day = newDate.toLocaleDateString();
-		var hour = newDate.getHours();
-		var minutes = `0${newDate.getMinutes()}`;
-		minutes.length != 2 ? minutes = minutes.substr(1 , 2) : 0;
-		var week = this.getWeek(newDate.getDay());
-
-		return `${day} ${week} ${hour}:${minutes}`.replace(/\//gi, '-');
-	}
-
-	/**
-	 * 計算輸入時間與當前本地時間相差多久
-	 * @param {Number} time 時間戳
-	 * @returns {String} 計算完成的時間
-	 */
-	getDateToNow(time) {
-		var diff = this.nowTime(true) - 28800 - time;
-
-		var min = parseInt(diff / 60);
-		var hour = parseInt(min / 60);
-		var day = parseInt(hour / 24);
-		var week = parseInt(day / 7);
-
-		return (week ? this.strTime(time) : '') || (day ? `${day}天` : '') || (hour ? `${hour}小時` : '') || (min ? `${min}分` : '') || '剛剛';
 	}
 }
 
