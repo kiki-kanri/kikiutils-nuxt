@@ -1,9 +1,10 @@
 'use strict'
 
-import { FileType } from 'file-type/browser';
-import { getFilesFromDataTransferItems } from 'datatransfer-files-promise';
-import JsFileDownloader from 'js-file-downloader';
-import moment from 'moment';
+import FileType from 'file-type/browser'
+import { getFilesFromDataTransferItems } from 'datatransfer-files-promise'
+import JsFileDownloader from 'js-file-downloader'
+import moment from 'moment'
+import _ from 'underscore'
 
 moment.locale('zh-TW');
 
@@ -25,6 +26,8 @@ moment.locale('zh-TW');
 export class Utils {
 	constructor(context) {
 		this.$axios = context.$axios;
+		this._ = _;
+		if(!this.isServer()) window._ = _;
 	}
 
 	
@@ -38,7 +41,7 @@ export class Utils {
 	 * @returns {Number} 平均值
 	 */
 	avgArray(array, fixed = 2) {
-		var avg = this.sumArray(array) / array.length;
+		let avg = this.sumArray(array) / array.length;
 		return fixed ? parseFloat(avg.toFixed(fixed)) : avg;
 	}
 
@@ -55,10 +58,7 @@ export class Utils {
 	 * @param {Array} array 任意陣列
 	 */
 	shuffleArray(array) {
-		for(let i = array.length - 1 ; i > 0 ; i--) {
-			let j = Math.floor(Math.random() * (i + 1));
-			[array[i], array[j]] = [array[j], array[i]];
-		}
+		return this._.shuffle(array);
 	}
 
 	/**
@@ -81,11 +81,11 @@ export class Utils {
 	 */
 	decodeCookie(cookie) {
 		cookie = cookie.split(';');
-		var result = {};
+		let result = {};
 
 		for(let c of cookie) {
 			if(c.includes('=')) {
-				var sc = c.split('=');
+				let sc = c.split('=');
 				result[sc[0]] = sc[1];
 			}
 		}
@@ -99,9 +99,9 @@ export class Utils {
 	 * @returns {String} 字串Cookie
 	 */
 	encodeCookie(cookie) {
-		var result = '';
+		let result = '';
 
-		for(var key in cookie) {
+		for(let key in cookie) {
 			result += `${key}=${cookie[key]};`
 		}
 
@@ -130,7 +130,7 @@ export class Utils {
 	 * @returns {String} 計算完成的時間
 	 */
 	getDateToNow(timestamp) {
-		var date = moment(new Date(timestamp * 1000));
+		let date = moment(new Date(timestamp * 1000));
 		return date.fromNow();
 	}
 
@@ -142,9 +142,9 @@ export class Utils {
 	isDate(date) {
 		if(date == '') return false;
 		date = date.replace(/-/g, '/');
-		var d = new Date(date);
+		let d = new Date(date);
 		if(isNaN(d)) return false;
-		var arr = date.split('/');
+		let arr = date.split('/');
 		return (parseInt(arr[0], 10) == d.getFullYear()) && (parseInt(arr[1], 10) == (d.getMonth() + 1)) && (parseInt(arr[2], 10) == d.getDate());
 	}
 
@@ -155,7 +155,7 @@ export class Utils {
 	 * @returns {String | Number} 字串時間或是時間戳
 	 */
 	nowTime(timestamp = false, iso_date = false) {
-		var date = moment();
+		let date = moment();
 		if(timestamp) return date.unix();
 		return date.format(iso_date ? 'YYYY[-]MM[-]DD' : 'YYYY[年]MMMMDo dddd k:m:s');
 	}
@@ -167,7 +167,7 @@ export class Utils {
 	 * @returns {String} 轉換完成的時間
 	 */
 	strTime(timestamp, utc = true) {
-		var newDate = new Date();
+		let newDate = new Date();
 		if(utc) timestamp -= newDate.getTimezoneOffset() * 60;
 		newDate.setTime(timestamp * 1000);
 		return moment(newDate).format('YYYY[年]MMMMDo dddd k:m:s');
@@ -204,7 +204,7 @@ export class Utils {
 	 * @returns {String | null} 獲取到的值，若無則返回null
 	 */
 	getUrlParam(name) {
-		var params = new URLSearchParams(window.location.search);
+		let params = new URLSearchParams(window.location.search);
 
 		for(let pair of params.entries()) {
 			if(pair[0] == name) return pair[1];
@@ -219,16 +219,18 @@ export class Utils {
 	 * @returns {object} 檔案MIME類別
 	 */
 	async getFileMime(file) {
+		let ext, mime;
+
 		if(typeof(file) == this.TYPE_STR) {
-			var ext = file.split('.').pop();
-			var mime = 'other';
+			ext = file.split('.').pop();
+			mime = 'other';
 
 			if(ext.match(/webp|gif/)) mime = `image/${ext}`;
 			if(ext.match(/mp4|flv|webm|ogg/)) mime = `video/${ext}`;
 		} else {
-			var file_type = await FileType.fromBlob(file.slice(0, 32));
-			var ext = file_type ? file_type.ext : '';
-			var mime = file_type ? file_type.mime : '';
+			let file_type = await FileType.fromBlob(file.slice(0, 32));
+			ext = file_type ? file_type.ext : '';
+			mime = file_type ? file_type.mime : '';
 		}
 
 		return {
@@ -251,7 +253,7 @@ export class Utils {
 	 * @returns {String | Number} 字串百分比或浮點數
 	 */
 	getPercent(value, base, fixed = 1, toString = false) {
-		var percent = parseFloat((value / base * 100).toFixed(fixed));
+		let percent = parseFloat((value / base * 100).toFixed(fixed));
 		return toString ? `${percent}%` : percent;
 	}
 
@@ -260,86 +262,29 @@ export class Utils {
 	/* Object and object url */
 
 	/**
-	 * 計算object物件內元素數量
-	 * @param {object} object 陣列或字典物件
-	 * @returns {Number} 元素數量
+	 * 將base64轉為blob
+	 * @param {String} data base64資料
+	 * @returns Blob檔案
 	 */
-	len(object) {
-		var count = 0;
-		for(let key in object) count += 1;
-		return count;
-	}
+	base64ToBlob(data) {
+		let rImageType = /data:(image\/.+);base64,/;
+		let mimeString = '';
+		let raw, uInt8Array;
 
-	/**
-	 * 複製object物件
-	 * @param {object} object 陣列或字典物件(內部元素需純文字或數字)
-	 * @returns {object} 複製出的物件
-	 */
-	deepCopy(object) {
-		return JSON.parse(JSON.stringify(object));
-	}
+		raw = data.replace(rImageType, (header, imageType) => {
+			mimeString = imageType;
+			return '';
+		});
 
-	/**
-	 * 判斷檔案是否為指定類型
-	 * @param {Blob | String} file 檔案或檔案名稱
-	 * @param {String} type 類型，比如image,video
-	 * @returns {Boolean} 是或否
-	 */
-	async fileIs(file, type) {
-		var file_mime = await this.getFileMime(file);
-		return file_mime.type == type.toLowerCase();
-	}
+		raw = atob(raw);
+		let rawLength = raw.length;
+		uInt8Array = new Uint8Array(rawLength);
 
-	/**
-	 * 判斷檔案是否為圖片
-	 * @param {Blob | String} file 檔案或檔案名稱
-	 * @returns {Boolean} 是或否
-	 */
-	async fileIsImage(file) {
-		return await this.fileIs(file, 'image');
-	}
+		for(let i = 0 ; i < rawLength ; i += 1) {
+			uInt8Array[i] = raw.charCodeAt(i);
+		}
 
-	/**
-	 * 判斷檔案是否為影片
-	 * @param {Blob | String} file 檔案或檔案名稱
-	 * @returns {Boolean} 是或否
-	 */
-	async fileIsVideo(file) {
-		return await this.fileIs(file, 'video');
-	}
-
-	/**
-	 * 將object內所有值更改為指定值
-	 * @param {object} dict 字典物件
-	 * @param {*} value 指定更改的值
-	 */
-	flatDict(dict, value) {
-		for(let key in dict) dict[key] = value;
-	}
-
-	/**
-	 * 使用Url獲取檔案
-	 * @param {String} url 網址
-	 * @param {'GET' | 'POST'} method 請求類型
-	 * @param {object} data 請求資料
-	 * @returns {false | Blob} 成功獲取則返回該檔案Blob物件
-	 */
-	async getFileFromUrl(url, method = 'GET', data = {}) {
-		try {
-			var response = await this.$axios({
-				url : url,
-				method : method,
-				responseType : 'blob',
-				data: data
-			});
-
-			if(response.data) {
-				var file = new Blob([response.data], { type : response.headers['content-type'] });
-				return file;
-			}
-		} catch(error) {}
-
-		return false;
+		return new Blob([uInt8Array], { type: mimeString });
 	}
 
 	/**
@@ -367,24 +312,103 @@ export class Utils {
 	 * @returns {String | null} 成功則返回url
 	 */
 	createObjectUrlFromTarget(target) {
-		var file = target.files[0];
-		var burl = this.createObjectUrl(file);
+		let file = target.files[0];
+		let burl = this.createObjectUrl(file);
 		target.value = '';
 		return burl;
 	}
 
 	/**
-	 * 移除該物件blob url，使其失效
-	 * @param {String} url blob網址
+	 * 複製object物件
+	 * @param {object} object 陣列或字典物件(內部元素需純文字或數字)
+	 * @returns {object} 複製出的物件
 	 */
-	revokeObjectUrl(url) {
-		if(window.revokeObjectURL != undefined) {
-			window.revokeObjectURL(url)
-		} else if(window.URL != undefined) {
-			window.URL.revokeObjectURL(url)
-		} else if(window.webkitURL != undefined) {
-			window.webkitURL.revokeObjectURL(url);
-		}
+	deepCopy(object) {
+		return JSON.parse(JSON.stringify(object));
+	}
+
+	/**
+	 * 計算object物件內元素數量
+	 * @param {object} object 陣列或字典物件
+	 * @returns {Number} 元素數量
+	 */
+	len(object) {
+		let count = 0;
+		for(let key in object) count += 1;
+		return count;
+	}
+
+	/**
+	 * 判斷檔案是否為指定類型
+	 * @param {Blob | String} file 檔案或檔案名稱
+	 * @param {String} type 類型，比如image,video
+	 * @returns {Boolean} 是或否
+	 */
+	async fileIs(file, type) {
+		let file_mime = await this.getFileMime(file);
+		return file_mime.type == type.toLowerCase();
+	}
+
+	/**
+	 * 判斷檔案是否為Gif
+	 * @param {Blob | String} file 檔案或檔案名稱
+	 * @returns {Boolean} 是或否
+	 */
+	async isGif(file) {
+		let file_mime = await this.getFileMime(file);
+		return file_mime.type == 'image' && file_mime.ext == 'gif';
+	}
+
+	/**
+	 * 判斷檔案是否為圖片
+	 * @param {Blob | String} file 檔案或檔案名稱
+	 * @returns {Boolean} 是或否
+	 */
+	async isImage(file) {
+		return await this.fileIs(file, 'image');
+	}
+
+	/**
+	 * 判斷檔案是否為影片
+	 * @param {Blob | String} file 檔案或檔案名稱
+	 * @returns {Boolean} 是或否
+	 */
+	async isVideo(file) {
+		return await this.fileIs(file, 'video');
+	}
+
+	/**
+	 * 將object內所有值更改為指定值
+	 * @param {object} dict 字典物件
+	 * @param {*} value 指定更改的值
+	 */
+	flatDict(dict, value) {
+		for(let key in dict) dict[key] = value;
+	}
+
+	/**
+	 * 使用Url獲取檔案
+	 * @param {String} url 網址
+	 * @param {'GET' | 'POST'} method 請求類型
+	 * @param {object} data 請求資料
+	 * @returns {false | Blob} 成功獲取則返回該檔案Blob物件
+	 */
+	async getFileFromUrl(url, method = 'GET', data = {}) {
+		try {
+			let response = await this.$axios({
+				url : url,
+				method : method,
+				responseType : 'blob',
+				data: data
+			});
+
+			if(response.data) {
+				let file = new Blob([response.data], { type : response.headers['content-type'] });
+				return file;
+			}
+		} catch(error) {}
+
+		return false;
 	}
 
 	/**
@@ -402,6 +426,22 @@ export class Utils {
 		if(event.target) return event.target.files || [];
 		return [];
 	}
+
+	/**
+	 * 移除該物件blob url，使其失效
+	 * @param {String} url blob網址
+	 */
+	revokeObjectUrl(url) {
+		if(window.revokeObjectURL != undefined) {
+			window.revokeObjectURL(url)
+		} else if(window.URL != undefined) {
+			window.URL.revokeObjectURL(url)
+		} else if(window.webkitURL != undefined) {
+			window.webkitURL.revokeObjectURL(url);
+		}
+	}
+
+	
 
 
 
@@ -426,12 +466,7 @@ export class Utils {
 	 * @returns {Number} 在指定範圍內的隨機數
 	 */
 	randomInt(min, max = undefined) {
-		if(!max) {
-			max = min;
-			min = 0;
-		}
-
-		return Math.floor((Math.random() * (max + 1 - min)) + min);
+		return this._.random(min, max);
 	}
 
 	/**
@@ -441,9 +476,9 @@ export class Utils {
 	 * @returns {String} 隨機字串
 	 */
 	randomStr(len, number) {
-		var chars = number ? '0123456789' : 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789'
-		var maxPos = chars.length;
-		var code = '';
+		let chars = number ? '0123456789' : 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789';
+		let maxPos = chars.length;
+		let code = '';
 
 		for(let i = 0 ; i < len ; i++) {
 			code += chars.charAt(Math.floor(Math.random() * maxPos));
@@ -497,13 +532,13 @@ export class Utils {
 	 * @returns {String} 轉換完成的文字
 	 */
 	changeTextToLink(text) {
-		var regex = /(https?:\/\/|www\.)+[^\s]+/g;
-		var urls = text.match(regex) || [];
-		var split_str = `{[${this.randomStr(8)}]}`;
-		var replaced_urls_text = text.replace(regex, split_str);
+		let regex = /(https?:\/\/|www\.)+[^\s]+/g;
+		let urls = text.match(regex) || [];
+		let split_str = `{[${this.randomStr(8)}]}`;
+		let replaced_urls_text = text.replace(regex, split_str);
 		replaced_urls_text = this.replaceText(replaced_urls_text);
-		var texts = replaced_urls_text.split(split_str);
-		var html = '';
+		let texts = replaced_urls_text.split(split_str);
+		let html = '';
 
 		for(let i = 0 ; i < texts.length ; i++) {
 			html += texts[i];
