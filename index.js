@@ -70,8 +70,6 @@ export class Utils {
 		return array.reduce((a, b) => a + b);
 	}
 
-
-
 	/* Cookie */
 
 	/**
@@ -108,8 +106,6 @@ export class Utils {
 		return result;
 	}
 
-
-
 	/* Copy */
 
 	/**
@@ -119,8 +115,6 @@ export class Utils {
 	async copyTextToClipboard(text) {
 		await navigator.clipboard.writeText(text);
 	}
-
-
 
 	/* Date and  time */
 
@@ -151,13 +145,13 @@ export class Utils {
 	/**
 	 * 獲取本地時間
 	 * @param {Boolean} timestamp 是否返回時間戳(不含毫秒)
-	 * @param {Boolean} iso_date 是否僅返回ISO格式日期
+	 * @param {Boolean} isoDate 是否僅返回ISO格式日期
 	 * @returns {String | Number} 字串時間或是時間戳
 	 */
-	nowTime(timestamp = false, iso_date = false) {
+	nowTime(timestamp = false, isoDate = false) {
 		let date = moment();
 		if(timestamp) return date.unix();
-		return date.format(iso_date ? 'YYYY[-]MM[-]DD' : 'YYYY[年]MMMMDo dddd k:m:s');
+		return date.format(isoDate ? 'YYYY[-]MM[-]DD' : 'YYYY[年]MMMMDo dddd k:m:s');
 	}
 
 	/**
@@ -182,19 +176,17 @@ export class Utils {
 		return moment(new Date(datetime)).format('YYYY[-]MM[-]DD');
 	}
 
-
-
 	/* Get */
 
 	/**
 	 * 直接下載檔案
 	 * @param {String} url 檔案網址，可以是一般網址或是blob url
-	 * @param {String} save_name 儲存的檔案名稱
+	 * @param {String} saveName 儲存的檔案名稱
 	 */
-	downloadFile(url, save_name) {
+	downloadFile(url, saveName) {
 		new JsFileDownloader({ 
 			url: url,
-			filename: save_name
+			filename: saveName
 		});
 	}
 
@@ -228,9 +220,9 @@ export class Utils {
 			if(ext.match(/webp|gif/)) mime = `image/${ext}`;
 			if(ext.match(/mp4|flv|webm|ogg/)) mime = `video/${ext}`;
 		} else {
-			let file_type = await FileType.fromBlob(file.slice(0, 32));
-			ext = file_type ? file_type.ext : '';
-			mime = file_type ? file_type.mime : '';
+			let fileType = await FileType.fromBlob(file.slice(0, 32));
+			ext = fileType ? fileType.ext : '';
+			mime = fileType ? fileType.mime : '';
 		}
 
 		return {
@@ -239,8 +231,6 @@ export class Utils {
 			type : mime.split('/')[0]
 		};
 	}
-
-
 
 	/* Math */
 
@@ -256,8 +246,6 @@ export class Utils {
 		let percent = parseFloat((value / base * 100).toFixed(fixed));
 		return toString ? `${percent}%` : percent;
 	}
-
-
 
 	/* Object and object url */
 
@@ -345,8 +333,8 @@ export class Utils {
 	 * @returns {Boolean} 是或否
 	 */
 	async fileIs(file, type) {
-		let file_mime = await this.getFileMime(file);
-		return file_mime.type == type.toLowerCase();
+		let fileMime = await this.getFileMime(file);
+		return fileMime.type == type.toLowerCase();
 	}
 
 	/**
@@ -355,8 +343,8 @@ export class Utils {
 	 * @returns {Boolean} 是或否
 	 */
 	async isGif(file) {
-		let file_mime = await this.getFileMime(file);
-		return file_mime.type == 'image' && file_mime.ext == 'gif';
+		let fileMime = await this.getFileMime(file);
+		return fileMime.type == 'image' && fileMime.ext == 'gif';
 	}
 
 	/**
@@ -441,22 +429,6 @@ export class Utils {
 		}
 	}
 
-	
-
-
-
-	/* Other */
-
-	/**
-	 * 判斷是否在node server環境下執行
-	 * @returns {Boolean} true | false
-	 */
-	isServer() {
-		return typeof(window) === 'undefined';
-	}
-
-
-
 	/* Random string and int */
 
 	/**
@@ -486,8 +458,6 @@ export class Utils {
 
 		return code;
 	}
-
-
 
 	/* text */
 
@@ -534,10 +504,10 @@ export class Utils {
 	changeTextToLink(text) {
 		let regex = /(https?:\/\/|www\.)+[^\s]+/g;
 		let urls = text.match(regex) || [];
-		let split_str = `{[${this.randomStr(8)}]}`;
-		let replaced_urls_text = text.replace(regex, split_str);
-		replaced_urls_text = this.replaceText(replaced_urls_text);
-		let texts = replaced_urls_text.split(split_str);
+		let splitStr = `{[${this.randomStr(8)}]}`;
+		let replacedUrlsText = text.replace(regex, splitStr);
+		replacedUrlsText = this.replaceText(replacedUrlsText);
+		let texts = replacedUrlsText.split(splitStr);
 		let html = '';
 
 		for(let i = 0 ; i < texts.length ; i++) {
