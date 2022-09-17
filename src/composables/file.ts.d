@@ -1,5 +1,4 @@
 import { isString } from 'lodash-es'
-import { lookup as lookupMime } from 'es-mime-types'
 
 /**
  * 判斷檔案是否為指定類型

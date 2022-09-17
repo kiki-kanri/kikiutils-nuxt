@@ -1,6 +1,6 @@
 {
   "name": "kikiutils-nuxt",
-  "version": "2.0.9",
+  "version": "2.0.10",
   "description": "For Nuxt 3 useful utils.",
   "main": "index.js",
   "repository": {
@@ -19,7 +19,6 @@
   "homepage": "https://github.com/kiki-kanri/kikiutils-nuxt#readme",
   "dependencies": {
     "date-fns": "^2.29.3",
-    "es-mime-types": "^0.1.4",
     "lodash-es": "^4.17.21"
   }
 }
