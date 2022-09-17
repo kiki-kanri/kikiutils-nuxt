@@ -1,6 +1,4 @@
-import mimeDB from 'mime-db/db.json'
-
-const mimes = JSON.parse(JSON.stringify(mimeDB));
+import mimes from 'mime-db/db.json'
 
 
 export const getMimeFromFileName = (filename: string) => {
