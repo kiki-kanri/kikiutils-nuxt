@@ -1,2 +1,2 @@
 # kikiutils-nuxt
-For Nuxt useful utils.
+For Nuxt 3 useful utils.
