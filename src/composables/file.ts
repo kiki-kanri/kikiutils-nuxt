@@ -1,5 +1,5 @@
 import { isString } from 'lodash-es'
-import { getMimeFromFileName } from './mime'
+import { lookup as lookupMime } from 'es-mime-types'
 
 /**
  * 判斷檔案是否為指定類型
@@ -30,9 +30,9 @@ export const getFileMime = (file) => {
 	let mime: string;
 
 	if (!isString(file)) {
-		mime = file.type === '' ? getMimeFromFileName(file.name) : file.type;
+		mime = file.type === '' ? lookupMime(file.name) : file.type;
 	} else {
-		mime = getMimeFromFileName(file);
+		mime = lookupMime(file);
 	}
 
 	return {
