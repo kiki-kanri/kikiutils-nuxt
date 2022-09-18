@@ -1,4 +1,5 @@
 import { isString } from 'lodash-es'
+import imageMimes from '../types/image.json'
 
 /**
  * 判斷檔案是否為指定類型
@@ -11,16 +12,28 @@ export const fileIs = (file: string | Blob, type: string) => {
 /**
  * 從html事件中獲取檔案
  */
-// export const getFilesFromEvent = async (event) => {
-// 	if (event.type === 'paste') {
-// 		return event.clipboardData.files;
-// 	} else if (event.type === 'drop') {
-// 		if (event.dataTransfer.types[0] === 'Files') return await getFilesFromDataTransferItems(event.dataTransfer.items);
-// 	}
+export const getFilesFromEvent = async (event) => {
+	if (event.type === 'paste') {
+		return event.clipboardData.files;
+	} else if (event.type === 'drop') {
+		// if (event.dataTransfer.types[0] === 'Files') return await getFilesFromDataTransferItems(event.dataTransfer.items);
+	}
 
-// 	if (event.target) return event.target.files || [];
-// 	return [];
-// }
+	if (event.target) return event.target.files || [];
+	return [];
+}
+
+export const getFileMimeFromFilename = (filename: string) => {
+	let ext = filename.split('.').pop();
+
+	for (let mime of imageMimes) {
+		if ((imageMimes[mime].extensions || []).includes(ext)) {
+			return mime;
+		}
+	}
+
+	return '';
+}
 
 /**
  * 獲取檔案(依據檔案或檔案名稱)的MIME類別
@@ -29,9 +42,9 @@ export const getFileMime = (file) => {
 	let mime: string;
 
 	if (!isString(file)) {
-		mime = file.type === '' ? lookupMime(file.name) : file.type;
+		mime = file.type === '' ? getFileMimeFromFilename(file.name) : file.type;
 	} else {
-		mime = lookupMime(file);
+		mime = getFileMimeFromFilename(file);
 	}
 
 	return {
