@@ -34,7 +34,7 @@ export const createObjectUrl = (file: Blob): string | null => {
 		} else if (window.webkitURL !== undefined) {
 			return window.webkitURL.createObjectURL(file);
 		}
-	} catch (error) {}
+	} catch (error) { }
 
 	return null;
 }

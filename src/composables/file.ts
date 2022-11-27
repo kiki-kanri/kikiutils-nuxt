@@ -2,14 +2,6 @@ import { isString } from 'lodash-es'
 import imageMimes from '../types/image.json'
 
 /**
- * 判斷檔案是否為指定類型
- */
-export const fileIs = (file: string | Blob, type: string) => {
-	let fileMime = getFileMime(file);
-	return fileMime.type === type.toLowerCase();
-}
-
-/**
  * 從html事件中獲取檔案
  */
 export const getFilesFromEvent = async (event) => {
@@ -52,26 +44,4 @@ export const getFileMime = (file) => {
 		mime,
 		type: mime.split('/')[0]
 	}
-}
-
-/**
- * 判斷檔案是否為Gif
- */
-export const isGif = (file: string | Blob) => {
-	let fileMime = getFileMime(file);
-	return fileMime.type === 'image' && fileMime.ext === 'gif';
-}
-
-/**
- * 判斷檔案是否為圖片
- */
-export const isImage = (file: string | Blob) => {
-	return fileIs(file, 'image');
-}
-
-/**
- * 判斷檔案是否為影片
- */
-export const isVideo = (file: string | Blob) => {
-	return fileIs(file, 'video');
 }
