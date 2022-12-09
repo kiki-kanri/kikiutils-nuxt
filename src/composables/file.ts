@@ -18,7 +18,7 @@ export const getFilesFromEvent = async (event) => {
 export const getFileMimeFromFilename = (filename: string) => {
 	let ext = filename.split('.').pop();
 
-	for (let mime of imageMimes) {
+	for (let mime in imageMimes) {
 		if ((imageMimes[mime].extensions || []).includes(ext)) {
 			return mime;
 		}
