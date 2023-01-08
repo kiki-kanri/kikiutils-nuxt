@@ -1,5 +1,6 @@
 import { SweetAlertOptions, SweetAlertCustomClass } from 'sweetalert2';
 import _swal from 'sweetalert2/src/sweetalert2';
+import 'sweetalert2/src/sweetalert2.scss';
 
 const sweetalertCustomClass: SweetAlertCustomClass = {
 	actions: 'mt-3',
