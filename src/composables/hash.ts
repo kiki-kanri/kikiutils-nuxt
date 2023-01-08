@@ -1,4 +1,4 @@
-import SHA3 from 'sha3';
+const SHA3 = require('sha3');
 
 function hash(size: 224 | 256 | 384 | 512, text: string) {
 	let sha3Hash = new SHA3(size);
