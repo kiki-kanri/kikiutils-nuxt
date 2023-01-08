@@ -1,6 +1,6 @@
 {
   "name": "kikiutils-nuxt",
-  "version": "2.1.8",
+  "version": "2.1.9",
   "description": "For Nuxt 3 useful utils.",
   "main": "index.js",
   "repository": {

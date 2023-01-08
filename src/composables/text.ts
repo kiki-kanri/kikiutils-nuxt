@@ -1,5 +1,3 @@
-import { randomStr } from './string'
-
 /**
  * 複製文字至剪貼簿
  */
