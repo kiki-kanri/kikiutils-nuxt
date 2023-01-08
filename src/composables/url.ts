@@ -1,4 +1,11 @@
 /**
+ * 設定指定時間後導向指定url
+ */
+export const assignToUrl = (url: string = '/', timeout: number = 1000) => {
+	setTimeout(() => window.location.assign(url), timeout);
+}
+
+/**
  * 獲取指定的Url Get參數
  */
 export const getUrlParam = (name: string) => {

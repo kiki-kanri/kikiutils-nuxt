@@ -7,6 +7,8 @@ import dateFnsZhTw from 'date-fns/esm/locale/zh-TW'
 
 // Date and time
 
+export const TIME_ZONE_OFFSET = new Date().getTimezoneOffset() * 60;
+
 /**
  * 獲取本地時間
  */
@@ -32,4 +34,18 @@ export const strTime = (timestamp: number, utc: boolean = true): string => {
  */
 export const toISODate = (datetime: string) => {
 	return _formatISODate(new Date(datetime));
+}
+
+/**
+ * 本地時間戳轉UTC
+ */
+export const localTimestampToUTC = (timestamp: number) => {
+	return timestamp += TIME_ZONE_OFFSET;
+}
+
+/**
+ * UTC時間戳轉本地
+ */
+export const utcTimestampToLocal = (timestamp: number) => {
+	return timestamp -= TIME_ZONE_OFFSET;
 }

@@ -1,14 +1,15 @@
+const RANDOM_LETTERS = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789';
+const RANDOM_LETTERS_LENGTH = RANDOM_LETTERS.length;
+
 /**
  * 獲取隨機字串
  */
-export const randomStr = (len: number, number: boolean = false): string => {
-	let chars = number ? '0123456789' : 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789';
-	let maxPos = chars.length;
-	let code = '';
+export const randomStr = (minLength: number = 8, maxLength: number = 8): string => {
+	let string = '';
 
-	for (let i = 0; i < len; i++) {
-		code += chars.charAt(Math.floor(Math.random() * maxPos));
+	for (let i = 0; i < randomNumber(minLength, maxLength); i++) {
+		string += RANDOM_LETTERS[Math.floor(Math.random() * RANDOM_LETTERS_LENGTH)];
 	}
 
-	return code;
+	return string;
 }

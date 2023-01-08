@@ -1,6 +1,13 @@
 import { randomStr } from './string'
 
 /**
+ * 複製文字至剪貼簿
+ */
+export const copyTextToClipboard = async (text: string) => {
+	await navigator.clipboard.writeText(text);
+}
+
+/**
  * 將文字內的特殊字元替換成html替換符號
  */
 export const replaceText = (text: string) => {
