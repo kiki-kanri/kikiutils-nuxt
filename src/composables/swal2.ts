@@ -1,7 +1,7 @@
-import { SweetAlertOptions } from 'sweetalert2';
+import { SweetAlertOptions, SweetAlertCustomClass } from 'sweetalert2';
 import _swal from 'sweetalert2/src/sweetalert2';
 
-const sweetalertCustomClass = {
+const sweetalertCustomClass: SweetAlertCustomClass = {
 	actions: 'mt-3',
 	icon: 'mt-0 mx-auto',
 	title: 'p-0'
