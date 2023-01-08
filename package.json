@@ -1,6 +1,6 @@
 {
   "name": "kikiutils-nuxt",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "description": "For Nuxt 3 useful utils.",
   "main": "index.js",
   "repository": {
@@ -21,6 +21,6 @@
     "date-fns": "^2.29.3",
     "lodash-es": "^4.17.21",
     "sha3": "^2.1.4",
-    "sweetalert2": "^11.4.8"
+    "sweetalert2": "^11.6.16"
   }
 }
