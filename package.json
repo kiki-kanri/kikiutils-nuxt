@@ -1,6 +1,6 @@
 {
   "name": "kikiutils-nuxt",
-  "version": "2.2.4",
+  "version": "2.2.5",
   "description": "For Nuxt 3 useful utils and components for admin web use element-plus.",
   "main": "index.js",
   "repository": {
@@ -21,6 +21,6 @@
     "@noble/hashes": "^1.1.5",
     "date-fns": "^2.29.3",
     "lodash-es": "^4.17.21",
-    "sweetalert2": "^11.6.16"
+    "sweetalert2": "^11.7.0"
   }
 }
