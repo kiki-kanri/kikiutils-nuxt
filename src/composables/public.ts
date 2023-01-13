@@ -1,5 +1,7 @@
+import { reactive, UnwrapNestedRefs } from 'vue';
+
 // Data process
-export const updateList = (data: any[], dataList: any[]) => {
+export const updateList = (data: any[], dataList: UnwrapNestedRefs<any[]>) => {
 	dataList.splice(0, dataList.length);
 	dataList.push(...data);
 }

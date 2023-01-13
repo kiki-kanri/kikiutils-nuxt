@@ -1,3 +1,5 @@
+import { getFileMime } from './file';
+
 /**
  * 比對html key event事件觸發的按鍵
  */
