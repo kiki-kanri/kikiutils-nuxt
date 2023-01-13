@@ -10,9 +10,9 @@ export default defineNuxtModule({
 			];
 		}
 
-		nuxt.options.imports.dirs.push(`${__dirname}/src/composables`);
-		nuxt.options.imports.dirs.push(`${__dirname}/src/composables/*/*.{ts,js,mjs,mts}`);
-		const componentsPath = `${__dirname}/src/components`
+		nuxt.options.imports.dirs.push(`${__dirname}/src/element-plus/composables`);
+		nuxt.options.imports.dirs.push(`${__dirname}/src/element-plus/composables/*/*.{ts,js,mjs,mts}`);
+		const componentsPath = `${__dirname}/src/element-plus/components`
 		if (nuxt.options.components === false) return;
 		if (nuxt.options.components === true) {
 			nuxt.options.components = {

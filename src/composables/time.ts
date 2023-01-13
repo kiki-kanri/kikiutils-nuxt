@@ -1,9 +1,9 @@
-import _formatDate from 'date-fns/esm/format'
-import _formatISODate from 'date-fns/esm/formatISO'
-import _getTimestamp from 'date-fns/esm/getTime'
-import _isDate from 'date-fns/esm/isDate'
+import _formatDate from 'date-fns/esm/format';
+import _formatISODate from 'date-fns/esm/formatISO';
+import _getTimestamp from 'date-fns/esm/getTime';
+import _isDate from 'date-fns/esm/isDate';
 
-import dateFnsZhTw from 'date-fns/esm/locale/zh-TW'
+import dateFnsZhTw from 'date-fns/esm/locale/zh-TW';
 
 // Date and time
 

@@ -1,5 +1,5 @@
-import { isString } from 'lodash-es'
-import imageMimes from '../types/image.json'
+import { isString } from 'lodash-es';
+import imageMimes from '../types/image.json';
 
 /**
  * 從html事件中獲取檔案
