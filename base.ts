@@ -7,7 +7,7 @@ export const install = (options, nuxt, isElementPlus: boolean = false) => {
 		];
 	}
 
-	const composablesPath = `${__dirname}/src${isElementPlus ? '/elemtnt-plus' : ''}/composables`;
+	const composablesPath = `${__dirname}/src${isElementPlus ? '/element-plus' : ''}/composables`;
 	nuxt.options.imports.dirs.push(composablesPath);
 	nuxt.options.imports.dirs.push(`${composablesPath}/*/*.{ts,js,mjs,mts}`);
 }
