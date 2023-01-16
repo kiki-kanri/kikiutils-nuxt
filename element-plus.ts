@@ -3,6 +3,6 @@ import { install } from './base';
 
 export default defineNuxtModule({
 	setup(options, nuxt) {
-		install(options, nuxt, true);
+		install(true);
 	}
 });
