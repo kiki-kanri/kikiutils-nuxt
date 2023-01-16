@@ -1,21 +1,31 @@
-.bg-center {
-	background-position: center;
-}
+.bg {
+	&-center {
+		background-position: center;
+	}
 
-.bg-cover {
-	background-size: cover;
-}
+	&-cover {
+		background-size: cover;
+	}
 
-.bg-image {
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
-}
+	&-danger {
+		background-color: var(--bg-danger-color);
+	}
 
-.bg-no-repeat {
-	background-repeat: no-repeat;
-}
+	&-image {
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+	}
 
-.bg-white {
-	background-color: var(--bg-white-color);
+	&-no-repeat {
+		background-repeat: no-repeat;
+	}
+
+	&-success {
+		background-color: var(--bg-success-color);
+	}
+
+	&-white {
+		background-color: var(--bg-white-color);
+	}
 }
