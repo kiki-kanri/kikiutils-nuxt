@@ -19,7 +19,9 @@
 
 <script setup>
 
-	// props
+	import { propBooleanTrue, propString } from '../../../composables/props';
+
+	// Props
 	const props = defineProps({
 		dialog: Object,
 		clickClose: propBooleanTrue,

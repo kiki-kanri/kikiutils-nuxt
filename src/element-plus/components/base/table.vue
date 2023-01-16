@@ -16,6 +16,8 @@
 
 <script setup>
 
+	import { propBooleanFalse } from '../../../composables/props';
+
 	defineProps({
 		deleteFunction: Function,
 		hideDeleteBtn: propBooleanFalse,

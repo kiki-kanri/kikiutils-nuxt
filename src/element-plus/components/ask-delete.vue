@@ -20,6 +20,8 @@
 
 <script setup>
 
+	import { ref } from 'vue';
+
 	// Props and emit
 	const props = defineProps({
 		deleteFunction: Function,

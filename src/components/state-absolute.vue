@@ -16,6 +16,9 @@
 
 <script setup>
 
+	import { computed } from 'vue';
+	import { propBooleanFalse, propString } from '../composables/props';
+
 	const props = defineProps({
 		divClass: propString('rounded-10'),
 		loadingColor: propString('danger'),
