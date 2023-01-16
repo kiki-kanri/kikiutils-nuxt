@@ -1,0 +1,16 @@
+.navbar {
+	padding: 0.5rem 1rem;
+	position: relative;
+}
+
+.navbar,
+.navbar .container-fluid {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.navbar-brand {
+	font-size: 1.25rem;
+}

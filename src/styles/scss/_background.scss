@@ -1,0 +1,21 @@
+.bg-center {
+	background-position: center;
+}
+
+.bg-cover {
+	background-size: cover;
+}
+
+.bg-image {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.bg-no-repeat {
+	background-repeat: no-repeat;
+}
+
+.bg-white {
+	background-color: var(--bg-white-color);
+}

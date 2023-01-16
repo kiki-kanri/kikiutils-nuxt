@@ -1,0 +1,28 @@
+/* Body */
+
+body {
+	background-color: var(--body-color);
+}
+
+/* font */
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+	font-family: 'Noto Sans TC', sans-serif;
+}
+
+/* other */
+
+.no-outline:focus {
+	box-shadow: none !important;
+}
+
+.overflow-auto {
+	overflow: auto;
+}
