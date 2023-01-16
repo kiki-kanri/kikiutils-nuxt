@@ -1,9 +1,10 @@
-import { addComponentsDir, addImportsDir } from '@nuxt/kit';
+import { addComponentsDir } from '@nuxt/kit';
+import { Nuxt } from '@nuxt/schema';
 
-export const install = (isElementPlus: boolean = false) => {
+export const install = (nuxt: Nuxt, isElementPlus: boolean = false) => {
 	const composablesPath = `${__dirname}/src${isElementPlus ? '/element-plus' : ''}/composables`;
-	addImportsDir(composablesPath);
-	addImportsDir(`${composablesPath}/*/*.{ts,js,mjs,mts}`);
+	nuxt.options.imports.dirs.push(composablesPath);
+	nuxt.options.imports.dirs.push(`${composablesPath}/*/*.{ts,js,mjs,mts}`);
 
 	const componentPath = `${__dirname}/src${isElementPlus ? '/element-plus' : ''}/components`;
 	addComponentsDir({ path: componentPath });

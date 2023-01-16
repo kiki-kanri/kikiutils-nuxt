@@ -3,7 +3,7 @@ import { install } from './base';
 
 export default defineNuxtModule({
 	setup(options, nuxt) {
-		install();
+		install(nuxt);
 		nuxt.options.css.push(`${__dirname}/src/styles/scss/index.scss`);
 
 		if (nuxt.options.purgecss) {
