@@ -1,12 +1,12 @@
 <template>
-	<span class="spinner-border">
-		<span class="sr-only">Spinning</span>
+	<span class="kikiutils-nuxt-spinner-border">
+		<span class="kikiutils-nuxt-sr-only">Spinning</span>
 	</span>
 </template>
 
 <style scoped>
 
-	@keyframes spinner-border {
+	@keyframes kikiutils-nuxt-spinner-border {
 		from {
 			transform: rotate(0deg);
 		}
@@ -16,7 +16,7 @@
 		}
 	}
 
-	.spinner-border {
+	.kikiutils-nuxt-spinner-border {
 		display: inline-block;
 		width: 2rem;
 		height: 2rem;
@@ -25,10 +25,10 @@
 		border-right: 0.25em solid transparent;
 		border-radius: 50%;
 		-webkit-animation: spinner-border .75s linear infinite;
-		animation: spinner-border .75s linear infinite;
+		animation: kikiutils-nuxt-spinner-border .75s linear infinite;
 	}
 
-	.sr-only {
+	.kikiutils-nuxt-sr-only {
 		position: absolute;
 		width: 1px;
 		height: 1px;
