@@ -70,8 +70,6 @@
 
 <script setup>
 
-	import { propBooleanFalse, propReactiveDict, propString } from '../../../composables/props';
-
 	// Props and emits
 	const props = defineProps({
 		addBtnText: String,

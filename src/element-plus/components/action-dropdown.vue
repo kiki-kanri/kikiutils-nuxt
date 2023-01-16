@@ -11,8 +11,6 @@
 
 <script setup>
 
-	import { propString } from '../../composables/props';
-
 	defineProps({
 		btnText: propString('操作'),
 		btnType: propString('primary')

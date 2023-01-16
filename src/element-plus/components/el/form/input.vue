@@ -6,8 +6,6 @@
 
 <script setup>
 
-	import { propBooleanFalse, propString } from '../../../../composables/props';
-
 	const props = defineProps({
 		clearable: propBooleanFalse,
 		disabled: propBooleanFalse,

@@ -1,3 +1,4 @@
+import { addComponentsDir } from '@nuxt/kit';
 import { Nuxt } from '@nuxt/schema';
 
 export const install = (options, nuxt: Nuxt, isElementPlus: boolean = false) => {
@@ -15,16 +16,7 @@ export const install = (options, nuxt: Nuxt, isElementPlus: boolean = false) => 
 	nuxt.options.imports.dirs.push(`${composablesPath}/*/*.{ts,js,mjs,mts}`);
 
 	const componentPath = `${__dirname}/src${isElementPlus ? '/element-plus' : ''}/components`;
-	if (nuxt.options.components === false) return;
-	if (nuxt.options.components === true) {
-		nuxt.options.components = [
-			'~/components'
-		];
-	}
-
-	if (Array.isArray(nuxt.options.components)) {
-		nuxt.options.components.push(componentPath);
-	} else {
-		nuxt.options.components.dirs.push(componentPath);
-	}
+	addComponentsDir({
+		path: componentPath
+	});
 }
