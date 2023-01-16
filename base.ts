@@ -17,7 +17,4 @@ export const install = (options, nuxt: Nuxt, isElementPlus: boolean = false) => 
 
 	const componentPath = `${__dirname}/src${isElementPlus ? '/element-plus' : ''}/components`;
 	addComponentsDir({ path: componentPath });
-
-	const indexCssPath = `${__dirname}/src/styles/scss/index.scss`;
-	nuxt.options.css.push(indexCssPath);
 }
