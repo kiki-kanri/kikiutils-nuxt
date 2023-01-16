@@ -16,6 +16,8 @@
 
 <script>
 
+	import { propBooleanTrue } from '../../../composables/props';
+
 	export default {
 		props: {
 			dialog: Object,

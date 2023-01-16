@@ -19,6 +19,8 @@
 
 <script setup>
 
+	import { propBooleanTrue, propString } from '../../../composables/props';
+
 	// props
 	const props = defineProps({
 		dialog: Object,

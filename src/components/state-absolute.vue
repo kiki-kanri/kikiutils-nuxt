@@ -16,6 +16,9 @@
 
 <script setup>
 
+	import { propBooleanFalse, propString } from '../composables/props';
+	import { getLoadingStateDict } from '../composables/public';
+
 	const props = defineProps({
 		divClass: propString('rounded-10'),
 		loadingColor: propString('danger'),
