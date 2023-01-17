@@ -1,10 +1,29 @@
-import { defineNuxtModule } from '@nuxt/kit';
-import { install } from './base';
+import { addComponentsDir, defineNuxtModule } from '@nuxt/kit';
+import { Nuxt } from '@nuxt/schema';
 
-export default defineNuxtModule({
+interface ModuleOptions {
+	elementPlus: boolean;
+	scss: boolean;
+}
+
+function install(nuxt: Nuxt, isElementPlus = false) {
+	const composablesPath = `${__dirname}/src${isElementPlus ? '/element-plus' : ''}/composables`;
+	nuxt.options.imports.dirs.push(composablesPath);
+	nuxt.options.imports.dirs.push(`${composablesPath}/*/*.{ts,js,mjs,mts}`);
+
+	const componentPath = `${__dirname}/src${isElementPlus ? '/element-plus' : ''}/components`;
+	addComponentsDir({ path: componentPath });
+}
+
+export default defineNuxtModule<ModuleOptions>({
+	default: {
+		elementPlus: false,
+		scss: true
+	},
 	setup(options, nuxt) {
 		install(nuxt);
-		nuxt.options.css.push(`${__dirname}/src/styles/scss/index.scss`);
+		if (options.elementPlus) install(nuxt, true);
+		if (options.scss) nuxt.options.css.push(`${__dirname}/src/styles/scss/index.scss`);
 
 		if (nuxt.options.purgecss) {
 			const purgecss = nuxt.options.purgecss;
