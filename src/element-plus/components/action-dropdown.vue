@@ -1,6 +1,6 @@
 <template>
 	<el-dropdown trigger="click">
-		<btn-action :type="btnType">{{ btnText }}</btn-action>
+		<btn-action :size="btnSize" :type="btnType">{{ btnText }}</btn-action>
 		<template #dropdown>
 			<el-dropdown-menu>
 				<slot></slot>
