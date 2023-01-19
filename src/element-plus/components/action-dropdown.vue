@@ -14,6 +14,7 @@
 	import { propString } from '../../composables/props';
 
 	defineProps({
+		btnSize: propString('small'),
 		btnText: propString('操作'),
 		btnType: propString('primary')
 	});
