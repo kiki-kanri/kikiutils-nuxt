@@ -74,6 +74,7 @@
 	import { propBooleanFalse, propReactiveDict, propString } from '../../../composables/props';
 	import { getLoadingStateDict, updateList } from '../../../composables/public';
 	import { successMessage } from '../../composables/element-plus';
+	import { getPageBaseVariables } from '../../composables/public';
 
 	// Props and emits
 	const props = defineProps({
@@ -106,23 +107,22 @@
 	});
 
 	// Variables
+	const {
+		loadDataInterval,
+		loadingTable,
+		paginationParams,
+		tableData,
+		timerSec,
+		totalCount
+	} = getPageBaseVariables();
+
 	props.dialog.title = props.dialogTitle;
 	const defaultFormData = reactive({...props.formData});
-	const loadDataInterval = ref(null);
-	const loadingTable = ref(true);
-	const paginationParams = reactive({
-		limit: 10,
-		page: 1
-	});
-
 	const reloadDataBtnText = computed(() => {
 		return '更新資料' + (props.disableAutoReloadData ? '' : `(${timerSec.value})`);
 	});
 
 	const saveState = getLoadingStateDict();
-	const tableData = reactive([]);
-	const timerSec = ref(60);
-	const totalCount = ref(0);
 
 	// Mounted
 	onMounted(loadData);
