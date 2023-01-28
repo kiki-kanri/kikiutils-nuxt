@@ -73,7 +73,7 @@
 	import { computed, onMounted, reactive, ref } from 'vue';
 	import { propBooleanFalse, propReactiveDict, propString } from '../../../composables/props';
 	import { getLoadingStateDict, updateList } from '../../../composables/public';
-	import { successMessage } from '../../composables/element-plus';
+	import { successMessage } from '../../composables/message';
 	import { getPageBaseVariables } from '../../composables/public';
 
 	// Props and emits
@@ -155,7 +155,7 @@
 
 	function openDialog(row) {
 		Object.assign(props.formData, row || defaultFormData);
-		props.dialog.edit = row != null;
+		props.dialog.edit = row !== null;
 		props.dialog.show = true;
 	}
 
