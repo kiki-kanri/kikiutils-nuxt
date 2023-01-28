@@ -13,7 +13,7 @@ export const TIME_ZONE_OFFSET = new Date().getTimezoneOffset() * 60;
  * 獲取本地時間
  */
 export const nowTime = (timestamp: boolean = false, isoDate: boolean = false): string | number => {
-	let date = new Date();
+	const date = new Date();
 	if (timestamp) return _getTimestamp(date);
 	if (isoDate) return _formatISODate(date);
 	return _formatDate(date, 'yyyy年MMMMdo kk:mm:ss', { locale: dateFnsZhTw });
@@ -23,7 +23,7 @@ export const nowTime = (timestamp: boolean = false, isoDate: boolean = false): s
  * 將時間戳轉為字串表示
  */
 export const strTime = (timestamp: number, utc: boolean = true): string => {
-	let newDate = new Date();
+	const newDate = new Date();
 	if (utc) timestamp -= newDate.getTimezoneOffset() * 60;
 	newDate.setTime(timestamp * 1000);
 	return _formatDate(newDate, 'yyyy年MMMMdo kk:mm:ss', { locale: dateFnsZhTw });
@@ -37,14 +37,14 @@ export const toISODate = (datetime: string) => {
 }
 
 /**
- * 本地時間戳轉UTC
+ * 本地時間戳轉UTC (秒)
  */
 export const localTimestampToUTC = (timestamp: number) => {
 	return timestamp += TIME_ZONE_OFFSET;
 }
 
 /**
- * UTC時間戳轉本地
+ * UTC時間戳轉本地 (秒)
  */
 export const utcTimestampToLocal = (timestamp: number) => {
 	return timestamp -= TIME_ZONE_OFFSET;

@@ -1,7 +1,7 @@
 {
   "name": "kikiutils-nuxt",
-  "version": "2.4.4",
-  "description": "For Nuxt 3 useful utils and components for admin web use element-plus.",
+  "version": "2.4.5",
+  "description": "For Nuxt 3 useful utils and components for element-plus admin web.",
   "main": "nuxt.ts",
   "repository": {
     "type": "git",
@@ -21,6 +21,10 @@
     "@noble/hashes": "^1.1.5",
     "date-fns": "^2.29.3",
     "lodash-es": "^4.17.21",
-    "sweetalert2": "^11.7.0"
+    "sweetalert2": "^11.7.1"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.6",
+    "@types/node": "^18.11.18"
   }
 }

@@ -26,16 +26,15 @@ export const checkEventKey = (
 /**
  * 判斷檔案是否為指定類型
  */
-export const fileIs = (file: string | Blob, type: string) => {
-	let fileMime = getFileMime(file);
-	return fileMime.type === type.toLowerCase();
+export const fileIs = (file: Blob | string, type: string) => {
+	return getFileMime(file).type === type.toLowerCase();
 }
 
 /**
  * 判斷檔案是否為Gif
  */
 export const isGif = (file: string | Blob) => {
-	let fileMime = getFileMime(file);
+	const fileMime = getFileMime(file);
 	return fileMime.type === 'image' && fileMime.ext === 'gif';
 }
 

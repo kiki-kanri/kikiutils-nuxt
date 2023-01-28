@@ -1,3 +1,5 @@
+import { randomStr } from './random';
+
 /**
  * 複製文字至剪貼簿
  */
@@ -40,12 +42,12 @@ export const unreplaceText = (text: string) => {
  * 將文字內的連接轉為html href
  */
 export const changeTextToLink = (text: string) => {
-	let regex = /(https?:\/\/|www\.)+[^\s]+/g;
-	let urls = text.match(regex) || [];
-	let splitStr = `{[${randomStr(8)}]}`;
-	let replacedUrlsText = text.replace(regex, splitStr);
+	const pattern = /(https?:\/\/|www\.)+[^\s]+/g;
+	const urls = text.match(pattern) || [];
+	const splitStr = `{[${randomStr()}]}`;
+	let replacedUrlsText = text.replace(pattern, splitStr);
 	replacedUrlsText = replaceText(replacedUrlsText);
-	let texts = replacedUrlsText.split(splitStr);
+	const texts = replacedUrlsText.split(splitStr);
 	let html = '';
 
 	for (let i = 0; i < texts.length; i++) {

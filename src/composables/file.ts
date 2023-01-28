@@ -16,9 +16,9 @@ export const getFilesFromEvent = async (event) => {
 }
 
 export const getFileMimeFromFilename = (filename: string) => {
-	let ext = filename.split('.').pop();
+	const ext = filename.split('.').pop();
 
-	for (let mime in imageMimes) {
+	for (const mime in imageMimes) {
 		if ((imageMimes[mime].extensions || []).includes(ext)) {
 			return mime;
 		}
@@ -30,14 +30,8 @@ export const getFileMimeFromFilename = (filename: string) => {
 /**
  * 獲取檔案(依據檔案或檔案名稱)的MIME類別
  */
-export const getFileMime = (file) => {
-	let mime: string;
-
-	if (!isString(file)) {
-		mime = file.type === '' ? getFileMimeFromFilename(file.name) : file.type;
-	} else {
-		mime = getFileMimeFromFilename(file);
-	}
+export const getFileMime = (fileOrName: Blob | File | string) => {
+	const mime = isString(fileOrName) ? getFileMimeFromFilename(fileOrName) : fileOrName.type;
 
 	return {
 		ext: mime.split('/')[1],
