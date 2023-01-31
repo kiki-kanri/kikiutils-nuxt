@@ -1,15 +1,22 @@
 <template>
 	<el-form-item>
-		<el-input :clearable="clearable" :disabled="disabled" :type="type" v-model="inputValue"  />
+		<el-input
+			:autosize="autosize"
+			:clearable="clearable"
+			:disabled="disabled"
+			:type="type"
+			v-model="inputValue"
+		/>
 	</el-form-item>
 </template>
 
 <script setup>
 
 	import { onMounted, ref, watch } from 'vue';
-	import { propBooleanFalse, propString } from '../../../../composables/props';
+	import { propBooleanFalse, propBooleanTrue, propString } from '../../../../composables/props';
 
 	const props = defineProps({
+		autosize: propBooleanTrue,
 		clearable: propBooleanFalse,
 		disabled: propBooleanFalse,
 		modelValue: String,
