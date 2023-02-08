@@ -1,4 +1,4 @@
-import { addComponentsDir, addImportsDir, addPlugin, defineNuxtModule } from '@nuxt/kit';
+import { addComponentsDir, addImportsDir, addPlugin, createResolver, defineNuxtModule } from '@nuxt/kit';
 import { Nuxt } from '@nuxt/schema';
 
 interface ModuleOptions {
@@ -7,14 +7,16 @@ interface ModuleOptions {
 }
 
 function install(nuxt: Nuxt, isElementPlus = false) {
-	const composablesPath = `${__dirname}/src${isElementPlus ? '/element-plus' : ''}/composables`;
+	const { resolve } = createResolver(import.meta.url);
+	const src = resolve(`./src${isElementPlus ? '/element-plus' : ''}`);
+	const composablesPath = resolve(`${src}/composables`);
 	addImportsDir(composablesPath);
-	addImportsDir(`${composablesPath}/*/*.{ts,js,mjs,mts}`);
+	addImportsDir(`${src}/*/*.{ts,js,mjs,mts}`);
 
-	const componentPath = `${__dirname}/src${isElementPlus ? '/element-plus' : ''}/components`;
-	addComponentsDir({ path: componentPath });
+	const componentsPath = `${src}/components`;
+	addComponentsDir({ path: componentsPath });
 	if (!isElementPlus) return;
-	addPlugin(`${__dirname}/src/element-plus/plugins/el-loading.ts`);
+	addPlugin(`${src}/plugins/el-loading.ts`);
 	nuxt.options.css.push('element-plus/dist/index.css');
 }
 
