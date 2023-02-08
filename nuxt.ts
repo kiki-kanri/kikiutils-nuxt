@@ -13,8 +13,9 @@ function install(nuxt: Nuxt, isElementPlus = false) {
 
 	const componentPath = `${__dirname}/src${isElementPlus ? '/element-plus' : ''}/components`;
 	addComponentsDir({ path: componentPath });
-	if (isElementPlus) addPlugin(`${__dirname}/src/element-plus/plugins/el-loading.ts`);
-
+	if (!isElementPlus) return;
+	addPlugin(`${__dirname}/src/element-plus/plugins/el-loading.ts`);
+	nuxt.options.css.push('element-plus/dist/index.css');
 }
 
 export default defineNuxtModule<ModuleOptions>({
