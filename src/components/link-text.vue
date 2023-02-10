@@ -13,6 +13,7 @@
 	});
 
 	const src = computed(() => {
+		if (props.href.match(/https?:\/\//gi)) return props.href;
 		return `http${props.https ? 's' : ''}://${props.href}`;
 	});
 
