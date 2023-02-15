@@ -179,7 +179,8 @@
 		deleteData,
 		loadData,
 		loadingTable,
-		openDialog
+		openDialog,
+		tableData
 	});
 
 </script>
