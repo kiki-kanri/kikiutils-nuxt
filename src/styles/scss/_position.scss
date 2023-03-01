@@ -272,7 +272,7 @@
 
 // Position
 .position {
-	@each $pos in "absolute", "fixed", "relative", "sticky" {
+	@each $pos in absolute, fixed, relative, sticky {
 		&-#{$pos} {
 			position: $pos;
 		}
