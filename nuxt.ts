@@ -38,6 +38,7 @@ export default defineNuxtModule<ModuleOptions>({
 				'kikiutils-nuxt-spinner-border',
 				'kikiutils-nuxt-sr-only',
 				'position-absolute',
+				'p-0',
 				't-0',
 				'l-0',
 				'wh-100',
