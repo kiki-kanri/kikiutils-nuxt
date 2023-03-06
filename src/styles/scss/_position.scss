@@ -21,8 +21,14 @@ $spacing-map: (
 @each $name, $at in (m: margin, p: padding) {
 	@each $direction, $attr in $direction-map {
 		@each $num, $value in $spacing-map {
-			.#{$name}#{$direction}-#{$num} {
-				#{$at}#{$attr}: $value;
+			@if ($num == 0) {
+				.#{$name}#{$direction}-#{$num} {
+					#{$at}#{$attr}: $value !important;
+				}
+			} @else {
+				.#{$name}#{$direction}-#{$num} {
+					#{$at}#{$attr}: $value;
+				}
 			}
 		}
 	}
