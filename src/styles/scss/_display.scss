@@ -2,6 +2,10 @@
 	align-items: center;
 }
 
+.align-items-end {
+	align-items: flex-end;
+}
+
 .d-flex {
 	display: flex;
 }
@@ -48,7 +52,7 @@
 	justify-content: end;
 }
 
-@media(max-width: 768px) {
+@media (max-width: 768px) {
 	.flex-md-wrap {
 		flex-wrap: wrap !important;
 	}

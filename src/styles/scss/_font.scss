@@ -1,0 +1,21 @@
+// Font
+
+a,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+p,
+span {
+	font-family: "Noto Sans TC", sans-serif;
+}
+
+@for $i from 1 through 32 {
+	.fs-#{$i} {
+		font-size: $i * 1px;
+	}
+}
