@@ -1,5 +1,5 @@
 <template>
-	<div class="m-3 p-3 bg-white rounded-10">
+	<div class="m-3 p-3 bg-white rounded-10px">
 		<h4 class="text-center">{{ pageTitle }}</h4>
 		<div class="m-n1 d-flex justify-content-center">
 			<slot name="btns-before"></slot>

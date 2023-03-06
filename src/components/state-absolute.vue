@@ -21,7 +21,7 @@
 	import { getLoadingStateDict } from '../composables/public';
 
 	const props = defineProps({
-		divClass: propString('rounded-10'),
+		divClass: propString('rounded-10px'),
 		loadingColor: propString('danger'),
 		loadingText: propString('載入中...'),
 		successText: propString('載入成功！'),
