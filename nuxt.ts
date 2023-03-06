@@ -6,7 +6,7 @@ interface ModuleOptions {
 	styles: boolean;
 }
 
-function install(nuxt: Nuxt, isElementPlus = false) {
+function install(options: ModuleOptions, nuxt: Nuxt, isElementPlus = false) {
 	const { resolve } = createResolver(import.meta.url);
 	const src = resolve(`./src${isElementPlus ? '/element-plus' : ''}`);
 	const composablesPath = resolve(`${src}/composables`);
@@ -18,6 +18,7 @@ function install(nuxt: Nuxt, isElementPlus = false) {
 	if (!isElementPlus) return;
 	addPlugin(`${src}/plugins/el-loading.ts`);
 	nuxt.options.css.push('element-plus/dist/index.css');
+	if (options.styles) nuxt.options.css.push(`${src}/styles/scss/index.scss`);
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -26,10 +27,9 @@ export default defineNuxtModule<ModuleOptions>({
 		styles: true
 	},
 	setup(options, nuxt) {
-		install(nuxt);
-		if (options.elementPlus) install(nuxt, true);
+		install(options, nuxt);
+		if (options.elementPlus) install(options, nuxt, true);
 		if (options.styles) nuxt.options.css.push(`${__dirname}/src/styles/scss/index.scss`);
-
 		if (nuxt.options.purgecss) {
 			const purgecss = nuxt.options.purgecss;
 			if (purgecss.safelist === undefined) purgecss.safelist = {};

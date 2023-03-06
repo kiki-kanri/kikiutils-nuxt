@@ -1,0 +1,7 @@
+.el-button + .el-button:not(.m-1) {
+	margin-left: 0 !important;
+}
+
+.el-popper {
+	z-index: 3000 !important;
+}
