@@ -35,29 +35,31 @@ export default defineNuxtModule<ModuleOptions>({
 			if (purgecss.safelist === undefined) purgecss.safelist = {};
 			if (purgecss.safelist.standard === undefined) purgecss.safelist.standard = [];
 			purgecss.safelist.standard.push(...[
+				'align-items-center',
+				'bg-white',
+				'd-flex',
+				'flex-middle',
+				'flex-wrap',
+				'h5',
+				'justify-content-center',
+				'justify-content-end',
 				'kikiutils-nuxt-spinner-border',
 				'kikiutils-nuxt-sr-only',
-				'position-absolute',
-				'p-0',
-				't-0',
 				'l-0',
-				'wh-100',
-				'flex-middle',
-				'bg-white',
+				'm-1',
+				'm-3',
+				'm-n1',
+				'me-3',
+				'mt-3',
+				'p',
+				'p-0',
+				'p-3',
+				'position-absolute',
+				't-0',
 				'text-center',
 				'text-danger',
 				'text-success',
-				'mt-3',
-				'm-1',
-				'd-flex',
-				'm-3',
-				'p-3',
-				'm-n1',
-				'justify-content-center',
-				'align-items-center',
-				'flex-wrap',
-				'me-3',
-				'justify-content-end'
+				'wh-100'
 			]);
 		}
 	}
