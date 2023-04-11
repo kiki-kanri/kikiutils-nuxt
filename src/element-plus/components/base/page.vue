@@ -26,6 +26,7 @@
 			:delete-function="deleteData"
 			:hide-action="hideTableAction"
 			:hide-delete-btn="hideDeleteBtn"
+			:hide-edit-btn="hideEditBtn"
 			:max-height="tableMaxHeight"
 			:open-dialog="openDialog"
 			v-loading="loadingTable"
@@ -98,6 +99,7 @@
 		formRules: propReactiveDict,
 		hideAddDataBtn: propBooleanFalse,
 		hideDeleteBtn: propBooleanFalse,
+		hideEditBtn: propBooleanFalse,
 		hidePagination: propBooleanFalse,
 		hideTableAction: propBooleanFalse,
 		pageTitle: String,
