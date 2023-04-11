@@ -1,3 +1,7 @@
+.el-button + .el-button.m-1 {
+	margin: 0.25rem !important;
+}
+
 .el-button + .el-button:not(.m-1) {
 	margin-left: 0 !important;
 }

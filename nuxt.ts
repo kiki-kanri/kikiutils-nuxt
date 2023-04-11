@@ -3,44 +3,57 @@ import { Nuxt } from '@nuxt/schema';
 
 interface ModuleOptions {
 	elementPlus: boolean;
+	elementPlusDarkCss: boolean;
 	styles: boolean;
 }
 
 function install(options: ModuleOptions, nuxt: Nuxt, isElementPlus = false) {
+	// Get base path
 	const { resolve } = createResolver(import.meta.url);
-	const src = resolve(`./src${isElementPlus ? '/element-plus' : ''}`);
-	const composablesPath = resolve(`${src}/composables`);
-	addImportsDir(composablesPath);
-	addImportsDir(`${src}/*/*.{ts,js,mjs,mts}`);
+	const basePath = resolve(`./src${isElementPlus ? '/element-plus' : ''}`);
+	const componentsPath = `${basePath}/components`;
+	const composablesPath = resolve(`${basePath}/composables`);
+	const scssesPath = resolve(`${basePath}/styles/scss`);
 
-	const componentsPath = `${src}/components`;
+	// Add component, composables and scss
 	addComponentsDir({ path: componentsPath });
+	addImportsDir(composablesPath);
+	addImportsDir(`${composablesPath}/*/*.{ts,js,mjs,mts}`);
+	if (options.styles) nuxt.options.css.push(`${scssesPath}/index.scss`);
+
+	// Element plus only
 	if (!isElementPlus) return;
-	addPlugin(`${src}/plugins/el-loading.ts`);
+	addPlugin(`${basePath}/plugins/element-plus.ts`);
 	nuxt.options.css.push('element-plus/dist/index.css');
-	if (options.styles) nuxt.options.css.push(`${src}/styles/scss/index.scss`);
+
+	if (options.styles && options.elementPlusDarkCss) {
+		nuxt.options.css.push('element-plus/theme-chalk/dark/css-vars.css');
+		if (nuxt.options.purgecss) nuxt.options.purgecss.safelist.standard.push('dark');
+	}
 }
 
 export default defineNuxtModule<ModuleOptions>({
 	defaults: {
 		elementPlus: false,
+		elementPlusDarkCss: true,
 		styles: true
 	},
 	setup(options, nuxt) {
-		install(options, nuxt);
-		if (options.elementPlus) install(options, nuxt, true);
-		if (options.styles) nuxt.options.css.push(`${__dirname}/src/styles/scss/index.scss`);
-		if (nuxt.options.purgecss) {
+		if (options.styles && nuxt.options.purgecss) {
 			const purgecss = nuxt.options.purgecss;
 			if (purgecss.safelist === undefined) purgecss.safelist = {};
 			if (purgecss.safelist.standard === undefined) purgecss.safelist.standard = [];
 			purgecss.safelist.standard.push(...[
+				'a',
 				'align-items-center',
 				'bg-white',
+				'body',
 				'd-flex',
 				'flex-middle',
 				'flex-wrap',
+				'h4',
 				'h5',
+				'html',
 				'justify-content-center',
 				'justify-content-end',
 				'kikiutils-nuxt-spinner-border',
@@ -50,6 +63,7 @@ export default defineNuxtModule<ModuleOptions>({
 				'm-3',
 				'm-n1',
 				'me-3',
+				'mt-0',
 				'mt-3',
 				'p',
 				'p-0',
@@ -62,5 +76,8 @@ export default defineNuxtModule<ModuleOptions>({
 				'wh-100'
 			]);
 		}
+
+		install(options, nuxt);
+		if (options.elementPlus) install(options, nuxt, true);
 	}
 });
