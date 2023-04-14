@@ -3,7 +3,8 @@ import { Nuxt } from '@nuxt/schema';
 
 interface ModuleOptions {
 	elementPlus: boolean;
-	elementPlusDarkCss: boolean;
+	elementPlusConfig: {};
+	elementPlusLoadMethod: 'nuxt' | 'plugin';
 	styles: boolean;
 }
 
@@ -23,19 +24,24 @@ function install(options: ModuleOptions, nuxt: Nuxt, isElementPlus = false) {
 
 	// Element plus only
 	if (!isElementPlus) return;
-	addPlugin(`${basePath}/plugins/element-plus.ts`);
-	nuxt.options.css.push('element-plus/dist/index.css');
-
-	if (options.styles && options.elementPlusDarkCss) {
+	if (nuxt.options.purgecss) nuxt.options.purgecss.safelist.standard.push('dark');
+	if (options.elementPlusLoadMethod === 'nuxt') {
+		nuxt.options.elementPlus = options.elementPlusConfig;
+	} else {
+		addPlugin(`${basePath}/plugins/element-plus.ts`);
+		nuxt.options.css.push('element-plus/dist/index.css');
 		nuxt.options.css.push('element-plus/theme-chalk/dark/css-vars.css');
-		if (nuxt.options.purgecss) nuxt.options.purgecss.safelist.standard.push('dark');
 	}
 }
 
 export default defineNuxtModule<ModuleOptions>({
 	defaults: {
 		elementPlus: false,
-		elementPlusDarkCss: true,
+		elementPlusConfig: {
+			importStyle: 'css',
+			themes: ['dark']
+		},
+		elementPlusLoadMethod: 'plugin',
 		styles: true
 	},
 	setup(options, nuxt) {
