@@ -2,7 +2,6 @@
 	<el-form
 		ref="formRef"
 		autocomplate="off"
-		:model="formData"
 		@submit.prevent="saveFunction($refs.formRef)"
 		hide-required-asterisk
 		status-icon
@@ -14,17 +13,10 @@
 	</el-form>
 </template>
 
-<script>
+<script setup>
 
-	import { propBooleanTrue } from '../../../composables/props';
-
-	export default {
-		props: {
-			dialog: Object,
-			formData: Object,
-			saveFunction: Function,
-			showTime: propBooleanTrue
-		}
-	}
+	defineProps({
+		saveFunction: Function
+	});
 
 </script>

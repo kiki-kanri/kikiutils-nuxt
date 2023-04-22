@@ -1,5 +1,13 @@
 import { reactive, ref } from 'vue';
 
+import { copyTextToClipboard }  from '../../composables/text';
+import { successMessage }  from './message';
+
+export const copyTextAndShowMessage = (text: string, message: string) => {
+	copyTextToClipboard(text);
+	successMessage(message);
+}
+
 export const getPageBaseVariables = () => {
 	return {
 		loadDataInterval: ref(null),
