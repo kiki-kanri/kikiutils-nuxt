@@ -7,11 +7,7 @@ export const requestNotification = () => {
 }
 
 // Create new notification
-export const newNotification = (
-	title: string,
-	message: string,
-	options?: NotificationOptions
-) => {
+export const newNotification = (title: string, message: string, options?: NotificationOptions)  => {
 	return new Notification(title, {
 		body: message,
 		...options

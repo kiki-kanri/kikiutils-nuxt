@@ -2,50 +2,72 @@ import _formatDate from 'date-fns/esm/format';
 import _formatISODate from 'date-fns/esm/formatISO';
 import _getTimestamp from 'date-fns/esm/getTime';
 import _isDate from 'date-fns/esm/isDate';
-
 import dateFnsZhTw from 'date-fns/esm/locale/zh-TW';
+import omit from 'lodash-es/omit';
 
-// Date and time
+interface StrTimeOptions {
+	format?: string;
+	locale?: Locale;
+	utc?: boolean;
+}
 
-export const TIME_ZONE_OFFSET = new Date().getTimezoneOffset() * 60;
+const defaultStrTimeOptions = <StrTimeOptions>{
+	format: 'yyyy年MMMMdo kk:mm:ss',
+	locale: dateFnsZhTw,
+	utc: false
+};
 
 /**
- * 獲取本地時間
+ * Local timestamp to utc (second).
  */
-export const nowTime = (timestamp: boolean = false, isoDate: boolean = false): string | number => {
-	const date = new Date();
-	if (timestamp) return _getTimestamp(date);
-	if (isoDate) return _formatISODate(date);
-	return _formatDate(date, 'yyyy年MMMMdo kk:mm:ss', { locale: dateFnsZhTw });
+export const localTimestampToUTC = (timestamp: number) => timestamp + timeZoneOffset;
+
+/**
+ * Local timestamp to utc (millisecond).
+ */
+export const localTimestampToUTCMs = (timestampMs: number) => timestampMs + timeZoneOffsetMs;
+
+/**
+ * Get now utc timestamp (second).
+ */
+export const nowTimestampUTC = () => Math.floor(nowTimestampUTCMs() / 1000);
+
+/**
+ * Get now utc timestamp (millisecond).
+ */
+export const nowTimestampUTCMs = () => localTimestampToUTCMs(new Date().getTime());
+
+/**
+ * Change timestamp to string format (second).
+ */
+export const strTime = (timestamp: number, options: StrTimeOptions = defaultStrTimeOptions) => {
+	if (!options.format) options.format = defaultStrTimeOptions.format as string;
+	if (options.utc) timestamp = utcTimestampToLocal(timestamp);
+	const locale = options.locale || defaultStrTimeOptions.locale as Locale;
+	return _formatDate(timestamp * 1000, options.format, { locale });
 }
 
 /**
- * 將時間戳轉為字串表示
+ * Change timestamp to string format (utc second).
  */
-export const strTime = (timestamp: number, utc: boolean = true): string => {
-	const newDate = new Date();
-	if (utc) timestamp -= newDate.getTimezoneOffset() * 60;
-	newDate.setTime(timestamp * 1000);
-	return _formatDate(newDate, 'yyyy年MMMMdo kk:mm:ss', { locale: dateFnsZhTw });
-}
+export const strUTCTime = (timestamp: number, options: Omit<StrTimeOptions, 'utc'> = omit(defaultStrTimeOptions, ['utc'])) => strTime(timestamp, options);
 
 /**
- * 將日期時間字串轉為ISO標準日期字串
+ * Base timezone offset (second).
  */
-export const toISODate = (datetime: string) => {
-	return _formatISODate(new Date(datetime));
-}
+export const timeZoneOffset = new Date().getTimezoneOffset() * 60;
 
 /**
- * 本地時間戳轉UTC (秒)
+ * Base timezone offset (millisecond).
  */
-export const localTimestampToUTC = (timestamp: number) => {
-	return timestamp += TIME_ZONE_OFFSET;
-}
+export const timeZoneOffsetMs = timeZoneOffset * 1000;
 
 /**
- * UTC時間戳轉本地 (秒)
+ * UTC timestamp to local (second).
  */
-export const utcTimestampToLocal = (timestamp: number) => {
-	return timestamp -= TIME_ZONE_OFFSET;
-}
+export const utcTimestampToLocal = (timestamp: number) => timestamp - timeZoneOffset;
+
+/**
+ * UTC timestamp to local (millisecond).
+ */
+export const utcTimestampToLocalMs = (timestampMs: number) => timestampMs - timeZoneOffsetMs;
