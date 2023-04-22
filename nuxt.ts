@@ -3,8 +3,6 @@ import { Nuxt } from '@nuxt/schema';
 
 interface ModuleOptions {
 	elementPlus: boolean;
-	elementPlusConfig: {};
-	elementPlusLoadMethod: 'nuxt' | 'plugin';
 	styles: boolean;
 }
 
@@ -24,31 +22,27 @@ function install(options: ModuleOptions, nuxt: Nuxt, isElementPlus = false) {
 
 	// Element plus only
 	if (!isElementPlus) return;
-	if (nuxt.options.purgecss) nuxt.options.purgecss.safelist.standard.push('dark');
-	if (options.elementPlusLoadMethod === 'nuxt') {
-		nuxt.options.elementPlus = options.elementPlusConfig;
-	} else {
-		addPlugin(`${basePath}/plugins/element-plus.ts`);
-		nuxt.options.css.push('element-plus/dist/index.css');
-		nuxt.options.css.push('element-plus/theme-chalk/dark/css-vars.css');
+	addPlugin(`${basePath}/plugins/element-plus.ts`);
+	nuxt.options.css.push('element-plus/dist/index.css');
+	nuxt.options.css.push('element-plus/theme-chalk/dark/css-vars.css');
+	if (nuxt.options.purgecss) {
+		nuxt.options.purgecss.safelist.deep.push(...[/dialog-/, /el-/]);
+		nuxt.options.purgecss.safelist.standard.push('dark');
 	}
 }
 
 export default defineNuxtModule<ModuleOptions>({
 	defaults: {
 		elementPlus: false,
-		elementPlusConfig: {
-			importStyle: 'css',
-			themes: ['dark']
-		},
-		elementPlusLoadMethod: 'plugin',
 		styles: true
 	},
 	setup(options, nuxt) {
 		if (options.styles && nuxt.options.purgecss) {
 			const purgecss = nuxt.options.purgecss;
 			if (purgecss.safelist === undefined) purgecss.safelist = {};
+			if (purgecss.safelist.deep === undefined) purgecss.safelist.deep = [];
 			if (purgecss.safelist.standard === undefined) purgecss.safelist.standard = [];
+			purgecss.safelist.deep.push(/swal2/);
 			purgecss.safelist.standard.push(...[
 				'a',
 				'align-items-center',
@@ -65,9 +59,11 @@ export default defineNuxtModule<ModuleOptions>({
 				'kikiutils-nuxt-spinner-border',
 				'kikiutils-nuxt-sr-only',
 				'l-0',
+				'm-0',
 				'm-1',
 				'm-3',
 				'm-n1',
+				'mb-0',
 				'me-3',
 				'mt-0',
 				'mt-3',
@@ -75,6 +71,7 @@ export default defineNuxtModule<ModuleOptions>({
 				'p-0',
 				'p-3',
 				'position-absolute',
+				'rounded-10px',
 				't-0',
 				'text-center',
 				'text-danger',
