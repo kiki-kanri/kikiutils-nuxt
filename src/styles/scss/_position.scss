@@ -29,6 +29,10 @@ $spacing-map: (
 				.#{$name}#{$direction}-#{$num} {
 					#{$at}#{$attr}: $value;
 				}
+
+				.#{$name}#{$direction}-#{$num}-important {
+					#{$at}#{$attr}: $value !important;
+				}
 			}
 		}
 	}
