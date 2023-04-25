@@ -31,9 +31,9 @@
 			v-loading="loadingTable"
 		>
 			<slot name="table"></slot>
-			<template #brfore-table-action="{ scope: bsc }">
+			<template #before-table-action="{ scope: bsc }">
 				<slot
-					name="brfore-table-action"
+					name="before-table-action"
 					:_self="bsc._self"
 					:$index="bsc.$index"
 					:cell-index="bsc.cellIndex"
