@@ -18,10 +18,6 @@ export const randomNumber = (min: number, max?: number): number => {
  */
 export const randomStr = (minLength: number = 8, maxLength: number = 8): string => {
 	let string = '';
-
-	for (let i = 0; i < randomNumber(minLength, maxLength); i++) {
-		string += RANDOM_LETTERS.charAt(Math.floor(Math.random() * RANDOM_LETTERS_LENGTH));
-	}
-
+	for (let i = 0; i < randomNumber(minLength, maxLength); i++) string += RANDOM_LETTERS.charAt(Math.floor(Math.random() * RANDOM_LETTERS_LENGTH));
 	return string;
 }

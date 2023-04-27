@@ -131,7 +131,7 @@
 	// Functions
 	async function deleteData(row) {
 		loadingTable.value = true;
-		let { status } = await props.apiController.delete(row.id);
+		const { status } = await props.apiController.delete(row.id);
 		if (status === 200) successMessage('刪除成功！');
 		await loadData();
 	}
@@ -139,7 +139,7 @@
 	async function loadData() {
 		loadingTable.value = true;
 		timerSec.value = 60;
-		let { data } = await props.apiController.getList({
+		const { data } = await props.apiController.getList({
 			...props.filterParams,
 			...paginationParams
 		});
@@ -165,7 +165,7 @@
 		await formEl.validate(async (valid, fields) => {
 			if (!valid) return;
 			saveState.loading = true;
-			let response = await props.apiController.save({...props.formData}, props.saveUseFormData, props.axiosSaveConfig);
+			const response = await props.apiController.save({...props.formData}, props.saveUseFormData, props.axiosSaveConfig);
 			saveState.clear();
 			if (response.status !== 200) return saveState.error = true;
 			props.dialog.show = false;
@@ -178,7 +178,8 @@
 	defineExpose({
 		deleteData,
 		loadData,
-		loadingTable
+		loadingTable,
+		openDialog
 	});
 
 </script>
