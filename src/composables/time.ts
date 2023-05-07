@@ -48,9 +48,9 @@ export const strTime = (timestamp: number, options: StrTimeOptions = defaultStrT
 }
 
 /**
- * Change timestamp to string format (utc second).
+ * Change utc second timestamp to local string format.
  */
-export const strUTCTime = (timestamp: number, options: Omit<StrTimeOptions, 'utc'> = omit(defaultStrTimeOptions, ['utc'])) => strTime(timestamp, options);
+export const strUTCTime = (timestamp: number, options: Omit<StrTimeOptions, 'utc'> = omit(defaultStrTimeOptions, ['utc'])) => strTime(timestamp, { utc: true, ...options });
 
 /**
  * Base timezone offset (second).
