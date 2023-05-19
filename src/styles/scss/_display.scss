@@ -36,10 +36,6 @@
 	flex-wrap: wrap;
 }
 
-.flex-50 {
-	flex: 50%;
-}
-
 .justify-content-around {
 	justify-content: space-around;
 }
@@ -54,6 +50,12 @@
 
 .justify-content-end {
 	justify-content: end;
+}
+
+@for $i from 1 through 100 {
+	.flex-#{$i} {
+		flex: $i * 1%;
+	}
 }
 
 @media (max-width: 768px) {
