@@ -1,6 +1,14 @@
 <template>
 	<el-form-item>
-		<el-input :autosize="autosize" :clearable="clearable" :disabled="disabled" :type="type" v-model="inputValue" />
+		<el-input
+			:autosize="autosize"
+			:clearable="clearable"
+			:disabled="disabled"
+			:type="type"
+			@blur="$emits('blur', $event)"
+			@change="$emits('change', $event)"
+			v-model="inputValue"
+		/>
 	</el-form-item>
 </template>
 
@@ -18,7 +26,7 @@
 		type: propString('text')
 	});
 
-	const $emits = defineEmits(['update:modelValue']);
+	const $emits = defineEmits(['blur', 'change', 'update:modelValue']);
 
 	const inputValue = ref('');
 
