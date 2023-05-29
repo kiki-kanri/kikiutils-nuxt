@@ -1,5 +1,6 @@
 import { addComponentsDir, addImportsDir, addPlugin, createResolver, defineNuxtModule } from '@nuxt/kit';
 import { Nuxt } from '@nuxt/schema';
+import removeConsole from 'vite-plugin-remove-console';
 
 interface ModuleOptions {
 	elementPlus: boolean;
@@ -37,6 +38,7 @@ export default defineNuxtModule<ModuleOptions>({
 		styles: true
 	},
 	setup(options, nuxt) {
+		// Purgecss settings
 		if (options.styles && nuxt.options.purgecss) {
 			const purgecss = nuxt.options.purgecss;
 			if (purgecss.safelist === undefined) purgecss.safelist = {};
@@ -79,6 +81,16 @@ export default defineNuxtModule<ModuleOptions>({
 				'wh-100'
 			]);
 		}
+
+		// Vite settings
+		if (!nuxt.options.vite) nuxt.options.vite = {};
+		if (!nuxt.options.vite.optimizeDeps) nuxt.options.vite.optimizeDeps = {};
+		if (!nuxt.options.vite.optimizeDeps.include) nuxt.options.vite.optimizeDeps.include = [];
+		nuxt.options.vite.optimizeDeps.include.push(...['anchorme', 'copy-to-clipboard']);
+
+		// Vite plugin settings
+		if (!nuxt.options.vite.plugins) nuxt.options.vite.plugins = [];
+		nuxt.options.vite.plugins.push(removeConsole());
 
 		install(options, nuxt);
 		if (options.elementPlus) install(options, nuxt, true);
