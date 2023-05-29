@@ -85,6 +85,7 @@
 	const props = defineProps({
 		addDataBtnText: String,
 		apiController: Object,
+		beforeSave: Function,
 		dialog: {
 			type: Object,
 			default() {
@@ -164,6 +165,7 @@
 		if (saveState.loading) return;
 		await formEl.validate(async (valid, fields) => {
 			if (!valid) return;
+			if (props.beforeSave && !await props.beforeSave()) return;
 			saveState.loading = true;
 			const response = await props.apiController.save({...props.formData}, props.saveUseFormData, props.axiosSaveConfig);
 			saveState.clear();
