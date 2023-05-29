@@ -1,11 +1,5 @@
-import { randomStr } from './random';
-
-/**
- * 複製文字至剪貼簿
- */
-export const copyTextToClipboard = async (text: string) => {
-	await navigator.clipboard.writeText(text);
-}
+import anchorme from 'anchorme';
+export { default as copyTextToClipboard } from 'copy-to-clipboard';
 
 /**
  * 將文字內的特殊字元替換成html替換符號
@@ -42,18 +36,12 @@ export const unreplaceText = (text: string) => {
  * 將文字內的連接轉為html href
  */
 export const changeTextToLink = (text: string) => {
-	const pattern = /(https?:\/\/|www\.)+[^\s]+/g;
-	const urls = text.match(pattern) || [];
-	const splitStr = `{[${randomStr()}]}`;
-	let replacedUrlsText = text.replace(pattern, splitStr);
-	replacedUrlsText = replaceText(replacedUrlsText);
-	const texts = replacedUrlsText.split(splitStr);
-	let html = '';
-
-	for (let i = 0; i < texts.length; i++) {
-		html += texts[i];
-		if (urls[i]) html += `<a href="${encodeURI(urls[i])}" target="_blank" rel="nofollow noopener">${replaceText(urls[i])}</a>`;
-	}
-
-	return html;
+	return anchorme({
+		input: text,
+		options: {
+			attributes: {
+				target: '_blank'
+			}
+		}
+	});
 }
