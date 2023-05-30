@@ -26,6 +26,7 @@ function install(options: ModuleOptions, nuxt: Nuxt, isElementPlus = false) {
 	addPlugin(`${basePath}/plugins/element-plus.ts`);
 	nuxt.options.css.push('element-plus/dist/index.css');
 	nuxt.options.css.push('element-plus/theme-chalk/dark/css-vars.css');
+	nuxt.options.vite.optimizeDeps.include.push('dayjs');
 	if (nuxt.options.purgecss) {
 		nuxt.options.purgecss.safelist.deep.push(...[/dialog-/, /el-/]);
 		nuxt.options.purgecss.safelist.standard.push('dark');

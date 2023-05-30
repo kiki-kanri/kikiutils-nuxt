@@ -1,6 +1,6 @@
 {
   "name": "kikiutils-nuxt",
-  "version": "2.7.7",
+  "version": "2.7.8",
   "description": "For Nuxt 3 useful utils and components for element-plus admin web.",
   "main": "nuxt.ts",
   "repository": {
@@ -23,7 +23,7 @@
     "copy-to-clipboard": "^3.3.3",
     "date-fns": "^2.30.0",
     "lodash-es": "^4.17.21",
-    "sweetalert2": "^11.7.6",
+    "sweetalert2": "^11.7.9",
     "vite-plugin-remove-console": "^2.1.1"
   },
   "devDependencies": {
