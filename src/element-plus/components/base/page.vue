@@ -111,14 +111,7 @@
 	});
 
 	// Variables
-	const {
-		loadDataInterval,
-		loadingTable,
-		paginationParams,
-		tableData,
-		timerSec,
-		totalCount
-	} = getPageBaseVariables();
+	const { loadDataInterval, loadingTable, paginationParams, tableData, timerSec, totalCount } = getPageBaseVariables();
 	const defaultFormData = reactive({...props.formData});
 	const reloadDataBtnText = computed(() => {
 		return '更新資料' + (props.disableAutoReloadData ? '' : `(${timerSec.value})`);
@@ -181,7 +174,8 @@
 		deleteData,
 		loadData,
 		loadingTable,
-		openDialog
+		openDialog,
+		tableData
 	});
 
 </script>
