@@ -7,15 +7,18 @@
 		status-icon
 	>
 		<slot></slot>
-		<div class="text-center">
-			<el-button type="primary" native-type="submit">儲存</el-button>
+		<div class="text-center" v-if="!hideBtnArea">
+			<el-button native-type="submit" type="primary">儲存</el-button>
 		</div>
 	</el-form>
 </template>
 
 <script setup>
 
+	import { propBooleanFalse } from '../../../composables/props';
+
 	defineProps({
+		hideBtnArea: propBooleanFalse,
 		saveFunction: Function
 	});
 

@@ -7,7 +7,7 @@
 		<div class="m-n1 d-flex justify-content-center">
 			<slot name="before-btns"></slot>
 			<el-button class="m-1" @click="openDialog(null)" v-if="!hideAddDataBtn">{{ addDataBtnText }}</el-button>
-			<el-button class="m-1" :disabled="loadingTable" @click="loadData">{{ reloadDataBtnText }}</el-button>
+			<el-button class="m-1" :disabled="loadingTable" @click="loadData">更新資料{{ reloadDataBtnText }}</el-button>
 			<slot name="after-btns"></slot>
 		</div>
 		<slot name="before-table"></slot>
@@ -118,7 +118,7 @@
 	const { loadDataInterval, loadingTable, paginationParams, tableData, timerSec, totalCount } = getPageBaseVariables();
 	const defaultFormData = reactive({...props.formData});
 	const reloadDataBtnText = computed(() => {
-		return '更新資料' + (props.disableAutoReloadData ? '' : `(${timerSec.value})`);
+		return props.disableAutoReloadData ? '' : `(${timerSec.value})`;
 	});
 
 	const saveState = getLoadingStateDict();

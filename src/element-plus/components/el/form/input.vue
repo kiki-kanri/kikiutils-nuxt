@@ -4,6 +4,7 @@
 			:autosize="autosize"
 			:clearable="clearable"
 			:disabled="disabled"
+			:placeholder="placeholder"
 			:type="type"
 			@blur="$emits('blur', $event)"
 			@change="$emits('change', $event)"
@@ -22,6 +23,7 @@
 		autosize: propBooleanTrue,
 		clearable: propBooleanFalse,
 		disabled: propBooleanFalse,
+		placeholder: propString(''),
 		modelValue: String,
 		type: propString('text')
 	});

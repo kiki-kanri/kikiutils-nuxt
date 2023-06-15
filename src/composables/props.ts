@@ -10,6 +10,11 @@ export const propBooleanTrue = {
 	default: true
 }
 
+export const propReactiveArray = {
+	type: Array,
+	default: () => reactive([])
+}
+
 export const propReactiveDict = {
 	type: Object,
 	default: () => reactive({})
