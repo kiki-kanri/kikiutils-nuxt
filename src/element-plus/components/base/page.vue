@@ -87,6 +87,7 @@
 	const props = defineProps({
 		addDataBtnText: String,
 		apiController: Object,
+		axiosSaveConfig: propReactiveDict,
 		beforeSave: Function,
 		dialog: {
 			type: Object,
