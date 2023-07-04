@@ -1,28 +1,35 @@
 import { reactive } from 'vue';
 
 export const propBooleanFalse = {
-	type: Boolean,
-	default: false
+	default: false,
+	type: Boolean
 }
 
 export const propBooleanTrue = {
-	type: Boolean,
-	default: true
+	default: true,
+	type: Boolean
 }
 
 export const propReactiveArray = {
-	type: Array,
-	default: () => reactive([])
+	default: () => reactive([]),
+	type: Array
 }
 
 export const propReactiveDict = {
-	type: Object,
-	default: () => reactive({})
+	default: () => reactive({}),
+	type: Object
+}
+
+export const propNumber = (defaultValue: number) => {
+	return {
+		default: defaultValue,
+		type: Number
+	}
 }
 
 export const propString = (defaultValue: string) => {
 	return {
-		type: String,
-		default: defaultValue
+		default: defaultValue,
+		type: String
 	}
 }
