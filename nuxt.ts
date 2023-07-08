@@ -18,7 +18,6 @@ function install(options: ModuleOptions, nuxt: Nuxt, isElementPlus = false) {
 	// Add component, composables and scss
 	addComponentsDir({ path: componentsPath });
 	addImportsDir(composablesPath);
-	addImportsDir(`${composablesPath}/*/*.{ts,js,mjs,mts}`);
 	if (options.styles) nuxt.options.css.push(`${scssesPath}/index.scss`);
 
 	// Element plus only

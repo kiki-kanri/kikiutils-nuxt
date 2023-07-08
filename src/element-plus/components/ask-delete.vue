@@ -17,8 +17,11 @@
 
 	import { ref } from 'vue';
 
+	import { propBooleanFalse } from '../../composables/props';
+
 	const props = defineProps({
 		deleteFunction: Function,
+		disabled: propBooleanFalse,
 		row: Object
 	});
 
