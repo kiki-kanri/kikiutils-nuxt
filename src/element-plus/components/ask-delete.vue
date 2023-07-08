@@ -1,6 +1,6 @@
 <template>
 	<div class="m-1 d-flex" :key="row.id">
-		<el-popover placement="left" popper-class="text-center" trigger="click" v-model:visible="show">
+		<el-popover placement="left" popper-class="text-center" trigger="click" :disabled="disabled" v-model:visible="show">
 			<p>確定刪除?</p>
 			<div class="m-n1">
 				<el-button class="m-1" size="small" @click="show = false">取消</el-button>
