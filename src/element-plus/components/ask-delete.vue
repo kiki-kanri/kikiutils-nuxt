@@ -7,7 +7,7 @@
 				<btn-action class="m-1" type="danger" @click="deleteExec">確定</btn-action>
 			</div>
 			<template #reference>
-				<btn-action type="danger">刪除</btn-action>
+				<btn-action type="danger" :disabled="disabled">刪除</btn-action>
 			</template>
 		</el-popover>
 	</div>
