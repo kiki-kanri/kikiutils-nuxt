@@ -2,15 +2,15 @@ import { addComponentsDir, addImportsDir, addPlugin, createResolver, defineNuxtM
 import { Nuxt } from '@nuxt/schema';
 import removeConsole from 'vite-plugin-remove-console';
 
-interface ModuleOptions {
-	elementPlus: boolean;
+export interface ModuleOptions {
+	elementPlus: boolean | 'module';
 	styles: boolean;
 }
 
-function install(options: ModuleOptions, nuxt: Nuxt, isElementPlus = false) {
+function install(options: ModuleOptions, nuxt: Nuxt, elementPlusMode: boolean | 'module' = false) {
 	// Get base path
 	const { resolve } = createResolver(import.meta.url);
-	const basePath = resolve(`./src${isElementPlus ? '/element-plus' : ''}`);
+	const basePath = resolve(`./src${elementPlusMode ? '/element-plus' : ''}`);
 	const componentsPath = `${basePath}/components`;
 	const composablesPath = resolve(`${basePath}/composables`);
 	const scssesPath = resolve(`${basePath}/styles/scss`);
@@ -21,11 +21,14 @@ function install(options: ModuleOptions, nuxt: Nuxt, isElementPlus = false) {
 	if (options.styles) nuxt.options.css.push(`${scssesPath}/index.scss`);
 
 	// Element plus only
-	if (!isElementPlus) return;
-	addPlugin(`${basePath}/plugins/element-plus.ts`);
-	nuxt.options.css.push('element-plus/dist/index.css');
-	nuxt.options.css.push('element-plus/theme-chalk/dark/css-vars.css');
-	nuxt.options.vite.optimizeDeps.include.push('dayjs');
+	if (!elementPlusMode) return;
+	if (elementPlusMode === true) {
+		addPlugin(`${basePath}/plugins/element-plus.ts`);
+		nuxt.options.css.push('element-plus/dist/index.css');
+		nuxt.options.css.push('element-plus/theme-chalk/dark/css-vars.css');
+		nuxt.options.vite.optimizeDeps.include.push('dayjs');
+	}
+
 	if (nuxt.options.purgecss) {
 		nuxt.options.purgecss.safelist.deep.push(...[/dialog-/, /el-/]);
 		nuxt.options.purgecss.safelist.standard.push('dark');
@@ -36,6 +39,13 @@ export default defineNuxtModule<ModuleOptions>({
 	defaults: {
 		elementPlus: false,
 		styles: true
+	},
+	meta: {
+		compatibility: {
+			nuxt: '^3.5'
+		},
+		configKey: 'kikiutilsNuxt',
+		name: 'kikiutils-nuxt'
 	},
 	setup(options, nuxt) {
 		// Purgecss settings
