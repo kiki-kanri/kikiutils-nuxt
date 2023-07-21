@@ -1,10 +1,51 @@
-import { addComponentsDir, addImportsDir, addPlugin, createResolver, defineNuxtModule } from '@nuxt/kit';
+import { addComponentsDir, addImportsDir, addPlugin, createResolver, defineNuxtModule, installModule } from '@nuxt/kit';
 import { Nuxt } from '@nuxt/schema';
 import removeConsole from 'vite-plugin-remove-console';
 
 export interface ModuleOptions {
+	/**
+	 * Register axios response interceptors with element plus error message.
+	 * @default false
+	 */
+	axiosInterceptorsPlugin: boolean;
+
+	/**
+	 * Register element plus, must manually install `@element-plus/nuxt` or `element-plus` package when enable.
+	 * @value `true` - Use plugin to register.
+	 * @value `module` - Use `@element-plus/nuxt` to register.
+	 * @default false
+	 */
 	elementPlus: boolean | 'module';
+
+	/**
+	 * Register dragover, drop and keydown event handler.
+	 * @default true
+	 */
+	eventHanlderPlugin: boolean;
+
+	/**
+	 * Install `@averjs/nuxt-compression` module, must manually install package.
+	 * @default true
+	 */
+	nuxtCompression: boolean;
+
+	/**
+	 * Install `nuxt-purgecss` module, must manually install package.
+	 * @default true
+	 */
+	nuxtPurgecss: boolean;
+
+	/**
+	 * Register scss.
+	 * @default true
+	 */
 	styles: boolean;
+
+	/**
+	 * Install `@vueuse/nuxt` module, must manually install package.
+	 * @default true
+	 */
+	vueuseNuxt: boolean;
 }
 
 function install(options: ModuleOptions, nuxt: Nuxt, elementPlusMode: boolean | 'module' = false) {
@@ -15,13 +56,19 @@ function install(options: ModuleOptions, nuxt: Nuxt, elementPlusMode: boolean | 
 	const composablesPath = resolve(`${basePath}/composables`);
 	const scssesPath = resolve(`${basePath}/styles/scss`);
 
-	// Add component, composables and scss
+	// Add component, composables, plugins and scss
 	addComponentsDir({ path: componentsPath });
 	addImportsDir(composablesPath);
 	if (options.styles) nuxt.options.css.push(`${scssesPath}/index.scss`);
 
-	// Element plus only
-	if (!elementPlusMode) return;
+	// Register axios plugin and detect elementPlusMode
+	if (!elementPlusMode) {
+		if (options.axiosInterceptorsPlugin) addPlugin(`${basePath}/plugins/axios.ts`);
+		if (options.eventHanlderPlugin) addPlugin(`${basePath}/plugins/eventhandler.ts`);
+		return;
+	}
+
+	// Element plus use plugin
 	if (elementPlusMode === true) {
 		addPlugin(`${basePath}/plugins/element-plus.ts`);
 		nuxt.options.css.push('element-plus/dist/index.css');
@@ -29,16 +76,90 @@ function install(options: ModuleOptions, nuxt: Nuxt, elementPlusMode: boolean | 
 		nuxt.options.vite.optimizeDeps.include.push('dayjs');
 	}
 
+	// Setting purgecss
 	if (nuxt.options.purgecss) {
 		nuxt.options.purgecss.safelist.deep.push(...[/dialog-/, /el-/]);
 		nuxt.options.purgecss.safelist.standard.push('dark');
 	}
 }
 
+function settingCompression(nuxt: Nuxt) {
+	if (nuxt.options.compression === undefined) nuxt.options.compression = {};
+	const compression = nuxt.options.compression;
+	if (compression.viteCompression === undefined) compression.viteCompression = {};
+	if (compression.viteCompression.algorithm === undefined) compression.viteCompression.algorithm = 'gzip';
+	if (compression.viteCompression.threshold === undefined) compression.viteCompression.threshold = 513;
+}
+
+function settingPurgecss(nuxt: Nuxt) {
+	if (nuxt.options.purgecss === undefined) nuxt.options.purgecss = {};
+	const purgecss = nuxt.options.purgecss;
+	if (purgecss.safelist === undefined) purgecss.safelist = {};
+	if (purgecss.safelist.deep === undefined) purgecss.safelist.deep = [];
+	if (purgecss.safelist.standard === undefined) purgecss.safelist.standard = [];
+	purgecss.safelist.deep.push(/swal2/);
+	purgecss.safelist.standard.push(...[
+		'a',
+		'align-items-center',
+		'bg-white',
+		'body',
+		'd-flex',
+		'flex-middle',
+		'flex-wrap',
+		'h4',
+		'h5',
+		'html',
+		'justify-content-center',
+		'justify-content-end',
+		'kikiutils-nuxt-spinner-border',
+		'kikiutils-nuxt-sr-only',
+		'l-0',
+		'm-0',
+		'm-1',
+		'm-3',
+		'm-n1',
+		'mb-0',
+		'me-3',
+		'mt-0',
+		'mt-3',
+		'p',
+		'p-0',
+		'p-3',
+		'position-absolute',
+		'rounded-10px',
+		't-0',
+		'text-center',
+		'text-danger',
+		'text-success',
+		'wh-100'
+	]);
+}
+
+function settingVite(nuxt: Nuxt) {
+	if (nuxt.options.vite === undefined) nuxt.options.vite = {};
+	// Build
+	if (nuxt.options.vite.build === undefined) nuxt.options.vite.build = {};
+	if (nuxt.options.vite.build.chunkSizeWarningLimit === undefined) nuxt.options.vite.build.chunkSizeWarningLimit = 1024;
+
+	// OptimizeDeps
+	if (nuxt.options.vite.optimizeDeps === undefined) nuxt.options.vite.optimizeDeps = {};
+	if (nuxt.options.vite.optimizeDeps.include === undefined) nuxt.options.vite.optimizeDeps.include = [];
+	nuxt.options.vite.optimizeDeps.include.push(...['anchorme', 'copy-to-clipboard']);
+
+	// Plugins
+	if (nuxt.options.vite.plugins === undefined) nuxt.options.vite.plugins = [];
+	nuxt.options.vite.plugins.push(removeConsole());
+}
+
 export default defineNuxtModule<ModuleOptions>({
 	defaults: {
+		axiosInterceptorsPlugin: false,
 		elementPlus: false,
-		styles: true
+		eventHanlderPlugin: true,
+		nuxtCompression: true,
+		nuxtPurgecss: true,
+		styles: true,
+		vueuseNuxt: true
 	},
 	meta: {
 		compatibility: {
@@ -48,60 +169,20 @@ export default defineNuxtModule<ModuleOptions>({
 		name: 'kikiutils-nuxt'
 	},
 	setup(options, nuxt) {
-		// Purgecss settings
-		if (options.styles && nuxt.options.purgecss) {
-			const purgecss = nuxt.options.purgecss;
-			if (purgecss.safelist === undefined) purgecss.safelist = {};
-			if (purgecss.safelist.deep === undefined) purgecss.safelist.deep = [];
-			if (purgecss.safelist.standard === undefined) purgecss.safelist.standard = [];
-			purgecss.safelist.deep.push(/swal2/);
-			purgecss.safelist.standard.push(...[
-				'a',
-				'align-items-center',
-				'bg-white',
-				'body',
-				'd-flex',
-				'flex-middle',
-				'flex-wrap',
-				'h4',
-				'h5',
-				'html',
-				'justify-content-center',
-				'justify-content-end',
-				'kikiutils-nuxt-spinner-border',
-				'kikiutils-nuxt-sr-only',
-				'l-0',
-				'm-0',
-				'm-1',
-				'm-3',
-				'm-n1',
-				'mb-0',
-				'me-3',
-				'mt-0',
-				'mt-3',
-				'p',
-				'p-0',
-				'p-3',
-				'position-absolute',
-				'rounded-10px',
-				't-0',
-				'text-center',
-				'text-danger',
-				'text-success',
-				'wh-100'
-			]);
-		}
+		// Install modules
+		if (options.nuxtCompression) installModule('@averjs/nuxt-compression');
+		if (options.nuxtPurgecss) installModule('nuxt-purgecss');
+		if (options.vueuseNuxt) installModule('@vueuse/nuxt');
 
-		// Vite settings
-		if (!nuxt.options.vite) nuxt.options.vite = {};
-		if (!nuxt.options.vite.optimizeDeps) nuxt.options.vite.optimizeDeps = {};
-		if (!nuxt.options.vite.optimizeDeps.include) nuxt.options.vite.optimizeDeps.include = [];
-		nuxt.options.vite.optimizeDeps.include.push(...['anchorme', 'copy-to-clipboard']);
+		// Settings
+		if (options.nuxtCompression) settingCompression(nuxt);
+		if (options.nuxtPurgecss && options.styles) settingPurgecss(nuxt);
+		settingVite(nuxt);
+		if (nuxt.options.experimental === undefined) nuxt.options.experimental = {};
+		if (nuxt.options.experimental.payloadExtraction === undefined) nuxt.options.experimental.payloadExtraction = false;
+		if (nuxt.options.telemetry === undefined) nuxt.options.telemetry = false;
 
-		// Vite plugin settings
-		if (!nuxt.options.vite.plugins) nuxt.options.vite.plugins = [];
-		nuxt.options.vite.plugins.push(removeConsole());
-
+		// Install components, composables, plugins, scss
 		install(options, nuxt);
 		if (options.elementPlus) install(options, nuxt, true);
 	}
