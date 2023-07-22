@@ -1,6 +1,9 @@
 import { addComponentsDir, addImportsDir, addPlugin, createResolver, defineNuxtModule, installModule } from '@nuxt/kit';
 import { Nuxt } from '@nuxt/schema';
+import { merge } from 'lodash-es';
 import removeConsole from 'vite-plugin-remove-console';
+
+import defaultOptions from './options';
 
 export interface ModuleOptions {
 	/**
@@ -84,21 +87,15 @@ function install(options: ModuleOptions, nuxt: Nuxt, elementPlusMode: boolean | 
 }
 
 function settingCompression(nuxt: Nuxt) {
-	if (nuxt.options.compression === undefined) nuxt.options.compression = {};
-	const compression = nuxt.options.compression;
-	if (compression.viteCompression === undefined) compression.viteCompression = {};
-	if (compression.viteCompression.algorithm === undefined) compression.viteCompression.algorithm = 'gzip';
-	if (compression.viteCompression.threshold === undefined) compression.viteCompression.threshold = 513;
+	nuxt.options.compression = nuxt.options.compression || {};
+	merge(nuxt.options.compression, defaultOptions.compression);
 }
 
 function settingPurgecss(nuxt: Nuxt) {
-	if (nuxt.options.purgecss === undefined) nuxt.options.purgecss = {};
-	const purgecss = nuxt.options.purgecss;
-	if (purgecss.safelist === undefined) purgecss.safelist = {};
-	if (purgecss.safelist.deep === undefined) purgecss.safelist.deep = [];
-	if (purgecss.safelist.standard === undefined) purgecss.safelist.standard = [];
-	purgecss.safelist.deep.push(/swal2/);
-	purgecss.safelist.standard.push(...[
+	nuxt.options.purgecss = nuxt.options.purgecss || {};
+	merge(nuxt.options.purgecss, defaultOptions.purgecss);
+	nuxt.options.purgecss.safelist.deep.push(/swal2/);
+	nuxt.options.purgecss.safelist.standard.push(...[
 		'a',
 		'align-items-center',
 		'bg-white',
@@ -133,21 +130,15 @@ function settingPurgecss(nuxt: Nuxt) {
 		'text-success',
 		'wh-100'
 	]);
+
+	nuxt.options.purgecss.safelist.deep = [...new Set(nuxt.options.purgecss.safelist.deep)];
+	nuxt.options.purgecss.safelist.standard = [...new Set(nuxt.options.purgecss.safelist.standard)];
 }
 
 function settingVite(nuxt: Nuxt) {
-	if (nuxt.options.vite === undefined) nuxt.options.vite = {};
-	// Build
-	if (nuxt.options.vite.build === undefined) nuxt.options.vite.build = {};
-	if (nuxt.options.vite.build.chunkSizeWarningLimit === undefined) nuxt.options.vite.build.chunkSizeWarningLimit = 1024;
-
-	// OptimizeDeps
-	if (nuxt.options.vite.optimizeDeps === undefined) nuxt.options.vite.optimizeDeps = {};
-	if (nuxt.options.vite.optimizeDeps.include === undefined) nuxt.options.vite.optimizeDeps.include = [];
+	nuxt.options.vite = nuxt.options.vite || {};
+	merge(nuxt.options.vite, defaultOptions.vite);
 	nuxt.options.vite.optimizeDeps.include.push(...['anchorme', 'copy-to-clipboard']);
-
-	// Plugins
-	if (nuxt.options.vite.plugins === undefined) nuxt.options.vite.plugins = [];
 	nuxt.options.vite.plugins.push(removeConsole());
 }
 
