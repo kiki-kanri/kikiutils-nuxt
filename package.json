@@ -24,11 +24,13 @@
     "copy-to-clipboard": "^3.3.3",
     "date-fns": "^2.30.0",
     "lodash-es": "^4.17.21",
-    "sweetalert2": "^11.7.19",
+    "sweetalert2": "^11.7.20",
     "vite-plugin-remove-console": "^2.1.1"
   },
   "devDependencies": {
+    "@nuxt/kit": "^3.6.5",
+    "@nuxt/schema": "^3.6.5",
     "@types/lodash-es": "^4.17.8",
-    "@types/node": "^20.4.3"
+    "@types/node": "^20.4.5"
   }
 }
