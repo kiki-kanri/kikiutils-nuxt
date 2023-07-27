@@ -27,12 +27,6 @@ export interface ModuleOptions {
 	eventHanlderPlugin: boolean;
 
 	/**
-	 * Install `@averjs/nuxt-compression` module, must manually install package.
-	 * @default true
-	 */
-	nuxtCompression: boolean;
-
-	/**
 	 * Install `nuxt-purgecss` module, must manually install package.
 	 * @default true
 	 */
@@ -86,9 +80,9 @@ function install(options: ModuleOptions, nuxt: Nuxt, elementPlusMode: boolean | 
 	}
 }
 
-function settingCompression(nuxt: Nuxt) {
-	nuxt.options.compression = nuxt.options.compression || {};
-	merge(nuxt.options.compression, defaultOptions.compression);
+function settingNitro(nuxt: Nuxt) {
+	nuxt.options.nitro = nuxt.options.nitro || {};
+	merge(nuxt.options.nitro, defaultOptions.nitro);
 }
 
 function settingPurgecss(nuxt: Nuxt) {
@@ -147,7 +141,6 @@ export default defineNuxtModule<ModuleOptions>({
 		axiosInterceptorsPlugin: false,
 		elementPlus: false,
 		eventHanlderPlugin: true,
-		nuxtCompression: true,
 		nuxtPurgecss: true,
 		styles: true,
 		vueuseNuxt: true
@@ -161,12 +154,11 @@ export default defineNuxtModule<ModuleOptions>({
 	},
 	setup(options, nuxt) {
 		// Install modules
-		if (options.nuxtCompression) installModule('@averjs/nuxt-compression');
 		if (options.nuxtPurgecss) installModule('nuxt-purgecss');
 		if (options.vueuseNuxt) installModule('@vueuse/nuxt');
 
 		// Settings
-		if (options.nuxtCompression) settingCompression(nuxt);
+		settingNitro(nuxt);
 		if (options.nuxtPurgecss && options.styles) settingPurgecss(nuxt);
 		settingVite(nuxt);
 		if (nuxt.options.experimental === undefined) nuxt.options.experimental = {};
