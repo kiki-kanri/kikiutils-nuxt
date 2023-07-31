@@ -1,6 +1,6 @@
 {
   "name": "kikiutils-nuxt",
-  "version": "2.9.3",
+  "version": "2.9.4",
   "description": "For Nuxt 3 useful utils and components for element-plus admin web.",
   "main": "nuxt.ts",
   "repository": {

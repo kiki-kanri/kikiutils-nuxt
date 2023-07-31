@@ -1,4 +1,4 @@
-import anchorme from 'anchorme/dist/node/index';
+import anchorme from 'anchorme';
 export { default as copyTextToClipboard } from 'copy-to-clipboard';
 
 /**
