@@ -1,9 +1,11 @@
 {
-  "name": "kikiutils-nuxt",
-  "version": "2.9.5",
+  "name": "@kikiutils/nuxt",
+  "version": "1.0.0",
   "description": "For Nuxt 3 useful utils and components for element-plus admin web.",
   "license": "MIT",
-  "author": "kiki-kanri",
+  "author": {
+    "name": "kiki-kanri"
+  },
   "homepage": "https://github.com/kiki-kanri/kikiutils-nuxt#readme",
   "repository": {
     "type": "git",
@@ -20,7 +22,7 @@
     "copy-to-clipboard": "^3.3.3",
     "date-fns": "^2.30.0",
     "lodash-es": "^4.17.21",
-    "sweetalert2": "^11.7.22",
+    "sweetalert2": "^11.7.23",
     "vite-plugin-remove-console": "^2.1.1"
   },
   "devDependencies": {
@@ -30,7 +32,6 @@
     "@types/node": "^20.5.0"
   },
   "keywords": [
-    "nuxt",
-    "utils"
+    "nuxt"
   ]
 }
