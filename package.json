@@ -1,6 +1,6 @@
 {
   "name": "@kikiutils/nuxt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "For Nuxt 3 useful utils and components for element-plus admin web.",
   "license": "MIT",
   "author": {
@@ -22,14 +22,14 @@
     "copy-to-clipboard": "^3.3.3",
     "date-fns": "^2.30.0",
     "lodash-es": "^4.17.21",
-    "sweetalert2": "^11.7.23",
+    "sweetalert2": "^11.7.27",
     "vite-plugin-remove-console": "^2.1.1"
   },
   "devDependencies": {
     "@nuxt/kit": "^3.6.5",
     "@nuxt/schema": "^3.6.5",
     "@types/lodash-es": "^4.17.8",
-    "@types/node": "^20.5.0"
+    "@types/node": "^20.5.1"
   },
   "keywords": [
     "nuxt"
