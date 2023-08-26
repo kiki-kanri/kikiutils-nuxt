@@ -1,9 +1,9 @@
-# kikiutils-nuxt
+# @kikiutils/nuxt
 
 For Nuxt 3 useful utils and components for element-plus admin web.
 
 Some functions related to file and time operation may be changed in later versions.
 
-There may be major changes in the future.
+**Detailed documentation will be added in future releases.**
 
-The readme will be improved in future versions.
+**There may be major changes in the future.**
