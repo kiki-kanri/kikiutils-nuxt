@@ -1,6 +1,6 @@
 {
   "name": "@kikiutils/nuxt",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "For Nuxt 3 useful utils and components for element-plus admin web.",
   "license": "MIT",
   "author": {
