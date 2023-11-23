@@ -7,11 +7,7 @@ import type { RequiredModuleOptions } from '../types';
 
 export const setupColorMode = async (nuxt: Nuxt, { enabledModules }: RequiredModuleOptions) => {
 	if (!enabledModules.colorMode) return;
-	nuxt.options.colorMode = defu(nuxt.options.colorMode, {
-		classSuffix: '',
-		preference: 'dark'
-	});
-
+	nuxt.options.colorMode = defu(nuxt.options.colorMode, { classSuffix: '', preference: 'dark' });
 	await installModule('@nuxtjs/color-mode', {}, nuxt);
 };
 
