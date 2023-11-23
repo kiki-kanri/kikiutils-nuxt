@@ -16,6 +16,7 @@ export default defineNuxtModule<ModuleOptions>({
 			unocss: true,
 			vueuse: true
 		},
+		enabledVitePlugins: { removeConsole: true },
 		importAllComposablesDirTSFiles: true,
 		nuxtOptions: {
 			experimental: {
@@ -34,8 +35,7 @@ export default defineNuxtModule<ModuleOptions>({
 				},
 				typeCheck: true
 			}
-		},
-		enabledVitePlugins: { removeConsole: true }
+		}
 	},
 	meta: {
 		configKey: 'kikiutilsNuxt',

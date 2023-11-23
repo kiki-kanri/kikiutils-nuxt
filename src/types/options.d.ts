@@ -14,6 +14,10 @@ export interface ModuleOptions {
 		vueuse?: boolean;
 	};
 
+	enabledVitePlugins?: {
+		removeConsole?: boolean;
+	};
+
 	importAllComposablesDirTSFiles?: boolean;
 	nuxtOptions?: {
 		experimental?: {
@@ -37,9 +41,5 @@ export interface ModuleOptions {
 
 			typeCheck?: boolean;
 		};
-	};
-
-	enabledVitePlugins?: {
-		removeConsole?: boolean;
 	};
 }
