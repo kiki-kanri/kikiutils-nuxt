@@ -7,11 +7,6 @@ export const setupExperimentalOptions = (nuxt: Nuxt, { nuxtOptions }: RequiredMo
 	Object.assign(nuxt.options.experimental, nuxtOptions.experimental);
 };
 
-export const setupImportsOptions = (nuxt: Nuxt, { importAllComposablesDirTSFiles }: RequiredModuleOptions) => {
-	if (!importAllComposablesDirTSFiles) return;
-	nuxt.options.imports.dirs = [...new Set([...(nuxt.options.imports.dirs || []), './composables/**/*.ts'])];
-};
-
 export const setupNitroOptions = (nuxt: Nuxt, { nuxtOptions }: RequiredModuleOptions) => {
 	Object.assign(nuxt.options.nitro, nuxtOptions.nitro);
 };

@@ -1,7 +1,7 @@
-import { defineNuxtModule, useLogger } from '@nuxt/kit';
+import { addImportsDir, defineNuxtModule, useLogger } from '@nuxt/kit';
 
 import { setupColorMode, setupGoogleFonts, setupPurgecss, setupRobots, setupSecurity, setupUnocss, setupVueuse } from './setups/modules';
-import { setupExperimentalOptions, setupImportsOptions, setupNitroOptions, setupTypescriptOptions, setupVitePlugins } from './setups/options';
+import { setupExperimentalOptions, setupNitroOptions, setupTypescriptOptions, setupVitePlugins } from './setups/options';
 import type { ModuleOptions, RequiredModuleOptions } from './types';
 
 export default defineNuxtModule<ModuleOptions>({
@@ -47,6 +47,9 @@ export default defineNuxtModule<ModuleOptions>({
 		logger.info('Initializing @kikiutils/nuxt module...');
 		const moduleOptions = options as RequiredModuleOptions;
 
+		// Composables
+		if (options.importAllComposablesDirTSFiles) addImportsDir(`${nuxt.options.rootDir}/composables/**/*.ts`);
+
 		// Modules
 		await setupColorMode(nuxt, moduleOptions);
 		await setupGoogleFonts(nuxt, moduleOptions);
@@ -58,7 +61,6 @@ export default defineNuxtModule<ModuleOptions>({
 
 		// Options
 		setupExperimentalOptions(nuxt, moduleOptions);
-		setupImportsOptions(nuxt, moduleOptions);
 		setupNitroOptions(nuxt, moduleOptions);
 		setupTypescriptOptions(nuxt, moduleOptions);
 
