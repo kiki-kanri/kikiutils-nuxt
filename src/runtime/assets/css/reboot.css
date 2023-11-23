@@ -1,0 +1,18 @@
+*,
+*::before,
+*::after {
+	-webkit-tap-highlight-color: transparent;
+}
+
+html {
+	line-height: unset;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:focus {
+	transition-property:
+		background-color 600000s,
+		color 600000s;
+}

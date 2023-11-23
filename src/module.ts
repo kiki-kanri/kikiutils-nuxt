@@ -1,7 +1,8 @@
-import { addImportsDir, defineNuxtModule, useLogger } from '@nuxt/kit';
+import { addImportsDir, createResolver, defineNuxtModule, useLogger } from '@nuxt/kit';
 
 import { setupColorMode, setupGoogleFonts, setupPurgecss, setupRobots, setupSecurity, setupUnocss, setupVueuse } from './setups/modules';
 import { setupExperimentalOptions, setupNitroOptions, setupTypescriptOptions, setupVitePlugins } from './setups/options';
+import { setupStyles } from './setups/styles';
 import type { ModuleOptions, RequiredModuleOptions } from './types';
 
 export default defineNuxtModule<ModuleOptions>({
@@ -15,6 +16,11 @@ export default defineNuxtModule<ModuleOptions>({
 			security: true,
 			unocss: true,
 			vueuse: true
+		},
+		enabledStyles: {
+			font: true,
+			reboot: true,
+			scrollbar: true
 		},
 		enabledVitePlugins: { removeConsole: true },
 		importAllComposablesDirTSFiles: true,
@@ -46,6 +52,7 @@ export default defineNuxtModule<ModuleOptions>({
 		if (!options.enabled) return logger.info('@kikiutils/nuxt module disabled.');
 		logger.info('Initializing @kikiutils/nuxt module...');
 		const moduleOptions = options as RequiredModuleOptions;
+		const resolver = createResolver(import.meta.url);
 
 		// Composables
 		if (options.importAllComposablesDirTSFiles) addImportsDir(`${nuxt.options.rootDir}/composables/**/*.ts`);
@@ -63,6 +70,9 @@ export default defineNuxtModule<ModuleOptions>({
 		setupExperimentalOptions(nuxt, moduleOptions);
 		setupNitroOptions(nuxt, moduleOptions);
 		setupTypescriptOptions(nuxt, moduleOptions);
+
+		// Styles
+		setupStyles(nuxt, moduleOptions, resolver);
 
 		// Vite plugins
 		setupVitePlugins(nuxt, moduleOptions);

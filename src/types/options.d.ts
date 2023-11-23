@@ -14,6 +14,12 @@ export interface ModuleOptions {
 		vueuse?: boolean;
 	};
 
+	enabledStyles?: {
+		font?: boolean;
+		reboot?: boolean;
+		scrollbar?: boolean;
+	};
+
 	enabledVitePlugins?: {
 		removeConsole?: boolean;
 	};
