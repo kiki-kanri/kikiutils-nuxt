@@ -58,24 +58,24 @@ export default defineNuxtModule<ModuleOptions>({
 		if (options.importAllComposablesDirTSFiles) addImportsDir(`${nuxt.options.rootDir}/composables/**/*.ts`);
 
 		// Modules
-		await setupColorMode(nuxt, moduleOptions);
-		await setupGoogleFonts(nuxt, moduleOptions);
-		await setupPurgecss(nuxt, moduleOptions);
-		await setupRobots(nuxt, moduleOptions);
-		await setupSecurity(nuxt, moduleOptions);
-		await setupUnocss(nuxt, moduleOptions);
-		await setupVueuse(nuxt, moduleOptions);
+		await setupColorMode(moduleOptions, nuxt);
+		await setupGoogleFonts(moduleOptions, nuxt);
+		await setupPurgecss(moduleOptions, nuxt);
+		await setupRobots(moduleOptions, nuxt);
+		await setupSecurity(moduleOptions, nuxt);
+		await setupUnocss(moduleOptions, nuxt);
+		await setupVueuse(moduleOptions, nuxt);
 
 		// Options
-		setupExperimentalOptions(nuxt, moduleOptions);
-		setupNitroOptions(nuxt, moduleOptions);
-		setupTypescriptOptions(nuxt, moduleOptions);
+		setupExperimentalOptions(moduleOptions, nuxt);
+		setupNitroOptions(moduleOptions, nuxt);
+		setupTypescriptOptions(moduleOptions, nuxt);
 
 		// Styles
-		setupStyles(nuxt, moduleOptions, resolver);
+		setupStyles(moduleOptions, nuxt, resolver);
 
 		// Vite plugins
-		setupVitePlugins(nuxt, moduleOptions);
+		setupVitePlugins(moduleOptions, nuxt);
 		logger.success('@kikiutils/nuxt module initialization successful.');
 	}
 });

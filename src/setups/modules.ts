@@ -5,13 +5,13 @@ import type { ModuleOptions as SecurityModuleOptions } from 'nuxt-security';
 
 import type { RequiredModuleOptions } from '../types';
 
-export const setupColorMode = async (nuxt: Nuxt, { enabledModules }: RequiredModuleOptions) => {
+export const setupColorMode = async ({ enabledModules }: RequiredModuleOptions, nuxt: Nuxt) => {
 	if (!enabledModules.colorMode) return;
 	nuxt.options.colorMode = defu(nuxt.options.colorMode, { classSuffix: '', preference: 'dark' });
 	await installModule('@nuxtjs/color-mode', {}, nuxt);
 };
 
-export const setupGoogleFonts = async (nuxt: Nuxt, { enabledModules }: RequiredModuleOptions) => {
+export const setupGoogleFonts = async ({ enabledModules }: RequiredModuleOptions, nuxt: Nuxt) => {
 	if (!enabledModules.googleFonts) return;
 	nuxt.options.googleFonts = defu(nuxt.options.googleFonts, {
 		display: 'swap',
@@ -22,7 +22,7 @@ export const setupGoogleFonts = async (nuxt: Nuxt, { enabledModules }: RequiredM
 	await installModule('@nuxtjs/google-fonts', {}, nuxt);
 };
 
-export const setupPurgecss = async (nuxt: Nuxt, { enabledModules }: RequiredModuleOptions) => {
+export const setupPurgecss = async ({ enabledModules }: RequiredModuleOptions, nuxt: Nuxt) => {
 	if (!enabledModules.purgecss) return;
 	nuxt.options.purgecss = defu(nuxt.options.purgecss, {});
 	const originalSafelist = nuxt.options.purgecss.safelist;
@@ -66,12 +66,12 @@ export const setupPurgecss = async (nuxt: Nuxt, { enabledModules }: RequiredModu
 	await installModule('nuxt-purgecss', {}, nuxt);
 };
 
-export const setupRobots = async (nuxt: Nuxt, { enabledModules }: RequiredModuleOptions) => {
+export const setupRobots = async ({ enabledModules }: RequiredModuleOptions, nuxt: Nuxt) => {
 	if (!enabledModules.robots) return;
 	await installModule('@nuxtjs/robots', {}, nuxt);
 };
 
-export const setupSecurity = async (nuxt: Nuxt, { enabledModules }: RequiredModuleOptions) => {
+export const setupSecurity = async ({ enabledModules }: RequiredModuleOptions, nuxt: Nuxt) => {
 	if (!enabledModules.security) return;
 	nuxt.options.security = defu(nuxt.options.security, <SecurityModuleOptions>{
 		corsHandler: { origin: process.env.WEB_HOST },
@@ -84,12 +84,12 @@ export const setupSecurity = async (nuxt: Nuxt, { enabledModules }: RequiredModu
 	await installModule('nuxt-security', {}, nuxt);
 };
 
-export const setupUnocss = async (nuxt: Nuxt, { enabledModules }: RequiredModuleOptions) => {
+export const setupUnocss = async ({ enabledModules }: RequiredModuleOptions, nuxt: Nuxt) => {
 	if (!enabledModules.unocss) return;
 	await installModule('@unocss/nuxt', {}, nuxt);
 };
 
-export const setupVueuse = async (nuxt: Nuxt, { enabledModules }: RequiredModuleOptions) => {
+export const setupVueuse = async ({ enabledModules }: RequiredModuleOptions, nuxt: Nuxt) => {
 	if (!enabledModules.vueuse) return;
 	await installModule('@vueuse/nuxt', {}, nuxt);
 };
