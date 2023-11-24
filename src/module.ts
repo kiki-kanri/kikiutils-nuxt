@@ -1,13 +1,16 @@
 import { addImportsDir, createResolver, defineNuxtModule, useLogger } from '@nuxt/kit';
 
+import { setupHashComposables } from './setups/composables';
 import { setupColorMode, setupGoogleFonts, setupPurgecss, setupRobots, setupSecurity, setupUnocss, setupVueuse } from './setups/modules';
 import { setupDevtoolsOptions, setupExperimentalOptions, setupNitroOptions, setupTypescriptOptions, setupVitePlugins } from './setups/options';
+import { setupServerHashUtils } from './setups/server/utils';
 import { setupStyles } from './setups/styles';
 import type { ModuleOptions, RequiredModuleOptions } from './types';
 
 export default defineNuxtModule<ModuleOptions>({
 	defaults: {
 		enabled: true,
+		enabledComposables: { hash: true },
 		enabledModules: {
 			colorMode: true,
 			googleFonts: true,
@@ -17,6 +20,7 @@ export default defineNuxtModule<ModuleOptions>({
 			unocss: true,
 			vueuse: true
 		},
+		enabledServerUtils: { hash: true },
 		enabledStyles: {
 			font: true,
 			reboot: true,
@@ -61,6 +65,7 @@ export default defineNuxtModule<ModuleOptions>({
 		const resolver = createResolver(import.meta.url);
 
 		// Composables
+		setupHashComposables(moduleOptions, resolver);
 		if (options.importAllComposablesDirTSFiles) addImportsDir(`${nuxt.options.rootDir}/composables/**/*.ts`);
 
 		// Modules
@@ -77,6 +82,9 @@ export default defineNuxtModule<ModuleOptions>({
 		setupExperimentalOptions(moduleOptions, nuxt);
 		setupNitroOptions(moduleOptions, nuxt);
 		setupTypescriptOptions(moduleOptions, nuxt);
+
+		// Server utils
+		setupServerHashUtils(moduleOptions, resolver);
 
 		// Styles
 		setupStyles(moduleOptions, nuxt, resolver);

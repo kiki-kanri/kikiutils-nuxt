@@ -4,6 +4,10 @@ export type RequiredModuleOptions = RequiredDeep<ModuleOptions>;
 
 export interface ModuleOptions {
 	enabled?: boolean;
+	enabledComposables?: {
+		hash?: boolean;
+	};
+
 	enabledModules?: {
 		colorMode?: boolean;
 		googleFonts?: boolean;
@@ -12,6 +16,10 @@ export interface ModuleOptions {
 		security?: boolean;
 		unocss?: boolean;
 		vueuse?: boolean;
+	};
+
+	enabledServerUtils?: {
+		hash?: boolean;
 	};
 
 	enabledStyles?: {
