@@ -7,6 +7,7 @@ export interface ModuleOptions {
 	enabledComposables?: {
 		hash?: boolean;
 		string?: boolean;
+		time?: boolean;
 	};
 
 	enabledModules?: {
@@ -22,6 +23,7 @@ export interface ModuleOptions {
 	enabledServerUtils?: {
 		hash?: boolean;
 		string?: boolean;
+		time?: boolean;
 	};
 
 	enabledStyles?: {

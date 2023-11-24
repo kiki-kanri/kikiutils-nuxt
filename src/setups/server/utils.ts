@@ -22,3 +22,9 @@ export const setupServerStringUtils = ({ enabledServerUtils }: RequiredModuleOpt
 		{ from: stringComposablesFilePath, name: 'randomLowerCaseAlphabeticString' }
 	]);
 };
+
+export const setupServerTimeUtils = ({ enabledServerUtils }: RequiredModuleOptions, reslover: Resolver) => {
+	if (!enabledServerUtils.time) return;
+	const timeComposablesFilePath = reslover.resolve('runtime/composables/time');
+	addServerImports([{ from: timeComposablesFilePath, name: 'formatDateOrTimestamp' }]);
+};

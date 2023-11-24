@@ -3,7 +3,7 @@ import { addImportsDir, createResolver, defineNuxtModule, useLogger } from '@nux
 import { setupComposables } from './setups/composables';
 import { setupColorMode, setupGoogleFonts, setupPurgecss, setupRobots, setupSecurity, setupUnocss, setupVueuse } from './setups/modules';
 import { setupOptions, setupVitePlugins } from './setups/options';
-import { setupServerHashUtils, setupServerStringUtils } from './setups/server/utils';
+import { setupServerHashUtils, setupServerStringUtils, setupServerTimeUtils } from './setups/server/utils';
 import { setupStyles } from './setups/styles';
 import type { ModuleOptions, RequiredModuleOptions } from './types';
 
@@ -12,7 +12,8 @@ export default defineNuxtModule<ModuleOptions>({
 		enabled: true,
 		enabledComposables: {
 			hash: true,
-			string: true
+			string: true,
+			time: true
 		},
 		enabledModules: {
 			colorMode: true,
@@ -25,7 +26,8 @@ export default defineNuxtModule<ModuleOptions>({
 		},
 		enabledServerUtils: {
 			hash: true,
-			string: true
+			string: true,
+			time: true
 		},
 		enabledStyles: {
 			font: true,
@@ -89,6 +91,7 @@ export default defineNuxtModule<ModuleOptions>({
 		// Server utils
 		setupServerHashUtils(moduleOptions, resolver);
 		setupServerStringUtils(moduleOptions, resolver);
+		setupServerTimeUtils(moduleOptions, resolver);
 
 		// Styles
 		setupStyles(moduleOptions, nuxt, resolver);
