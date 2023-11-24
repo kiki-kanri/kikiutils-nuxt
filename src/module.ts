@@ -2,7 +2,7 @@ import { addImportsDir, createResolver, defineNuxtModule, useLogger } from '@nux
 
 import { setupHashComposables } from './setups/composables';
 import { setupColorMode, setupGoogleFonts, setupPurgecss, setupRobots, setupSecurity, setupUnocss, setupVueuse } from './setups/modules';
-import { setupDevtoolsOptions, setupExperimentalOptions, setupNitroOptions, setupTypescriptOptions, setupVitePlugins } from './setups/options';
+import { setupOptions, setupVitePlugins } from './setups/options';
 import { setupServerHashUtils } from './setups/server/utils';
 import { setupStyles } from './setups/styles';
 import type { ModuleOptions, RequiredModuleOptions } from './types';
@@ -78,10 +78,7 @@ export default defineNuxtModule<ModuleOptions>({
 		await setupVueuse(moduleOptions, nuxt);
 
 		// Options
-		setupDevtoolsOptions(moduleOptions, nuxt);
-		setupExperimentalOptions(moduleOptions, nuxt);
-		setupNitroOptions(moduleOptions, nuxt);
-		setupTypescriptOptions(moduleOptions, nuxt);
+		setupOptions(moduleOptions, nuxt);
 
 		// Server utils
 		setupServerHashUtils(moduleOptions, resolver);
