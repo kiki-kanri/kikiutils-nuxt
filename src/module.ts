@@ -1,16 +1,19 @@
 import { addImportsDir, createResolver, defineNuxtModule, useLogger } from '@nuxt/kit';
 
-import { setupHashComposables } from './setups/composables';
+import { setupComposables } from './setups/composables';
 import { setupColorMode, setupGoogleFonts, setupPurgecss, setupRobots, setupSecurity, setupUnocss, setupVueuse } from './setups/modules';
 import { setupOptions, setupVitePlugins } from './setups/options';
-import { setupServerHashUtils } from './setups/server/utils';
+import { setupServerHashUtils, setupServerStringUtils } from './setups/server/utils';
 import { setupStyles } from './setups/styles';
 import type { ModuleOptions, RequiredModuleOptions } from './types';
 
 export default defineNuxtModule<ModuleOptions>({
 	defaults: {
 		enabled: true,
-		enabledComposables: { hash: true },
+		enabledComposables: {
+			hash: true,
+			string: true
+		},
 		enabledModules: {
 			colorMode: true,
 			googleFonts: true,
@@ -20,7 +23,10 @@ export default defineNuxtModule<ModuleOptions>({
 			unocss: true,
 			vueuse: true
 		},
-		enabledServerUtils: { hash: true },
+		enabledServerUtils: {
+			hash: true,
+			string: true
+		},
 		enabledStyles: {
 			font: true,
 			reboot: true,
@@ -65,7 +71,7 @@ export default defineNuxtModule<ModuleOptions>({
 		const resolver = createResolver(import.meta.url);
 
 		// Composables
-		setupHashComposables(moduleOptions, resolver);
+		setupComposables(moduleOptions, resolver);
 		if (options.importAllComposablesDirTSFiles) addImportsDir(`${nuxt.options.rootDir}/composables/**/*.ts`);
 
 		// Modules
@@ -82,6 +88,7 @@ export default defineNuxtModule<ModuleOptions>({
 
 		// Server utils
 		setupServerHashUtils(moduleOptions, resolver);
+		setupServerStringUtils(moduleOptions, resolver);
 
 		// Styles
 		setupStyles(moduleOptions, nuxt, resolver);

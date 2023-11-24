@@ -13,3 +13,12 @@ export const setupServerHashUtils = ({ enabledServerUtils }: RequiredModuleOptio
 		{ from: hashComposablesFilePath, name: 'sha3512' }
 	]);
 };
+
+export const setupServerStringUtils = ({ enabledServerUtils }: RequiredModuleOptions, reslover: Resolver) => {
+	if (!enabledServerUtils.string) return;
+	const stringComposablesFilePath = reslover.resolve('runtime/composables/string');
+	addServerImports([
+		{ from: stringComposablesFilePath, name: 'randomAlphabeticString' },
+		{ from: stringComposablesFilePath, name: 'randomLowerCaseAlphabeticString' }
+	]);
+};
