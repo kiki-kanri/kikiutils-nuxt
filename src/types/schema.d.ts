@@ -5,5 +5,3 @@ declare module 'nuxt/schema' {
 		purgecss?: PurgecssModuleOptions;
 	}
 }
-
-export {};
