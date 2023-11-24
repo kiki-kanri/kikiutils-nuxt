@@ -41,6 +41,11 @@ export default defineNuxtModule<ModuleOptions>({
 				},
 				typeCheck: true
 			}
+		},
+		unocss: {
+			enabledReset: {
+				tailwind: true
+			}
 		}
 	},
 	meta: {

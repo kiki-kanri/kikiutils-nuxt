@@ -84,8 +84,9 @@ export const setupSecurity = async ({ enabledModules }: RequiredModuleOptions, n
 	await installModule('nuxt-security', {}, nuxt);
 };
 
-export const setupUnocss = async ({ enabledModules }: RequiredModuleOptions, nuxt: Nuxt) => {
+export const setupUnocss = async ({ enabledModules, unocss }: RequiredModuleOptions, nuxt: Nuxt) => {
 	if (!enabledModules.unocss) return;
+	if (unocss.enabledReset.tailwind) nuxt.options.css.push('@unocss/reset/tailwind.css');
 	await installModule('@unocss/nuxt', {}, nuxt);
 };
 
