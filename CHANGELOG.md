@@ -1,8 +1,32 @@
 # Changelog
 
+## v2.0.0-alpha.2
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-alpha.1...v2.0.0-alpha.2)
+
+### 🚀 Enhancements
+
+- Add tailwind reset settings and functionality in UnoCSS ([e922f50](https://github.com/kiki-kanri/kikiutils-nuxt/commit/e922f50))
+- Add nuxt devtools options ([b3b3896](https://github.com/kiki-kanri/kikiutils-nuxt/commit/b3b3896))
+- Add hash composables with related options and functionality ([fda8208](https://github.com/kiki-kanri/kikiutils-nuxt/commit/fda8208))
+- Add string composables with related options and functionality ([3d90dc6](https://github.com/kiki-kanri/kikiutils-nuxt/commit/3d90dc6))
+
+### 💅 Refactors
+
+- Remove unnecessary exports ([06336ad](https://github.com/kiki-kanri/kikiutils-nuxt/commit/06336ad))
+- Modify the method of setting options ([15f9643](https://github.com/kiki-kanri/kikiutils-nuxt/commit/15f9643))
+
+### 🏡 Chore
+
+- Upgrade dependencies ([e51d276](https://github.com/kiki-kanri/kikiutils-nuxt/commit/e51d276))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-alpha.1
 
-[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-alpha.0...v2.0.0)
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-alpha.0...v2.0.0-alpha.1)
 
 ### 🚀 Enhancements
 
@@ -32,7 +56,7 @@
 
 ## v2.0.0-alpha.0
 
-[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v1.0.4...v2.0.0)
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v1.0.4...v2.0.0-alpha.0)
 
 ### BREAKING CHANGES
 
