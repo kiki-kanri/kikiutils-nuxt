@@ -1,7 +1,7 @@
 import { addImportsDir, createResolver, defineNuxtModule, useLogger } from '@nuxt/kit';
 
 import { setupColorMode, setupGoogleFonts, setupPurgecss, setupRobots, setupSecurity, setupUnocss, setupVueuse } from './setups/modules';
-import { setupExperimentalOptions, setupNitroOptions, setupTypescriptOptions, setupVitePlugins } from './setups/options';
+import { setupDevtoolsOptions, setupExperimentalOptions, setupNitroOptions, setupTypescriptOptions, setupVitePlugins } from './setups/options';
 import { setupStyles } from './setups/styles';
 import type { ModuleOptions, RequiredModuleOptions } from './types';
 
@@ -25,6 +25,7 @@ export default defineNuxtModule<ModuleOptions>({
 		enabledVitePlugins: { removeConsole: true },
 		importAllComposablesDirTSFiles: true,
 		nuxtOptions: {
+			devtools: { enabled: false },
 			experimental: {
 				headNext: true,
 				inlineSSRStyles: false
@@ -72,6 +73,7 @@ export default defineNuxtModule<ModuleOptions>({
 		await setupVueuse(moduleOptions, nuxt);
 
 		// Options
+		setupDevtoolsOptions(moduleOptions, nuxt);
 		setupExperimentalOptions(moduleOptions, nuxt);
 		setupNitroOptions(moduleOptions, nuxt);
 		setupTypescriptOptions(moduleOptions, nuxt);

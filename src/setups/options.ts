@@ -3,6 +3,10 @@ import type { Nuxt } from '@nuxt/schema';
 
 import type { RequiredModuleOptions } from '../types';
 
+export const setupDevtoolsOptions = ({ nuxtOptions }: RequiredModuleOptions, nuxt: Nuxt) => {
+	Object.assign(nuxt.options.devtools, nuxtOptions.devtools);
+};
+
 export const setupExperimentalOptions = ({ nuxtOptions }: RequiredModuleOptions, nuxt: Nuxt) => {
 	Object.assign(nuxt.options.experimental, nuxtOptions.experimental);
 };

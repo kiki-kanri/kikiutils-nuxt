@@ -26,6 +26,10 @@ export interface ModuleOptions {
 
 	importAllComposablesDirTSFiles?: boolean;
 	nuxtOptions?: {
+		devtools?: {
+			enabled: boolean;
+		};
+
 		experimental?: {
 			headNext?: boolean;
 			inlineSSRStyles?: boolean;
