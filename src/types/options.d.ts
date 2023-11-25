@@ -21,6 +21,7 @@ export interface ModuleOptions {
 	};
 
 	enabledServerUtils?: {
+		error?: boolean;
 		hash?: boolean;
 		string?: boolean;
 		time?: boolean;

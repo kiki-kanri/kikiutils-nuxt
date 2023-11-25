@@ -3,6 +3,20 @@ import type { Resolver } from '@nuxt/kit';
 
 import type { RequiredModuleOptions } from '../../types';
 
+export const setupServerErrorUtils = ({ enabledServerUtils }: RequiredModuleOptions, reslover: Resolver) => {
+	if (!enabledServerUtils.error) return;
+	const errorUtilsFilePath = reslover.resolve('runtime/server/utils/error');
+	addServerImports([
+		{ from: errorUtilsFilePath, name: 'badRequestError' },
+		{ from: errorUtilsFilePath, name: 'createH3Error' },
+		{ from: errorUtilsFilePath, name: 'conflictError' },
+		{ from: errorUtilsFilePath, name: 'forbiddenError' },
+		{ from: errorUtilsFilePath, name: 'internalServerError' },
+		{ from: errorUtilsFilePath, name: 'notFoundError' },
+		{ from: errorUtilsFilePath, name: 'unauthorizedError' }
+	]);
+};
+
 export const setupServerHashUtils = ({ enabledServerUtils }: RequiredModuleOptions, reslover: Resolver) => {
 	if (!enabledServerUtils.hash) return;
 	const hashComposablesFilePath = reslover.resolve('runtime/composables/hash');
