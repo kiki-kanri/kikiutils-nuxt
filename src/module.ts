@@ -14,6 +14,7 @@ export default defineNuxtModule<ModuleOptions>({
 		enabledComposables: {
 			hash: true,
 			string: true,
+			text: true,
 			time: true
 		},
 		enabledModules: {

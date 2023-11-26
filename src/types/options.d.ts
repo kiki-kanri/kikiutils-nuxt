@@ -8,6 +8,7 @@ export interface ModuleOptions {
 	enabledComposables?: {
 		hash?: boolean;
 		string?: boolean;
+		text?: boolean;
 		time?: boolean;
 	};
 
