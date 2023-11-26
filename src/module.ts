@@ -1,4 +1,4 @@
-import { addImportsDir, createResolver, defineNuxtModule, useLogger } from '@nuxt/kit';
+import { addImportsDir, addTypeTemplate, createResolver, defineNuxtModule, useLogger } from '@nuxt/kit';
 
 import { setupComposables } from './setups/composables';
 import { setupColorMode, setupGoogleFonts, setupPurgecss, setupRobots, setupSecurity, setupUnocss, setupVueuse } from './setups/modules';
@@ -9,6 +9,7 @@ import type { ModuleOptions, RequiredModuleOptions } from './types';
 
 export default defineNuxtModule<ModuleOptions>({
 	defaults: {
+		addGlobalUtilsTypes: true,
 		enabled: true,
 		enabledComposables: {
 			hash: true,
@@ -97,6 +98,9 @@ export default defineNuxtModule<ModuleOptions>({
 
 		// Styles
 		setupStyles(moduleOptions, nuxt, resolver);
+
+		// Utils types
+		if (moduleOptions.addGlobalUtilsTypes) addTypeTemplate({ filename: 'types/global-utils.d.ts', getContents: () => `export * from '@kikiutils/types';export * from '@kikiutils/types/nuxt';` });
 
 		// Vite plugins
 		setupVitePlugins(moduleOptions, nuxt);

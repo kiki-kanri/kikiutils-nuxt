@@ -3,6 +3,7 @@ import type { RequiredDeep } from 'type-fest';
 export type RequiredModuleOptions = RequiredDeep<ModuleOptions>;
 
 export interface ModuleOptions {
+	addGlobalUtilsTypes?: boolean;
 	enabled?: boolean;
 	enabledComposables?: {
 		hash?: boolean;
