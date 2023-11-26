@@ -1,5 +1,24 @@
 # Changelog
 
+## v2.0.0-alpha.3
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-alpha.2...v2.0.0-alpha.3)
+
+### 🚀 Enhancements
+
+- Add time composables with related options and functionality ([68c0818](https://github.com/kiki-kanri/kikiutils-nuxt/commit/68c0818))
+- Add server error utils with related options and functionality ([835bfff](https://github.com/kiki-kanri/kikiutils-nuxt/commit/835bfff))
+- Add utils types with related options and functionality ([bac638d](https://github.com/kiki-kanri/kikiutils-nuxt/commit/bac638d))
+- Add text composables with related options and functionality ([dd58c11](https://github.com/kiki-kanri/kikiutils-nuxt/commit/dd58c11))
+
+### 🏡 Chore
+
+- Upgrade dependencies ([03ad9cb](https://github.com/kiki-kanri/kikiutils-nuxt/commit/03ad9cb))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-alpha.2
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-alpha.1...v2.0.0-alpha.2)
