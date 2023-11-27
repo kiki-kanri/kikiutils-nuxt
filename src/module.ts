@@ -59,9 +59,7 @@ export default defineNuxtModule<ModuleOptions>({
 			}
 		},
 		unocss: {
-			enabledReset: {
-				tailwind: true
-			}
+			enabledReset: { tailwind: true }
 		}
 	},
 	meta: {
