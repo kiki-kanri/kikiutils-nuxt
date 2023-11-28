@@ -1,7 +1,7 @@
 import { addImportsDir, addTypeTemplate, createResolver, defineNuxtModule, useLogger } from '@nuxt/kit';
 
 import { setupComposables } from './setups/composables';
-import { setupColorMode, setupGoogleFonts, setupPurgecss, setupRobots, setupSecurity, setupUnocss, setupVueuse } from './setups/modules';
+import { setupColorMode, setupElementPlus, setupGoogleFonts, setupPurgecss, setupRobots, setupSecurity, setupUnocss, setupVueuse } from './setups/modules';
 import { setupOptions, setupVitePlugins } from './setups/options';
 import { setupServerErrorUtils, setupServerHashUtils, setupServerStringUtils, setupServerTimeUtils } from './setups/server/utils';
 import { setupStyles } from './setups/styles';
@@ -19,6 +19,7 @@ export default defineNuxtModule<ModuleOptions>({
 		},
 		enabledModules: {
 			colorMode: true,
+			elementPlus: false,
 			googleFonts: true,
 			purgecss: true,
 			robots: true,
@@ -79,6 +80,7 @@ export default defineNuxtModule<ModuleOptions>({
 
 		// Modules
 		await setupColorMode(moduleOptions, nuxt);
+		await setupElementPlus(moduleOptions, nuxt);
 		await setupGoogleFonts(moduleOptions, nuxt);
 		await setupPurgecss(moduleOptions, nuxt);
 		await setupRobots(moduleOptions, nuxt);

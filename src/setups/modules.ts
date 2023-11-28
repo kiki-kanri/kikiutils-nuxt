@@ -11,6 +11,13 @@ export const setupColorMode = async ({ enabledModules }: RequiredModuleOptions, 
 	await installModule('@nuxtjs/color-mode', {}, nuxt);
 };
 
+export const setupElementPlus = async ({ enabledModules }: RequiredModuleOptions, nuxt: Nuxt) => {
+	if (!enabledModules.elementPlus) return;
+	// @ts-ignore
+	nuxt.options.elementPlus = defu(nuxt.options.elementPlus, { themes: ['dark'] });
+	await installModule('@element-plus/nuxt', {}, nuxt);
+};
+
 export const setupGoogleFonts = async ({ enabledModules }: RequiredModuleOptions, nuxt: Nuxt) => {
 	if (!enabledModules.googleFonts) return;
 	nuxt.options.googleFonts = defu(nuxt.options.googleFonts, {

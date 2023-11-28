@@ -14,6 +14,7 @@ export interface ModuleOptions {
 
 	enabledModules?: {
 		colorMode?: boolean;
+		elementPlus?: boolean;
 		googleFonts?: boolean;
 		purgecss?: boolean;
 		robots?: boolean;
