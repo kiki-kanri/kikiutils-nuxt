@@ -11,11 +11,7 @@ export default defineNuxtModule<ModuleOptions>({
 	defaults: {
 		addGlobalUtilsTypes: true,
 		elementPlus: {
-			enabledComposables: {
-				form: true,
-				message: true,
-				notification: true
-			}
+			enabledComposables: { form: true }
 		},
 		enabled: true,
 		enabledComposables: {

@@ -13,6 +13,4 @@ export const setupComposables = (moduleOptions: RequiredModuleOptions, reslover:
 
 function setupElementPlusComposables({ elementPlus: { enabledComposables } }: RequiredModuleOptions, reslover: Resolver) {
 	if (enabledComposables.form) addImportsDir(reslover.resolve('runtime/element-plus/composables/form'));
-	if (enabledComposables.message) addImportsDir(reslover.resolve('runtime/element-plus/composables/message'));
-	if (enabledComposables.notification) addImportsDir(reslover.resolve('runtime/element-plus/composables/notification'));
 }

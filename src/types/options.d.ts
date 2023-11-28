@@ -7,8 +7,6 @@ export interface ModuleOptions {
 	elementPlus?: {
 		enabledComposables?: {
 			form?: boolean;
-			message?: boolean;
-			notification?: boolean;
 		};
 	};
 
