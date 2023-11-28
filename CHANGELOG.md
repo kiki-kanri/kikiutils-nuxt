@@ -1,5 +1,22 @@
 # Changelog
 
+## v2.0.0-alpha.4
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-alpha.3...v2.0.0-alpha.4)
+
+### 🚀 Enhancements
+
+- Add element-plus module with related options and setup function ([bb4d997](https://github.com/kiki-kanri/kikiutils-nuxt/commit/bb4d997))
+- Add element-plus composables with related options and functionality ([d6de918](https://github.com/kiki-kanri/kikiutils-nuxt/commit/d6de918))
+
+### 🎨 Styles
+
+- Format code ([3266b41](https://github.com/kiki-kanri/kikiutils-nuxt/commit/3266b41))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-alpha.3
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-alpha.2...v2.0.0-alpha.3)
