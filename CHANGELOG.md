@@ -1,5 +1,19 @@
 # Changelog
 
+## v2.0.0-alpha.5
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-alpha.4...v2.0.0-alpha.5)
+
+### 🩹 Fixes
+
+- Remove composables conflicting with element-plus ([3ee1315](https://github.com/kiki-kanri/kikiutils-nuxt/commit/3ee1315))
+- Resolve element-plus form composables missing type ([117c849](https://github.com/kiki-kanri/kikiutils-nuxt/commit/117c849))
+- Add missing import for createError ([5677b59](https://github.com/kiki-kanri/kikiutils-nuxt/commit/5677b59))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-alpha.4
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-alpha.3...v2.0.0-alpha.4)
