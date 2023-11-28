@@ -10,6 +10,13 @@ import type { ModuleOptions, RequiredModuleOptions } from './types';
 export default defineNuxtModule<ModuleOptions>({
 	defaults: {
 		addGlobalUtilsTypes: true,
+		elementPlus: {
+			enabledComposables: {
+				form: true,
+				message: true,
+				notification: true
+			}
+		},
 		enabled: true,
 		enabledComposables: {
 			hash: true,

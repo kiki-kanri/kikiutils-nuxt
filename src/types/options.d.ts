@@ -4,6 +4,14 @@ export type RequiredModuleOptions = RequiredDeep<ModuleOptions>;
 
 export interface ModuleOptions {
 	addGlobalUtilsTypes?: boolean;
+	elementPlus?: {
+		enabledComposables?: {
+			form?: boolean;
+			message?: boolean;
+			notification?: boolean;
+		};
+	};
+
 	enabled?: boolean;
 	enabledComposables?: {
 		hash?: boolean;
