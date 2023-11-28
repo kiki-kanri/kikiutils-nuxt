@@ -1,6 +1,6 @@
 import type { FormItemRule } from 'element-plus';
 
-export const createElFormItemRule = (message: string = '', options: FormItemRule = {}) => {
+export const createElFormItemRule = (message: string = '', options: FormItemRule = {}): FormItemRule => {
 	const { asyncValidator, required = true, trigger = 'blur', type = 'string', validator } = options;
 	if (asyncValidator) return { asyncValidator, trigger };
 	if (validator) return { validator, trigger };
