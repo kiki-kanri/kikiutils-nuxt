@@ -1,5 +1,25 @@
 # Changelog
 
+## v2.0.0-alpha.6
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-alpha.5...v2.0.0-alpha.6)
+
+### 💅 Refactors
+
+- Change method of adding server utils ([dbd3ae4](https://github.com/kiki-kanri/kikiutils-nuxt/commit/dbd3ae4))
+
+### 📖 Documentation
+
+- Add default values for options in TSDoc ([94578af](https://github.com/kiki-kanri/kikiutils-nuxt/commit/94578af))
+
+### 🏡 Chore
+
+- Upgrade dependencies ([bd18b36](https://github.com/kiki-kanri/kikiutils-nuxt/commit/bd18b36))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-alpha.5
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-alpha.4...v2.0.0-alpha.5)
