@@ -3,7 +3,7 @@ import { addImportsDir, addTypeTemplate, createResolver, defineNuxtModule, useLo
 import { setupComposables } from './setups/composables';
 import { setupColorMode, setupElementPlus, setupGoogleFonts, setupPurgecss, setupRobots, setupSecurity, setupUnocss, setupVueuse } from './setups/modules';
 import { setupOptions, setupVitePlugins } from './setups/options';
-import { setupServerErrorUtils, setupServerHashUtils, setupServerStringUtils, setupServerTimeUtils } from './setups/server/utils';
+import { setupServerUtils } from './setups/server/utils';
 import { setupStyles } from './setups/styles';
 import type { ModuleOptions, RequiredModuleOptions } from './types';
 
@@ -95,10 +95,7 @@ export default defineNuxtModule<ModuleOptions>({
 		setupOptions(moduleOptions, nuxt);
 
 		// Server utils
-		setupServerErrorUtils(moduleOptions, resolver);
-		setupServerHashUtils(moduleOptions, resolver);
-		setupServerStringUtils(moduleOptions, resolver);
-		setupServerTimeUtils(moduleOptions, resolver);
+		setupServerUtils(moduleOptions, resolver);
 
 		// Styles
 		setupStyles(moduleOptions, nuxt, resolver);
