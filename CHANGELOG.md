@@ -1,5 +1,25 @@
 # Changelog
 
+## v2.0.0-rc.0
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-alpha.6...v2.0.0-rc.0)
+
+### 🚀 Enhancements
+
+- Add nitro minify option to nuxtOptions ([1c1467f](https://github.com/kiki-kanri/kikiutils-nuxt/commit/1c1467f))
+
+### 📖 Documentation
+
+- Update README ([1e8e275](https://github.com/kiki-kanri/kikiutils-nuxt/commit/1e8e275))
+
+### 🏡 Chore
+
+- Upgrade dependencies ([0ba2b07](https://github.com/kiki-kanri/kikiutils-nuxt/commit/0ba2b07))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-alpha.6
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-alpha.5...v2.0.0-alpha.6)
