@@ -49,7 +49,10 @@ export default defineNuxtModule<ModuleOptions>({
 				headNext: true,
 				inlineSSRStyles: false
 			},
-			nitro: { compressPublicAssets: true },
+			nitro: {
+				compressPublicAssets: true,
+				minify: true
+			},
 			typescript: {
 				tsConfig: {
 					compilerOptions: {

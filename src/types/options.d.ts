@@ -159,6 +159,11 @@ export interface ModuleOptions {
 			 * @default true
 			 */
 			compressPublicAssets?: boolean;
+
+			/**
+			 * @default true
+			 */
+			minify: boolean;
 		};
 
 		typescript?: {
