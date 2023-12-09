@@ -6,20 +6,20 @@ import type { ModuleOptions as SecurityModuleOptions } from 'nuxt-security';
 import type { RequiredModuleOptions } from '../types';
 
 export const setupColorMode = async ({ enabledModules }: RequiredModuleOptions, nuxt: Nuxt) => {
-	if (!enabledModules.colorMode) return;
+	if (!enabledModules || !enabledModules.colorMode) return;
 	nuxt.options.colorMode = defu(nuxt.options.colorMode, { classSuffix: '', preference: 'dark' });
 	await installModule('@nuxtjs/color-mode', {}, nuxt);
 };
 
 export const setupElementPlus = async ({ enabledModules }: RequiredModuleOptions, nuxt: Nuxt) => {
-	if (!enabledModules.elementPlus) return;
+	if (!enabledModules || !enabledModules.elementPlus) return;
 	// @ts-ignore
 	nuxt.options.elementPlus = defu(nuxt.options.elementPlus, { themes: ['dark'] });
 	await installModule('@element-plus/nuxt', {}, nuxt);
 };
 
 export const setupGoogleFonts = async ({ enabledModules }: RequiredModuleOptions, nuxt: Nuxt) => {
-	if (!enabledModules.googleFonts) return;
+	if (!enabledModules || !enabledModules.googleFonts) return;
 	nuxt.options.googleFonts = defu(nuxt.options.googleFonts, {
 		display: 'swap',
 		download: false,
@@ -30,7 +30,7 @@ export const setupGoogleFonts = async ({ enabledModules }: RequiredModuleOptions
 };
 
 export const setupPurgecss = async ({ enabledModules }: RequiredModuleOptions, nuxt: Nuxt) => {
-	if (!enabledModules.purgecss) return;
+	if (!enabledModules || !enabledModules.purgecss) return;
 	nuxt.options.purgecss = nuxt.options.purgecss || {};
 	const originalSafelist = nuxt.options.purgecss.safelist;
 	const safelistOptions: { deep: RegExp[]; standard: (RegExp | string)[] } = {
@@ -74,12 +74,12 @@ export const setupPurgecss = async ({ enabledModules }: RequiredModuleOptions, n
 };
 
 export const setupRobots = async ({ enabledModules }: RequiredModuleOptions, nuxt: Nuxt) => {
-	if (!enabledModules.robots) return;
+	if (!enabledModules || !enabledModules.robots) return;
 	await installModule('@nuxtjs/robots', {}, nuxt);
 };
 
 export const setupSecurity = async ({ enabledModules }: RequiredModuleOptions, nuxt: Nuxt) => {
-	if (!enabledModules.security) return;
+	if (!enabledModules || !enabledModules.security) return;
 	nuxt.options.security = defu(nuxt.options.security, <SecurityModuleOptions>{
 		corsHandler: { origin: process.env.WEB_HOST },
 		headers: {
@@ -92,12 +92,12 @@ export const setupSecurity = async ({ enabledModules }: RequiredModuleOptions, n
 };
 
 export const setupUnocss = async ({ enabledModules, unocss }: RequiredModuleOptions, nuxt: Nuxt) => {
-	if (!enabledModules.unocss) return;
-	if (unocss.enabledReset.tailwind) nuxt.options.css.push('@unocss/reset/tailwind.css');
+	if (!enabledModules || !enabledModules.unocss) return;
+	if (unocss.enabledReset && unocss.enabledReset.tailwind) nuxt.options.css.push('@unocss/reset/tailwind.css');
 	await installModule('@unocss/nuxt', {}, nuxt);
 };
 
 export const setupVueuse = async ({ enabledModules }: RequiredModuleOptions, nuxt: Nuxt) => {
-	if (!enabledModules.vueuse) return;
+	if (!enabledModules || !enabledModules.vueuse) return;
 	await installModule('@vueuse/nuxt', {}, nuxt);
 };

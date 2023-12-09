@@ -8,127 +8,139 @@ export interface ModuleOptions {
 	 */
 	addGlobalUtilsTypes?: boolean;
 	elementPlus?: {
-		enabledComposables?: {
-			/**
-			 * @default true
-			 */
-			form?: boolean;
-		};
+		enabledComposables?:
+			| {
+					/**
+					 * @default true
+					 */
+					form?: boolean;
+			  }
+			| false;
 	};
 
 	/**
 	 * @default true
 	 */
 	enabled?: boolean;
-	enabledComposables?: {
-		/**
-		 * @default true
-		 */
-		hash?: boolean;
+	enabledComposables?:
+		| {
+				/**
+				 * @default true
+				 */
+				hash?: boolean;
 
-		/**
-		 * @default true
-		 */
-		string?: boolean;
+				/**
+				 * @default true
+				 */
+				string?: boolean;
 
-		/**
-		 * @default true
-		 */
-		text?: boolean;
+				/**
+				 * @default true
+				 */
+				text?: boolean;
 
-		/**
-		 * @default true
-		 */
-		time?: boolean;
-	};
+				/**
+				 * @default true
+				 */
+				time?: boolean;
+		  }
+		| false;
 
-	enabledModules?: {
-		/**
-		 * @default true
-		 */
-		colorMode?: boolean;
+	enabledModules?:
+		| {
+				/**
+				 * @default true
+				 */
+				colorMode?: boolean;
 
-		/**
-		 * @default false
-		 */
-		elementPlus?: boolean;
+				/**
+				 * @default false
+				 */
+				elementPlus?: boolean;
 
-		/**
-		 * @default true
-		 */
-		googleFonts?: boolean;
+				/**
+				 * @default true
+				 */
+				googleFonts?: boolean;
 
-		/**
-		 * @default true
-		 */
-		purgecss?: boolean;
+				/**
+				 * @default true
+				 */
+				purgecss?: boolean;
 
-		/**
-		 * @default true
-		 */
-		robots?: boolean;
+				/**
+				 * @default true
+				 */
+				robots?: boolean;
 
-		/**
-		 * @default true
-		 */
-		security?: boolean;
+				/**
+				 * @default true
+				 */
+				security?: boolean;
 
-		/**
-		 * @default true
-		 */
-		unocss?: boolean;
+				/**
+				 * @default true
+				 */
+				unocss?: boolean;
 
-		/**
-		 * @default true
-		 */
-		vueuse?: boolean;
-	};
+				/**
+				 * @default true
+				 */
+				vueuse?: boolean;
+		  }
+		| false;
 
-	enabledServerUtils?: {
-		/**
-		 * @default true
-		 */
-		error?: boolean;
+	enabledServerUtils?:
+		| {
+				/**
+				 * @default true
+				 */
+				error?: boolean;
 
-		/**
-		 * @default true
-		 */
-		hash?: boolean;
+				/**
+				 * @default true
+				 */
+				hash?: boolean;
 
-		/**
-		 * @default true
-		 */
-		string?: boolean;
+				/**
+				 * @default true
+				 */
+				string?: boolean;
 
-		/**
-		 * @default true
-		 */
-		time?: boolean;
-	};
+				/**
+				 * @default true
+				 */
+				time?: boolean;
+		  }
+		| false;
 
-	enabledStyles?: {
-		/**
-		 * @default true
-		 */
-		font?: boolean;
+	enabledStyles?:
+		| {
+				/**
+				 * @default true
+				 */
+				font?: boolean;
 
-		/**
-		 * @default true
-		 */
-		reboot?: boolean;
+				/**
+				 * @default true
+				 */
+				reboot?: boolean;
 
-		/**
-		 * @default true
-		 */
-		scrollbar?: boolean;
-	};
+				/**
+				 * @default true
+				 */
+				scrollbar?: boolean;
+		  }
+		| false;
 
-	enabledVitePlugins?: {
-		/**
-		 * @default true
-		 */
-		removeConsole?: boolean;
-	};
+	enabledVitePlugins?:
+		| {
+				/**
+				 * @default true
+				 */
+				removeConsole?: boolean;
+		  }
+		| false;
 
 	/**
 	 * @default true
@@ -199,11 +211,13 @@ export interface ModuleOptions {
 	};
 
 	unocss?: {
-		enabledReset?: {
-			/**
-			 * @default true
-			 */
-			tailwind?: boolean;
-		};
+		enabledReset?:
+			| {
+					/**
+					 * @default true
+					 */
+					tailwind?: boolean;
+			  }
+			| false;
 	};
 }
