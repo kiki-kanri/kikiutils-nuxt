@@ -31,7 +31,7 @@ export const setupGoogleFonts = async ({ enabledModules }: RequiredModuleOptions
 
 export const setupPurgecss = async ({ enabledModules }: RequiredModuleOptions, nuxt: Nuxt) => {
 	if (!enabledModules.purgecss) return;
-	nuxt.options.purgecss = defu(nuxt.options.purgecss, {});
+	nuxt.options.purgecss = nuxt.options.purgecss || {};
 	const originalSafelist = nuxt.options.purgecss.safelist;
 	const safelistOptions: { deep: RegExp[]; standard: (RegExp | string)[] } = {
 		deep: [],
@@ -63,8 +63,8 @@ export const setupPurgecss = async ({ enabledModules }: RequiredModuleOptions, n
 	if (Array.isArray(originalSafelist)) {
 		safelistOptions.standard.push(...originalSafelist);
 	} else if (originalSafelist) {
-		safelistOptions.deep.push(...safelistOptions.deep);
-		safelistOptions.standard.push(...safelistOptions.standard);
+		safelistOptions.deep.push(...(originalSafelist.deep || []));
+		safelistOptions.standard.push(...(originalSafelist.standard || []));
 	}
 
 	safelistOptions.deep = [...new Set(safelistOptions.deep)];
