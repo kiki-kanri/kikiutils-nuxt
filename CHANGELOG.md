@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.0.0-rc.2
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.1...v2.0.0-rc.2)
+
+### 🏡 Chore
+
+- Upgrade dependencies ([dbdf0f1](https://github.com/kiki-kanri/kikiutils-nuxt/commit/dbdf0f1))
+- Update scripts in package.json ([d6313d3](https://github.com/kiki-kanri/kikiutils-nuxt/commit/d6313d3))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-rc.1
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.0...v2.0.0-rc.1)
