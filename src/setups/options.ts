@@ -10,8 +10,8 @@ export const setupOptions = ({ nuxtOptions }: RequiredModuleOptions, nuxt: Nuxt)
 	Object.assign(nuxt.options.typescript, nuxtOptions.typescript);
 };
 
-export const setupVitePlugins = ({ enabledVitePlugins }: RequiredModuleOptions, nuxt: Nuxt) => {
+export const setupVitePlugins = ({ enabledVitePlugins, removeConsoleOptions }: RequiredModuleOptions, nuxt: Nuxt) => {
 	if (!enabledVitePlugins || enabledVitePlugins?.removeConsole === false) return;
 	nuxt.options.vite.plugins = nuxt.options.vite.plugins || [];
-	nuxt.options.vite.plugins.push(removeConsole());
+	nuxt.options.vite.plugins.push(removeConsole(removeConsoleOptions));
 };

@@ -57,6 +57,14 @@ export default defineNuxtModule<ModuleOptions>({
 				typeCheck: true
 			}
 		},
+		removeConsoleOptions: {
+			includes: [
+				'error',
+				'info',
+				'log',
+				'warn'
+			]
+		},
 		unocss: { enabledReset: { tailwind: true } }
 	},
 	meta: { configKey: 'kikiutilsNuxt', name: '@kikiutils/nuxt' },

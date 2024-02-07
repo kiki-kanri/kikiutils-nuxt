@@ -1,4 +1,5 @@
 import type { RequiredDeep } from 'type-fest';
+import type removeConsole from 'vite-plugin-remove-console';
 
 export type RequiredModuleOptions = RequiredDeep<ModuleOptions>;
 
@@ -210,6 +211,10 @@ export interface ModuleOptions {
 		};
 	};
 
+	/**
+	 * @default { includes: ['error', 'info', 'log', 'warn'] }
+	 */
+	removeConsoleOptions: Parameters<typeof removeConsole>[0];
 	unocss?: {
 		enabledReset?:
 			| {
