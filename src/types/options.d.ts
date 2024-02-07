@@ -214,7 +214,7 @@ export interface ModuleOptions {
 	/**
 	 * @default { includes: ['error', 'info', 'log', 'warn'] }
 	 */
-	removeConsoleOptions: Parameters<typeof removeConsole>[0];
+	removeConsoleOptions?: Parameters<typeof removeConsole>[0];
 	unocss?: {
 		enabledReset?:
 			| {
