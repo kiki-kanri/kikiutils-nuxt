@@ -1,5 +1,17 @@
 # Changelog
 
+## v2.0.0-rc.4
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.3...v2.0.0-rc.4)
+
+### 🩹 Fixes
+
+- Make `removeConsoleOptions` module options optional ([aadf202](https://github.com/kiki-kanri/kikiutils-nuxt/commit/aadf202))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-rc.3
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.2...v2.0.0-rc.3)
