@@ -1,5 +1,25 @@
 # Changelog
 
+## v2.0.0-rc.3
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.2...v2.0.0-rc.3)
+
+### 🚀 Enhancements
+
+- Add `removeConsoleOptions` module options ([8667ef7](https://github.com/kiki-kanri/kikiutils-nuxt/commit/8667ef7))
+
+### 🏡 Chore
+
+- Upgrade dependencies ([07b1f99](https://github.com/kiki-kanri/kikiutils-nuxt/commit/07b1f99))
+
+### 🎨 Styles
+
+- Format code ([47764d3](https://github.com/kiki-kanri/kikiutils-nuxt/commit/47764d3))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-rc.2
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.1...v2.0.0-rc.2)
