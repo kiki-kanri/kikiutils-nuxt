@@ -10,9 +10,7 @@ import type { ModuleOptions, RequiredModuleOptions } from './types';
 export default defineNuxtModule<ModuleOptions>({
 	defaults: {
 		addGlobalUtilsTypes: true,
-		elementPlus: {
-			enabledComposables: { form: true }
-		},
+		elementPlus: { enabledComposables: { form: true } },
 		enabled: true,
 		enabledComposables: {
 			hash: true,
@@ -45,14 +43,8 @@ export default defineNuxtModule<ModuleOptions>({
 		importAllComposablesDirTSFiles: true,
 		nuxtOptions: {
 			devtools: { enabled: false },
-			experimental: {
-				headNext: true,
-				inlineSSRStyles: false
-			},
-			nitro: {
-				compressPublicAssets: true,
-				minify: true
-			},
+			experimental: { headNext: true, inlineSSRStyles: false },
+			nitro: { compressPublicAssets: true, minify: true },
 			typescript: {
 				tsConfig: {
 					compilerOptions: {
@@ -65,14 +57,9 @@ export default defineNuxtModule<ModuleOptions>({
 				typeCheck: true
 			}
 		},
-		unocss: {
-			enabledReset: { tailwind: true }
-		}
+		unocss: { enabledReset: { tailwind: true } }
 	},
-	meta: {
-		configKey: 'kikiutilsNuxt',
-		name: '@kikiutils/nuxt'
-	},
+	meta: { configKey: 'kikiutilsNuxt', name: '@kikiutils/nuxt' },
 	async setup(options, nuxt) {
 		const logger = useLogger();
 		if (!options.enabled) return logger.info('@kikiutils/nuxt module disabled.');
