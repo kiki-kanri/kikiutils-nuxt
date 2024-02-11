@@ -13,6 +13,7 @@ export default defineNuxtModule<ModuleOptions>({
 		elementPlus: { enabledComposables: { form: true } },
 		enabled: true,
 		enabledComposables: {
+			axios: true,
 			datetime: true,
 			hash: true,
 			string: true,

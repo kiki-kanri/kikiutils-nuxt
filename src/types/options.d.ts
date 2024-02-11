@@ -28,6 +28,11 @@ export interface ModuleOptions {
 				/**
 				 * @default true
 				 */
+				axios?: boolean;
+
+				/**
+				 * @default true
+				 */
 				datetime?: boolean;
 
 				/**
