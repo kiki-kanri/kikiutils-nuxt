@@ -28,6 +28,11 @@ export interface ModuleOptions {
 				/**
 				 * @default true
 				 */
+				datetime?: boolean;
+
+				/**
+				 * @default true
+				 */
 				hash?: boolean;
 
 				/**
@@ -39,11 +44,6 @@ export interface ModuleOptions {
 				 * @default true
 				 */
 				text?: boolean;
-
-				/**
-				 * @default true
-				 */
-				time?: boolean;
 		  }
 		| false;
 
