@@ -1,5 +1,25 @@
 # Changelog
 
+## v2.0.0-rc.6
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.5...v2.0.0-rc.6)
+
+### 🚀 Enhancements
+
+- Add axios composables ([c77e184](https://github.com/kiki-kanri/kikiutils-nuxt/commit/c77e184))
+
+### 💅 Refactors
+
+- ⚠️ Rename `enabledServerUtils` options time property to datetime ([4c5a3b7](https://github.com/kiki-kanri/kikiutils-nuxt/commit/4c5a3b7))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️ Rename `enabledServerUtils` options time property to datetime ([4c5a3b7](https://github.com/kiki-kanri/kikiutils-nuxt/commit/4c5a3b7))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-rc.5
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.4...v2.0.0-rc.5)
