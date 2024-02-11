@@ -1,5 +1,21 @@
 # Changelog
 
+## v2.0.0-rc.5
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.4...v2.0.0-rc.5)
+
+### 💅 Refactors
+
+- Source some composables from package exports ([e8d5108](https://github.com/kiki-kanri/kikiutils-nuxt/commit/e8d5108))
+
+### 🏡 Chore
+
+- Upgrade dependencies ([421fc9c](https://github.com/kiki-kanri/kikiutils-nuxt/commit/421fc9c))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-rc.4
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.3...v2.0.0-rc.4)
