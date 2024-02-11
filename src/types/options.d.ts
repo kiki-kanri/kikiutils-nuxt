@@ -101,6 +101,11 @@ export interface ModuleOptions {
 				/**
 				 * @default true
 				 */
+				datetime?: boolean;
+
+				/**
+				 * @default true
+				 */
 				error?: boolean;
 
 				/**
@@ -112,11 +117,6 @@ export interface ModuleOptions {
 				 * @default true
 				 */
 				string?: boolean;
-
-				/**
-				 * @default true
-				 */
-				time?: boolean;
 		  }
 		| false;
 

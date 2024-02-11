@@ -30,10 +30,10 @@ export default defineNuxtModule<ModuleOptions>({
 			vueuse: true
 		},
 		enabledServerUtils: {
+			datetime: true,
 			error: true,
 			hash: true,
-			string: true,
-			time: true
+			string: true
 		},
 		enabledStyles: {
 			font: true,
