@@ -3,6 +3,7 @@ import { addImportsDir, addTypeTemplate, createResolver, defineNuxtModule, useLo
 import { setupComposables } from './setups/composables';
 import { setupColorMode, setupElementPlus, setupGoogleFonts, setupPurgecss, setupRobots, setupSecurity, setupUnocss, setupVueuse } from './setups/modules';
 import { setupOptions, setupVitePlugins } from './setups/options';
+import { setupPlugins } from './setups/plugins';
 import { setupServerUtils } from './setups/server/utils';
 import { setupStyles } from './setups/styles';
 import type { ModuleOptions, RequiredModuleOptions } from './types';
@@ -29,6 +30,7 @@ export default defineNuxtModule<ModuleOptions>({
 			unocss: true,
 			vueuse: true
 		},
+		enabledPlugins: { eventHandlers: { dragAndDrop: true } },
 		enabledServerUtils: {
 			datetime: true,
 			error: true,
@@ -92,6 +94,9 @@ export default defineNuxtModule<ModuleOptions>({
 
 		// Options
 		setupOptions(moduleOptions, nuxt);
+
+		// Plugins
+		setupPlugins(moduleOptions, resolver);
 
 		// Server utils
 		setupServerUtils(moduleOptions, resolver);

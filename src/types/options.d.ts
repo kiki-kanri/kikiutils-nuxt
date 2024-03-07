@@ -96,6 +96,19 @@ export interface ModuleOptions {
 		  }
 		| false;
 
+	enabledPlugins?:
+		| {
+				eventHandlers?:
+					| {
+							/**
+							 * @default true
+							 */
+							dragAndDrop?: boolean;
+					  }
+					| false;
+		  }
+		| false;
+
 	enabledServerUtils?:
 		| {
 				/**
