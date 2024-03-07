@@ -1,5 +1,26 @@
 # Changelog
 
+## v2.0.0-rc.8
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.7-deprecated...v2.0.0-rc.8)
+
+### 🩹 Fixes
+
+- Correct the method of registering plugins ([6da3f50](https://github.com/kiki-kanri/kikiutils-nuxt/commit/6da3f50))
+- Downgrade vue-tsc to v1 to resolve compatibility issues ([5cf3966](https://github.com/kiki-kanri/kikiutils-nuxt/commit/5cf3966))
+
+### 📖 Documentation
+
+- Mark v2.0.0-rc.7 as deprecated in CHANGELOG ([0606603](https://github.com/kiki-kanri/kikiutils-nuxt/commit/0606603))
+
+### 🏡 Chore
+
+- Remove release command from package.json scripts ([fddebe1](https://github.com/kiki-kanri/kikiutils-nuxt/commit/fddebe1))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-rc.7-deprecated
 
 **Important: Deprecated Version**
