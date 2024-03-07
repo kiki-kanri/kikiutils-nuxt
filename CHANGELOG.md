@@ -1,8 +1,16 @@
 # Changelog
 
-## v2.0.0-rc.7
+## v2.0.0-rc.7-deprecated
 
-[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.6...v2.0.0-rc.7)
+**Important: Deprecated Version**
+
+This version cannot operate correctly. Please use a newer version or revert to 2.0.0-rc.6.
+
+Thank you for your continued support.
+
+***
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.6...v2.0.0-rc.7-deprecated)
 
 ### 🚀 Enhancements
 
