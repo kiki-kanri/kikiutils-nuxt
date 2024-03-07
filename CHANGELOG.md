@@ -1,5 +1,21 @@
 # Changelog
 
+## v2.0.0-rc.7
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.6...v2.0.0-rc.7)
+
+### 🚀 Enhancements
+
+- Add plugin and related options for registering dragover and drop event listeners ([569bf70](https://github.com/kiki-kanri/kikiutils-nuxt/commit/569bf70))
+
+### 🏡 Chore
+
+- Upgrade dependencies ([40e01d7](https://github.com/kiki-kanri/kikiutils-nuxt/commit/40e01d7))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-rc.6
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.5...v2.0.0-rc.6)
