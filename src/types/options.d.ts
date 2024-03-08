@@ -17,6 +17,15 @@ export interface ModuleOptions {
 					form?: boolean;
 			  }
 			| false;
+
+		enabledStyles?:
+			| {
+					/**
+					 * @default true
+					 */
+					reboot?: boolean;
+			  }
+			| false;
 	};
 
 	/**

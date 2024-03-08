@@ -11,7 +11,7 @@ import type { ModuleOptions, RequiredModuleOptions } from './types';
 export default defineNuxtModule<ModuleOptions>({
 	defaults: {
 		addGlobalUtilsTypes: true,
-		elementPlus: { enabledComposables: { form: true } },
+		elementPlus: { enabledComposables: { form: true }, enabledStyles: { reboot: true } },
 		enabled: true,
 		enabledComposables: {
 			axios: true,
