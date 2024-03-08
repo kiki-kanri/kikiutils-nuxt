@@ -3,17 +3,17 @@ import type { Resolver } from '@nuxt/kit';
 
 import type { RequiredModuleOptions } from '../types';
 
-export const setupComposables = (moduleOptions: RequiredModuleOptions, reslover: Resolver) => {
-	if (moduleOptions.enabledModules && moduleOptions.enabledModules.elementPlus) setupElementPlusComposables(moduleOptions, reslover);
+export const setupComposables = (moduleOptions: RequiredModuleOptions, resolver: Resolver) => {
+	if (moduleOptions.enabledModules && moduleOptions.enabledModules.elementPlus) setupElementPlusComposables(moduleOptions, resolver);
 	if (!moduleOptions.enabledComposables) return;
-	if (moduleOptions.enabledComposables.axios) addImportsDir(reslover.resolve('runtime/composables/axios'));
-	if (moduleOptions.enabledComposables.datetime) addImportsDir(reslover.resolve('runtime/composables/datetime'));
-	if (moduleOptions.enabledComposables.hash) addImportsDir(reslover.resolve('runtime/composables/hash'));
-	if (moduleOptions.enabledComposables.string) addImportsDir(reslover.resolve('runtime/composables/string'));
-	if (moduleOptions.enabledComposables.text) addImportsDir(reslover.resolve('runtime/composables/text'));
+	if (moduleOptions.enabledComposables.axios) addImportsDir(resolver.resolve('runtime/composables/axios'));
+	if (moduleOptions.enabledComposables.datetime) addImportsDir(resolver.resolve('runtime/composables/datetime'));
+	if (moduleOptions.enabledComposables.hash) addImportsDir(resolver.resolve('runtime/composables/hash'));
+	if (moduleOptions.enabledComposables.string) addImportsDir(resolver.resolve('runtime/composables/string'));
+	if (moduleOptions.enabledComposables.text) addImportsDir(resolver.resolve('runtime/composables/text'));
 };
 
-function setupElementPlusComposables({ elementPlus: { enabledComposables } }: RequiredModuleOptions, reslover: Resolver) {
+function setupElementPlusComposables({ elementPlus: { enabledComposables } }: RequiredModuleOptions, resolver: Resolver) {
 	if (!enabledComposables) return;
-	if (enabledComposables.form) addImportsDir(reslover.resolve('runtime/element-plus/composables/form'));
+	if (enabledComposables.form) addImportsDir(resolver.resolve('runtime/element-plus/composables/form'));
 }
