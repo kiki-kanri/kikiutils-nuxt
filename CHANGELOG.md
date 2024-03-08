@@ -1,5 +1,26 @@
 # Changelog
 
+## v2.0.0-rc.9
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.8...v2.0.0-rc.9)
+
+### 🚀 Enhancements
+
+- Add Element Plus reboot CSS and related settings ([9c40b1e](https://github.com/kiki-kanri/kikiutils-nuxt/commit/9c40b1e))
+
+### 🩹 Fixes
+
+- Prevent dragover and drop event listeners from blocking non-file related events ([0935d2f](https://github.com/kiki-kanri/kikiutils-nuxt/commit/0935d2f))
+- Correct erroneous variable and parameter names ([83ceb61](https://github.com/kiki-kanri/kikiutils-nuxt/commit/83ceb61))
+
+### 🏡 Chore
+
+- Upgrade dependencies ([2fad1d5](https://github.com/kiki-kanri/kikiutils-nuxt/commit/2fad1d5))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-rc.8
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.7-deprecated...v2.0.0-rc.8)
