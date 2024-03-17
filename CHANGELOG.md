@@ -1,5 +1,25 @@
 # Changelog
 
+## v2.0.0-rc.10
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.9...v2.0.0-rc.10)
+
+### 🚀 Enhancements
+
+- Add more server error utils ([eb82360](https://github.com/kiki-kanri/kikiutils-nuxt/commit/eb82360))
+
+### 🏡 Chore
+
+- Upgrade dependencies ([8847b1a](https://github.com/kiki-kanri/kikiutils-nuxt/commit/8847b1a))
+
+### 🎨 Styles
+
+- Update Element Plus related fixes in styles ([a94675a](https://github.com/kiki-kanri/kikiutils-nuxt/commit/a94675a))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-rc.9
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.8...v2.0.0-rc.9)
