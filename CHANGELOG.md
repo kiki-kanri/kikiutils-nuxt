@@ -1,5 +1,21 @@
 # Changelog
 
+## v2.0.0-rc.11
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.10...v2.0.0-rc.11)
+
+### 🩹 Fixes
+
+- Make `nuxtOptions.nitro.minify` option optional ([9611aeb](https://github.com/kiki-kanri/kikiutils-nuxt/commit/9611aeb))
+
+### 🏡 Chore
+
+- Upgrade dependencies ([c5320ed](https://github.com/kiki-kanri/kikiutils-nuxt/commit/c5320ed))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-rc.10
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.9...v2.0.0-rc.10)
