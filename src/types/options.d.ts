@@ -203,7 +203,7 @@ export interface ModuleOptions {
 			/**
 			 * @default true
 			 */
-			minify: boolean;
+			minify?: boolean;
 		};
 
 		typescript?: {
