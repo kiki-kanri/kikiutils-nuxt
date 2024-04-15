@@ -1,5 +1,21 @@
 # Changelog
 
+## v2.0.0-rc.12
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.11...v2.0.0-rc.12)
+
+### 🩹 Fixes
+
+- Correct invalid settings in reboot.css ([c81e1b3](https://github.com/kiki-kanri/kikiutils-nuxt/commit/c81e1b3))
+
+### 🏡 Chore
+
+- Upgrade dependencies ([b47ef25](https://github.com/kiki-kanri/kikiutils-nuxt/commit/b47ef25))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-rc.11
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.10...v2.0.0-rc.11)
