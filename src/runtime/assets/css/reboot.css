@@ -12,7 +12,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:focus,
 textarea:-webkit-autofill,
 textarea:-webkit-autofill:focus {
-	transition-property:
+	transition:
 		background-color 600000s,
 		color 600000s;
 }
