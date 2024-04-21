@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.0.0-rc.13
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.12...v2.0.0-rc.13)
+
+### 🏡 Chore
+
+- Upgrade dependencies ([6264438](https://github.com/kiki-kanri/kikiutils-nuxt/commit/6264438))
+- Modify export types statements ([be05495](https://github.com/kiki-kanri/kikiutils-nuxt/commit/be05495))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-rc.12
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.11...v2.0.0-rc.12)
