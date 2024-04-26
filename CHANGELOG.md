@@ -1,5 +1,21 @@
 # Changelog
 
+## v2.0.0-rc.14
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.13...v2.0.0-rc.14)
+
+### 💅 Refactors
+
+- Modify export method for types ([cf29eba](https://github.com/kiki-kanri/kikiutils-nuxt/commit/cf29eba))
+
+### 🏡 Chore
+
+- Update and tidy up dependencies ([cade3c0](https://github.com/kiki-kanri/kikiutils-nuxt/commit/cade3c0))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-rc.13
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.12...v2.0.0-rc.13)

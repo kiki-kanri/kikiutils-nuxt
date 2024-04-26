@@ -1,6 +1,6 @@
 {
   "name": "@kikiutils/nuxt",
-  "version": "2.0.0-rc.13",
+  "version": "2.0.0-rc.14",
   "description": "Nuxt module.",
   "license": "MIT",
   "author": "kiki-kanri",
@@ -52,9 +52,9 @@
   },
   "exports": {
     ".": {
-      "types": "./dist/types.d.ts",
       "import": "./dist/module.mjs",
-      "require": "./dist/module.cjs"
+      "require": "./dist/module.cjs",
+      "types": "./dist/types.d.ts"
     }
   },
   "prettier": "@kikiutils/prettierrc"
