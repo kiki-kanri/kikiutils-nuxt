@@ -105,7 +105,7 @@ export default defineNuxtModule<ModuleOptions>({
 		setupStyles(moduleOptions, nuxt, resolver);
 
 		// Utils types
-		if (moduleOptions.addGlobalUtilsTypes) addTypeTemplate({ filename: 'types/global-utils.d.ts', getContents: () => `export * from '@kikiutils/types';export * from '@kikiutils/types/nuxt';` });
+		if (moduleOptions.addGlobalUtilsTypes) addTypeTemplate({ filename: 'types/global-utils.d.ts', getContents: () => `export type {} from '@kikiutils/types';export type {} from '@kikiutils/types/nuxt';` });
 
 		// Vite plugins
 		setupVitePlugins(moduleOptions, nuxt);
