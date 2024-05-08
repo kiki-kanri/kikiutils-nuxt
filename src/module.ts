@@ -11,6 +11,7 @@ import type { ModuleOptions, RequiredModuleOptions } from './types';
 export default defineNuxtModule<ModuleOptions>({
 	defaults: {
 		addGlobalUtilsTypes: true,
+		addVueRouterToBuildTranspile: true,
 		elementPlus: { enabledComposables: { form: true }, enabledStyles: { reboot: true } },
 		enabled: true,
 		enabledComposables: {
@@ -77,6 +78,9 @@ export default defineNuxtModule<ModuleOptions>({
 		logger.info('Initializing @kikiutils/nuxt module...');
 		const moduleOptions = options as RequiredModuleOptions;
 		const resolver = createResolver(import.meta.url);
+
+		// Add vue-router to build transpile
+		if (options.addVueRouterToBuildTranspile) nuxt.options.build.transpile.push('vue-router');
 
 		// Composables
 		setupComposables(moduleOptions, resolver);

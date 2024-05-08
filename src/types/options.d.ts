@@ -8,6 +8,11 @@ export interface ModuleOptions {
 	 * @default true
 	 */
 	addGlobalUtilsTypes?: boolean;
+
+	/**
+	 * @default true
+	 */
+	addVueRouterToBuildTranspile?: boolean;
 	elementPlus?: {
 		enabledComposables?:
 			| {
