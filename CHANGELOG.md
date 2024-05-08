@@ -1,5 +1,25 @@
 # Changelog
 
+## v2.0.0-rc.15
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.14...v2.0.0-rc.15)
+
+### 🚀 Enhancements
+
+- Add `addVueRouterToBuildTranspile` setting and related functionality ([75db351](https://github.com/kiki-kanri/kikiutils-nuxt/commit/75db351))
+
+### 💅 Refactors
+
+- Modify parameters passed to `createError` ([190b14b](https://github.com/kiki-kanri/kikiutils-nuxt/commit/190b14b))
+
+### 🏡 Chore
+
+- Upgrade dependencies ([8742dcc](https://github.com/kiki-kanri/kikiutils-nuxt/commit/8742dcc))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-rc.14
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.13...v2.0.0-rc.14)
