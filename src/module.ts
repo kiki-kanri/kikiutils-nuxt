@@ -79,6 +79,11 @@ export default defineNuxtModule<ModuleOptions>({
 		const moduleOptions = options as RequiredModuleOptions;
 		const resolver = createResolver(import.meta.url);
 
+		// Add packages to vite optimizeDeps
+		if (nuxt.options.vite.optimizeDeps === undefined) nuxt.options.vite.optimizeDeps = {};
+		if (nuxt.options.vite.optimizeDeps.include === undefined) nuxt.options.vite.optimizeDeps.include = [];
+		nuxt.options.vite.optimizeDeps.include.push('copy-to-clipboard');
+
 		// Add vue-router to build transpile
 		if (options.addVueRouterToBuildTranspile) nuxt.options.build.transpile.push('vue-router');
 
