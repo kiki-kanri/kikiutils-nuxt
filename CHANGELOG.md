@@ -1,5 +1,21 @@
 # Changelog
 
+## v2.0.0-rc.16
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.15...v2.0.0-rc.16)
+
+### 🩹 Fixes
+
+- Add `copy-to-clipboard` to vite optimizeDeps array ([595c532](https://github.com/kiki-kanri/kikiutils-nuxt/commit/595c532))
+
+### 🏡 Chore
+
+- Upgrade dependencies ([7df6d77](https://github.com/kiki-kanri/kikiutils-nuxt/commit/7df6d77))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-rc.15
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.14...v2.0.0-rc.15)
