@@ -1,5 +1,17 @@
 # Changelog
 
+## v2.0.0-rc.18
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.17...v2.0.0-rc.18)
+
+### 🩹 Fixes
+
+- Install missing vue-tsc dependency ([dfe63b9](https://github.com/kiki-kanri/kikiutils-nuxt/commit/dfe63b9))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-rc.17
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.16...v2.0.0-rc.17)
