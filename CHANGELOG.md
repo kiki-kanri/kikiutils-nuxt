@@ -1,5 +1,17 @@
 # Changelog
 
+## v2.0.0-rc.17
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.16...v2.0.0-rc.17)
+
+### 💅 Refactors
+
+- Update dependencies and remove some dependencies ([18cc46e](https://github.com/kiki-kanri/kikiutils-nuxt/commit/18cc46e))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-rc.16
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.15...v2.0.0-rc.16)
