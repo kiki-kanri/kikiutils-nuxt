@@ -1,5 +1,20 @@
 # Changelog
 
+## v2.0.0-rc.19
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.18...v2.0.0-rc.19)
+
+### 🏡 Chore
+
+- Update .gitignore ([936fa46](https://github.com/kiki-kanri/kikiutils-nuxt/commit/936fa46))
+- Upgrade dependencies ([2a111e7](https://github.com/kiki-kanri/kikiutils-nuxt/commit/2a111e7))
+- Update axios export method ([be12a29](https://github.com/kiki-kanri/kikiutils-nuxt/commit/be12a29))
+- Update export paths in utils types ([6f419f6](https://github.com/kiki-kanri/kikiutils-nuxt/commit/6f419f6))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-rc.18
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.17...v2.0.0-rc.18)
