@@ -1,2 +1,2 @@
-export { axiosInstance, axiosRequest, axiosDelete, $axiosDelete, axiosGet, $axiosGet, axiosPatch, $axiosPatch, axiosPost, $axiosPost, axiosPut, $axiosPut } from '@kikiutils/node/request';
-export type { AxiosRequestData, AxiosRequestParams } from '@kikiutils/node/request';
+export * from '@kikiutils/node/axios';
+export type { AxiosRequestData, AxiosRequestParams } from '@kikiutils/node/axios';
