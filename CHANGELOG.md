@@ -1,5 +1,17 @@
 # Changelog
 
+## v2.0.0-rc.20
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.19...v2.0.0-rc.20)
+
+### 🏡 Chore
+
+- Update dependency versions to use caret (^) prefix ([a42902d](https://github.com/kiki-kanri/kikiutils-nuxt/commit/a42902d))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-rc.19
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.18...v2.0.0-rc.19)
