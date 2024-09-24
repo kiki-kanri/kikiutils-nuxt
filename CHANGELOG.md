@@ -1,5 +1,22 @@
 # Changelog
 
+## v2.0.0-rc.21
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.20...v2.0.0-rc.21)
+
+### 🚀 Enhancements
+
+- Export `getDateRangeFromDate` in datetime utils ([dbb6812](https://github.com/kiki-kanri/kikiutils-nuxt/commit/dbb6812))
+
+### 🏡 Chore
+
+- Modify file permissions ([ac5002b](https://github.com/kiki-kanri/kikiutils-nuxt/commit/ac5002b))
+- Upgrade dependencies ([795bfdd](https://github.com/kiki-kanri/kikiutils-nuxt/commit/795bfdd))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-rc.20
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.19...v2.0.0-rc.20)
