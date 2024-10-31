@@ -59,14 +59,14 @@ npm run dev:build
 ```
 
 <!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/v/@kikiutils/nuxt/latest.svg?style=flat&colorA=18181B&colorB=28CF8D
 [npm-version-href]: https://npmjs.com/package/@kikiutils/nuxt
+[npm-version-src]: https://img.shields.io/npm/v/@kikiutils/nuxt/latest.svg?style=flat&colorA=18181B&colorB=28CF8D
 
-[npm-downloads-src]: https://img.shields.io/npm/dm/@kikiutils/nuxt.svg?style=flat&colorA=18181B&colorB=28CF8D
 [npm-downloads-href]: https://npmjs.com/package/@kikiutils/nuxt
+[npm-downloads-src]: https://img.shields.io/npm/dm/@kikiutils/nuxt.svg?style=flat&colorA=18181B&colorB=28CF8D
 
-[license-src]: https://img.shields.io/npm/l/@kikiutils/nuxt.svg?style=flat&colorA=18181B&colorB=28CF8D
 [license-href]: https://npmjs.com/package/@kikiutils/nuxt
+[license-src]: https://img.shields.io/npm/l/@kikiutils/nuxt.svg?style=flat&colorA=18181B&colorB=28CF8D
 
-[nuxt-src]: https://img.shields.io/badge/Nuxt-18181B?logo=nuxt.js
 [nuxt-href]: https://nuxt.com
+[nuxt-src]: https://img.shields.io/badge/Nuxt-18181B?logo=nuxt.js
