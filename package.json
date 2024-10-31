@@ -8,18 +8,16 @@
     "type": "git",
     "url": "git+https://github.com/kiki-kanri/kikiutils-nuxt.git"
   },
-  "type": "module",
-  "main": "./dist/module.cjs",
-  "module": "./dist/module.mjs",
   "files": [
     "./dist"
   ],
   "scripts": {
+    "build": "nuxt-module-build build",
     "bumplog": "changelogen --bump",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
-    "prepack": "nuxt-module-build build"
+    "prepack": "pnpm run build"
   },
   "types": "./dist/types.d.ts",
   "dependencies": {
@@ -47,6 +45,9 @@
     "@nuxt/schema": "^3.13.2",
     "changelogen": "^0.5.7",
     "element-plus": "^2.8.6"
+  },
+  "engines": {
+    "node": ">=18.12.1"
   },
   "exports": {
     ".": {
