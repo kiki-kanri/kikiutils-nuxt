@@ -1,5 +1,27 @@
 # Changelog
 
+## v2.0.0-rc.22
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.21...v2.0.0-rc.22)
+
+### 🏡 Chore
+
+- Modify files permissions ([1968d1a](https://github.com/kiki-kanri/kikiutils-nuxt/commit/1968d1a))
+- Upgrade dependencies ([4cbd0e2](https://github.com/kiki-kanri/kikiutils-nuxt/commit/4cbd0e2))
+- Update package.json ([acb1871](https://github.com/kiki-kanri/kikiutils-nuxt/commit/acb1871))
+- Switch changelog generation package ([946f078](https://github.com/kiki-kanri/kikiutils-nuxt/commit/946f078))
+- Add release script to package.json ([c3999f6](https://github.com/kiki-kanri/kikiutils-nuxt/commit/c3999f6))
+- Upgrade dependencies ([2a8c439](https://github.com/kiki-kanri/kikiutils-nuxt/commit/2a8c439))
+- Set TypeScript version to 5.6.2 ([2ce2fd2](https://github.com/kiki-kanri/kikiutils-nuxt/commit/2ce2fd2))
+
+### 🎨 Styles
+
+- Reorder badge URLs in README ([be1ae8d](https://github.com/kiki-kanri/kikiutils-nuxt/commit/be1ae8d))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-rc.21
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.20...v2.0.0-rc.21)
