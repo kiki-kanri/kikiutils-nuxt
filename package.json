@@ -2,15 +2,26 @@
   "name": "@kikiutils/nuxt",
   "version": "2.0.0-rc.23",
   "description": "Nuxt module.",
-  "license": "MIT",
   "author": "kiki-kanri",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kiki-kanri/kikiutils-nuxt.git"
   },
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    }
+  },
+  "types": "./dist/types.d.ts",
   "files": [
     "./dist"
   ],
+  "engines": {
+    "node": ">=18.12.1"
+  },
   "scripts": {
     "build": "nuxt-module-build build",
     "bumplog": "changelogen --bump",
@@ -20,7 +31,6 @@
     "prepack": "pnpm run build",
     "release": "pnpm run build && changelogen --push --release && npm publish"
   },
-  "types": "./dist/types.d.ts",
   "dependencies": {
     "@kikiutils/node": "^5.1.5",
     "@kikiutils/types": "^3.2.2",
@@ -48,16 +58,6 @@
     "@nuxt/schema": "^3.15.4",
     "element-plus": "^2.9.4",
     "typescript": "5.7.3"
-  },
-  "engines": {
-    "node": ">=18.12.1"
-  },
-  "exports": {
-    ".": {
-      "import": "./dist/module.mjs",
-      "require": "./dist/module.cjs",
-      "types": "./dist/types.d.ts"
-    }
   },
   "prettier": "@kikiutils/prettierrc",
   "pnpm": {
