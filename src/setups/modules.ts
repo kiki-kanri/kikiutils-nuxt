@@ -58,11 +58,10 @@ export async function setupPurgecss({ enabledModules }: RequiredModuleOptions, n
 
     if (enabledModules.unocss) {
         safelistOptions.standard.push(
-            ...[
-                /--unocss--/,
-                /-\[\S+\]/,
-                /__uno_hash_(\w{6})/,
-            ],
+            /!$/,
+            /--unocss--/,
+            /-\[\S+\]/,
+            /__uno_hash_(\w{6})/,
         );
     }
 
