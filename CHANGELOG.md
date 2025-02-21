@@ -1,5 +1,35 @@
 # Changelog
 
+## v2.0.0-rc.24
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.23...v2.0.0-rc.24)
+
+### 💅 Refactors
+
+- ⚠️ Update package options and dependencies ([1e81428](https://github.com/kiki-kanri/kikiutils-nuxt/commit/1e81428))
+
+### 🏡 Chore
+
+- Upgrade dependencies and set `pnpm.onlyBuiltDependencies` in `package.json` ([68993dc](https://github.com/kiki-kanri/kikiutils-nuxt/commit/68993dc))
+- Replace Prettier with ESLint, add related files, and update VSCode settings ([da1e13b](https://github.com/kiki-kanri/kikiutils-nuxt/commit/da1e13b))
+- Modify scripts in `package.json` ([1bbce66](https://github.com/kiki-kanri/kikiutils-nuxt/commit/1bbce66))
+- Modify `playground/nuxt.config.ts` ([9397a32](https://github.com/kiki-kanri/kikiutils-nuxt/commit/9397a32))
+- Organize dependencies list ([2a040e2](https://github.com/kiki-kanri/kikiutils-nuxt/commit/2a040e2))
+- Modify purgecss configuration with unocss ([a96123e](https://github.com/kiki-kanri/kikiutils-nuxt/commit/a96123e))
+
+### 🎨 Styles
+
+- Lint `package.json` ([cf4cfbf](https://github.com/kiki-kanri/kikiutils-nuxt/commit/cf4cfbf))
+- Format and lint add codes ([73a1dec](https://github.com/kiki-kanri/kikiutils-nuxt/commit/73a1dec))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️ Update package options and dependencies ([1e81428](https://github.com/kiki-kanri/kikiutils-nuxt/commit/1e81428))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-rc.23
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.22...v2.0.0-rc.23)
