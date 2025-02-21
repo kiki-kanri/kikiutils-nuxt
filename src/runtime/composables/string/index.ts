@@ -1,1 +1,4 @@
-export { randomAlphabeticString, randomLowerCaseAlphabeticString } from '@kikiutils/node/string';
+export {
+    randomAlphabeticString,
+    randomLowerCaseAlphabeticString,
+} from '@kikiutils/node/string';

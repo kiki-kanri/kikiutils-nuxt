@@ -1,1 +1,5 @@
-export { formatDateOrTimestamp, getDateRangeFromDate, getMidnightDateFromToday } from '@kikiutils/node/datetime';
+export {
+    formatDateOrTimestamp,
+    getDateRangeFromDate,
+    getMidnightDateFromToday,
+} from '@kikiutils/node/datetime';

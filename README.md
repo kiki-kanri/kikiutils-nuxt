@@ -32,11 +32,9 @@ npm install --save-dev @kikiutils/nuxt
 
 ```typescript
 export default defineNuxtConfig({
-  // With options
-  kikiutilsNuxt: {},
-  modules: [
-    '@kikiutils/nuxt'
-  ]
+    // With options
+    kikiutilsNuxt: {},
+    modules: ['@kikiutils/nuxt']
 });
 ```
 
