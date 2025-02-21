@@ -4,15 +4,6 @@ import type removeConsole from 'vite-plugin-remove-console';
 export type RequiredModuleOptions = RequiredDeep<ModuleOptions>;
 
 export interface ModuleOptions {
-    /**
-     * @default true
-     */
-    addGlobalUtilsTypes?: boolean;
-
-    /**
-     * @default true
-     */
-    addVueRouterToBuildTranspile?: boolean;
     elementPlus?: {
         enabledComposables?:
           | false
@@ -41,36 +32,36 @@ export interface ModuleOptions {
       | false
       | {
           /**
-           * @default true
+           * @default false
            */
           axios?: boolean;
 
           /**
-           * @default true
+           * @default false
+           */
+          clipboard?: boolean;
+
+          /**
+           * @default false
            */
           datetime?: boolean;
 
           /**
-           * @default true
+           * @default false
            */
           hash?: boolean;
 
           /**
-           * @default true
+           * @default false
            */
           string?: boolean;
-
-          /**
-           * @default true
-           */
-          text?: boolean;
       };
 
     enabledModules?:
       | false
       | {
           /**
-           * @default true
+           * @default false
            */
           colorMode?: boolean;
 
@@ -80,22 +71,22 @@ export interface ModuleOptions {
           elementPlus?: boolean;
 
           /**
-           * @default true
+           * @default false
            */
           googleFonts?: boolean;
 
           /**
-           * @default true
+           * @default false
            */
           purgecss?: boolean;
 
           /**
-           * @default true
+           * @default false
            */
           robots?: boolean;
 
           /**
-           * @default true
+           * @default false
            */
           security?: boolean;
 
@@ -127,7 +118,7 @@ export interface ModuleOptions {
       | false
       | {
           /**
-           * @default true
+           * @default false
            */
           datetime?: boolean;
 
@@ -137,12 +128,12 @@ export interface ModuleOptions {
           error?: boolean;
 
           /**
-           * @default true
+           * @default false
            */
           hash?: boolean;
 
           /**
-           * @default true
+           * @default false
            */
           string?: boolean;
       };
@@ -151,7 +142,7 @@ export interface ModuleOptions {
       | false
       | {
           /**
-           * @default true
+           * @default false
            */
           font?: boolean;
 
@@ -161,7 +152,7 @@ export interface ModuleOptions {
           reboot?: boolean;
 
           /**
-           * @default true
+           * @default false
            */
           scrollbar?: boolean;
       };
@@ -179,6 +170,11 @@ export interface ModuleOptions {
      * @default true
      */
     importAllComposablesDirTSFiles?: boolean;
+
+    /**
+     * @default true
+     */
+    loadGlobalUtilsTypes?: boolean;
     nuxtOptions?: {
         devtools?: {
             /**
@@ -214,11 +210,6 @@ export interface ModuleOptions {
         typescript?: {
             tsConfig?: {
                 compilerOptions?: {
-                    /**
-                     * @default true
-                     */
-                    noImplicitOverride?: boolean;
-
                     /**
                      * @default true
                      */

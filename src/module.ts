@@ -31,44 +31,42 @@ import type {
 
 export default defineNuxtModule<ModuleOptions>({
     defaults: {
-        addGlobalUtilsTypes: true,
-        addVueRouterToBuildTranspile: true,
         elementPlus: {
             enabledComposables: { form: true },
             enabledStyles: { reboot: true },
         },
         enabled: true,
         enabledComposables: {
-            axios: true,
-            datetime: true,
-            hash: true,
-            string: true,
-            text: true,
+            axios: false,
+            clipboard: false,
+            datetime: false,
+            hash: false,
         },
         enabledModules: {
-            colorMode: true,
+            colorMode: false,
             elementPlus: false,
-            googleFonts: true,
-            purgecss: true,
-            robots: true,
-            security: true,
+            googleFonts: false,
+            purgecss: false,
+            robots: false,
+            security: false,
             unocss: true,
             vueuse: true,
         },
         enabledPlugins: { eventHandlers: { dragAndDrop: true } },
         enabledServerUtils: {
-            datetime: true,
+            datetime: false,
             error: true,
-            hash: true,
-            string: true,
+            hash: false,
+            string: false,
         },
         enabledStyles: {
-            font: true,
+            font: false,
             reboot: true,
-            scrollbar: true,
+            scrollbar: false,
         },
         enabledVitePlugins: { removeConsole: true },
         importAllComposablesDirTSFiles: true,
+        loadGlobalUtilsTypes: true,
         nuxtOptions: {
             devtools: { enabled: false },
             experimental: {
@@ -82,7 +80,6 @@ export default defineNuxtModule<ModuleOptions>({
             typescript: {
                 tsConfig: {
                     compilerOptions: {
-                        noImplicitOverride: true,
                         noUncheckedIndexedAccess: true,
                         noUnusedLocals: true,
                         noUnusedParameters: true,
@@ -117,9 +114,6 @@ export default defineNuxtModule<ModuleOptions>({
         if (nuxt.options.vite.optimizeDeps.include === undefined) nuxt.options.vite.optimizeDeps.include = [];
         nuxt.options.vite.optimizeDeps.include.push('copy-to-clipboard');
 
-        // Add vue-router to build transpile
-        if (options.addVueRouterToBuildTranspile) nuxt.options.build.transpile.push('vue-router');
-
         // Composables
         setupComposables(moduleOptions, resolver);
         if (options.importAllComposablesDirTSFiles) addImportsDir(`${nuxt.options.rootDir}/composables/**/*.ts`);
@@ -147,10 +141,10 @@ export default defineNuxtModule<ModuleOptions>({
         setupStyles(moduleOptions, nuxt, resolver);
 
         // Utils types
-        if (moduleOptions.addGlobalUtilsTypes) {
+        if (moduleOptions.loadGlobalUtilsTypes) {
             addTypeTemplate({
                 filename: 'types/global-utils.d.ts',
-                getContents: () => `export type {} from '@kikiutils/types';export type {} from '@kikiutils/types/vue';`,
+                getContents: () => `export type {} from '@kikiutils/types';\nexport type {} from '@kikiutils/types/vue';`,
             });
         }
 

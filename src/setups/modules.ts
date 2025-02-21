@@ -7,6 +7,7 @@ import type { RequiredModuleOptions } from '../types';
 
 export async function setupColorMode({ enabledModules }: RequiredModuleOptions, nuxt: Nuxt) {
     if (!enabledModules || !enabledModules.colorMode) return;
+    // @ts-expect-error Ignore this error.
     nuxt.options.colorMode = defu(nuxt.options.colorMode, {
         classSuffix: '',
         preference: 'dark',
