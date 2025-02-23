@@ -42,7 +42,7 @@
     "sass": "^1.85.0",
     "type-fest": "^4.35.0",
     "vite-plugin-remove-console": "^2.2.0",
-    "vue-tsc": "^2.2.2"
+    "vue-tsc": "^2.2.4"
   },
   "devDependencies": {
     "@kikiutils/changelogen": "^0.7.1",
@@ -52,7 +52,7 @@
     "@nuxt/module-builder": "^0.8.4",
     "@nuxt/schema": "^3.15.4",
     "copy-to-clipboard": "^3.3.3",
-    "element-plus": "^2.9.4",
+    "element-plus": "^2.9.5",
     "nuxt-purgecss": "^2.0.0",
     "nuxt-security": "^2.1.5",
     "typescript": "~5.6.3"
