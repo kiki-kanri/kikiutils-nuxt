@@ -8,10 +8,14 @@ import type { RequiredModuleOptions } from '../types/options';
 export async function setupColorMode({ enabledModules }: RequiredModuleOptions, nuxt: Nuxt) {
     if (!enabledModules || !enabledModules.colorMode) return;
     // @ts-expect-error Ignore this error.
-    nuxt.options.colorMode = defu(nuxt.options.colorMode, {
-        classSuffix: '',
-        preference: 'dark',
-    });
+    nuxt.options.colorMode = defu(
+        // @ts-expect-error Ignore this error.
+        nuxt.options.colorMode,
+        {
+            classSuffix: '',
+            preference: 'dark',
+        },
+    );
 
     await installModule('@nuxtjs/color-mode', {}, nuxt);
 }
@@ -26,11 +30,15 @@ export async function setupElementPlus({ enabledModules }: RequiredModuleOptions
 export async function setupGoogleFonts({ enabledModules }: RequiredModuleOptions, nuxt: Nuxt) {
     if (!enabledModules || !enabledModules.googleFonts) return;
     // @ts-expect-error Ignore this error.
-    nuxt.options.googleFonts = defu(nuxt.options.googleFonts, {
-        display: 'swap',
-        download: false,
-        families: { 'Noto+Sans+TC': true },
-    });
+    nuxt.options.googleFonts = defu(
+        // @ts-expect-error Ignore this error.
+        nuxt.options.googleFonts,
+        {
+            display: 'swap',
+            download: false,
+            families: { 'Noto+Sans+TC': true },
+        },
+    );
 
     await installModule('@nuxtjs/google-fonts', {}, nuxt);
 }
@@ -85,13 +93,16 @@ export async function setupRobots({ enabledModules }: RequiredModuleOptions, nux
 
 export async function setupSecurity({ enabledModules }: RequiredModuleOptions, nuxt: Nuxt) {
     if (!enabledModules || !enabledModules.security) return;
-    nuxt.options.security = defu(nuxt.options.security, <SecurityModuleOptions>{
-        corsHandler: { origin: process.env.WEB_HOST },
-        headers: {
-            crossOriginEmbedderPolicy: nuxt.options.dev ? 'unsafe-none' : 'require-corp',
-            xFrameOptions: nuxt.options.dev ? 'SAMEORIGIN' : 'DENY',
+    nuxt.options.security = defu(
+        nuxt.options.security,
+        <SecurityModuleOptions>{
+            corsHandler: { origin: process.env.WEB_HOST },
+            headers: {
+                crossOriginEmbedderPolicy: nuxt.options.dev ? 'unsafe-none' : 'require-corp',
+                xFrameOptions: nuxt.options.dev ? 'SAMEORIGIN' : 'DENY',
+            },
         },
-    });
+    );
 
     await installModule('nuxt-security', {}, nuxt);
 }
