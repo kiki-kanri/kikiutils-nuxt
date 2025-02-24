@@ -5,56 +5,28 @@
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
 
-- [✨ Release Notes](/CHANGELOG.md)
-<!-- - [🏀 Online playground](https://stackblitz.com/github/your-org/my-module?file=playground%2Fapp.vue) -->
-<!-- - [📖 &nbsp;Documentation](https://example.com) -->
+- [✨ Release Notes](./CHANGELOG.md)
 
 ## Features
 
-To be added.
+To be completed.
 
-## Quick Setup
+## Environment Requirements
 
-1. Add `@kikiutils/nuxt` dependency to your project.
+- Node.js version 18 or higher
+- Nuxt version 3.13 or higher
 
-```bash
-# Using pnpm
-pnpm add -D @kikiutils/nuxt
+## Installation
 
-# Using yarn
-yarn add --dev @kikiutils/nuxt
-
-# Using npm
-npm install --save-dev @kikiutils/nuxt
-```
-
-1. Add `@kikiutils/nuxt` to the `modules` section of `nuxt.config.ts`.
-
-```typescript
-export default defineNuxtConfig({
-    // With options
-    kikiutilsNuxt: {},
-    modules: ['@kikiutils/nuxt']
-});
-```
-
-That's it! You can now use session in your Nuxt app ✨.
-
-## Development
+Add dependency (example using pnpm).
 
 ```bash
-# Install dependencies
-npm install
-
-# Generate type stubs
-npm run dev:prepare
-
-# Develop with the playground
-npm run dev
-
-# Build the playground
-npm run dev:build
+pnpm add @kikiutils/nuxt
 ```
+
+You can also use yarn, npm, or bun to add the dependency.
+
+That's it! You're ready to use this package in your project.
 
 <!-- Badges -->
 [npm-version-href]: https://npmjs.com/package/@kikiutils/nuxt
@@ -63,7 +35,7 @@ npm run dev:build
 [npm-downloads-href]: https://npmjs.com/package/@kikiutils/nuxt
 [npm-downloads-src]: https://img.shields.io/npm/dm/@kikiutils/nuxt.svg?style=flat&colorA=18181B&colorB=28CF8D
 
-[license-href]: https://npmjs.com/package/@kikiutils/nuxt
+[license-href]: https://github.com/kiki-kanri/kikiutils-nuxt/blob/main/LICENSE
 [license-src]: https://img.shields.io/npm/l/@kikiutils/nuxt.svg?style=flat&colorA=18181B&colorB=28CF8D
 
 [nuxt-href]: https://nuxt.com
