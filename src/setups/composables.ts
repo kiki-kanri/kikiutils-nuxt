@@ -1,7 +1,7 @@
 import { addImportsDir } from '@nuxt/kit';
 import type { Resolver } from '@nuxt/kit';
 
-import type { RequiredModuleOptions } from '../types';
+import type { RequiredModuleOptions } from '../types/options';
 
 export function setupComposables(moduleOptions: RequiredModuleOptions, resolver: Resolver) {
     if (moduleOptions.enabledModules && moduleOptions.enabledModules.elementPlus) setupElementPlusComposables(moduleOptions, resolver);

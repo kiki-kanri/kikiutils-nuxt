@@ -3,7 +3,7 @@ import type { Nuxt } from '@nuxt/schema';
 import { defu } from 'defu';
 import type { ModuleOptions as SecurityModuleOptions } from 'nuxt-security';
 
-import type { RequiredModuleOptions } from '../types';
+import type { RequiredModuleOptions } from '../types/options';
 
 export async function setupColorMode({ enabledModules }: RequiredModuleOptions, nuxt: Nuxt) {
     if (!enabledModules || !enabledModules.colorMode) return;
@@ -37,7 +37,7 @@ export async function setupGoogleFonts({ enabledModules }: RequiredModuleOptions
 
 export async function setupPurgecss({ enabledModules }: RequiredModuleOptions, nuxt: Nuxt) {
     if (!enabledModules || !enabledModules.purgecss) return;
-    nuxt.options.purgecss = nuxt.options.purgecss || {};
+    nuxt.options.purgecss ||= {};
     const originalSafelist = nuxt.options.purgecss.safelist;
     const safelistOptions: { deep: RegExp[]; standard: (RegExp | string)[] } = {
         deep: [],

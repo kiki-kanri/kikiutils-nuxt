@@ -27,7 +27,7 @@ import { setupStyles } from './setups/styles';
 import type {
     ModuleOptions,
     RequiredModuleOptions,
-} from './types';
+} from './types/options';
 
 export default defineNuxtModule<ModuleOptions>({
     defaults: {
@@ -67,27 +67,6 @@ export default defineNuxtModule<ModuleOptions>({
         enabledVitePlugins: { removeConsole: true },
         importAllComposablesDirTSFiles: true,
         loadGlobalUtilsTypes: true,
-        nuxtOptions: {
-            devtools: { enabled: false },
-            experimental: {
-                headNext: true,
-                inlineSSRStyles: false,
-            },
-            nitro: {
-                compressPublicAssets: true,
-                minify: true,
-            },
-            typescript: {
-                tsConfig: {
-                    compilerOptions: {
-                        noUncheckedIndexedAccess: true,
-                        noUnusedLocals: true,
-                        noUnusedParameters: true,
-                    },
-                },
-                typeCheck: true,
-            },
-        },
         removeConsoleOptions: {
             includes: [
                 'error',
@@ -129,7 +108,7 @@ export default defineNuxtModule<ModuleOptions>({
         await setupVueuse(moduleOptions, nuxt);
 
         // Options
-        setupOptions(moduleOptions, nuxt);
+        setupOptions(nuxt);
 
         // Plugins
         setupPlugins(moduleOptions, resolver);

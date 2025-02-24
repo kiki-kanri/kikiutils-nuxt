@@ -175,64 +175,6 @@ export interface ModuleOptions {
      * @default true
      */
     loadGlobalUtilsTypes?: boolean;
-    nuxtOptions?: {
-        devtools?: {
-            /**
-             * @default false
-             */
-            enabled: boolean;
-        };
-
-        experimental?: {
-            /**
-             * @default true
-             */
-            headNext?: boolean;
-
-            /**
-             * @default false
-             */
-            inlineSSRStyles?: boolean;
-        };
-
-        nitro?: {
-            /**
-             * @default true
-             */
-            compressPublicAssets?: boolean;
-
-            /**
-             * @default true
-             */
-            minify?: boolean;
-        };
-
-        typescript?: {
-            tsConfig?: {
-                compilerOptions?: {
-                    /**
-                     * @default true
-                     */
-                    noUncheckedIndexedAccess?: boolean;
-
-                    /**
-                     * @default true
-                     */
-                    noUnusedLocals?: boolean;
-
-                    /**
-                     * @default true
-                     */
-                    noUnusedParameters?: boolean;
-                };
-            };
-
-            /**
-             * @default true
-             */
-            typeCheck?: boolean;
-        };
-    };
 
     /**
      * @default { includes: ['error', 'info', 'log', 'warn'] }

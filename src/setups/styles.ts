@@ -1,7 +1,7 @@
 import type { Resolver } from '@nuxt/kit';
 import type { Nuxt } from '@nuxt/schema';
 
-import type { RequiredModuleOptions } from '../types';
+import type { RequiredModuleOptions } from '../types/options';
 
 function setupElementPlusStyles({ elementPlus: { enabledStyles } }: RequiredModuleOptions, nuxt: Nuxt, resolver: Resolver) {
     if (!enabledStyles) return;
