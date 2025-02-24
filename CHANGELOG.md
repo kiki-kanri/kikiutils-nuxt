@@ -1,5 +1,29 @@
 # Changelog
 
+## v2.0.0
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.24...v2.0.0)
+
+### 💅 Refactors
+
+- ⚠️ Update package structure and simplify settings ([fa0995e](https://github.com/kiki-kanri/kikiutils-nuxt/commit/fa0995e))
+
+### 📖 Documentation
+
+- Update README ([26e6343](https://github.com/kiki-kanri/kikiutils-nuxt/commit/26e6343))
+
+### 🏡 Chore
+
+- Upgrade dependencies ([f083552](https://github.com/kiki-kanri/kikiutils-nuxt/commit/f083552))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️ Update package structure and simplify settings ([fa0995e](https://github.com/kiki-kanri/kikiutils-nuxt/commit/fa0995e))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0-rc.24
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.23...v2.0.0-rc.24)
