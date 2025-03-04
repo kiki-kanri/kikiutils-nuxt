@@ -1,5 +1,23 @@
 # Changelog
 
+## v2.0.1
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0...v2.0.1)
+
+### 🏡 Chore
+
+- Remove default options from security module ([39676be](https://github.com/kiki-kanri/kikiutils-nuxt/commit/39676be))
+- Remove automatic configuration of `optimizeDeps` ([b574958](https://github.com/kiki-kanri/kikiutils-nuxt/commit/b574958))
+- Upgrade dependencies ([3745817](https://github.com/kiki-kanri/kikiutils-nuxt/commit/3745817))
+
+### 🎨 Styles
+
+- Format codes ([02d3303](https://github.com/kiki-kanri/kikiutils-nuxt/commit/02d3303))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.0
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0-rc.24...v2.0.0)
