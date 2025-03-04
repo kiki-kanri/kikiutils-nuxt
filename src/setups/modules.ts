@@ -1,7 +1,6 @@
 import { installModule } from '@nuxt/kit';
 import type { Nuxt } from '@nuxt/schema';
 import { defu } from 'defu';
-import type { ModuleOptions as SecurityModuleOptions } from 'nuxt-security';
 
 import type { RequiredModuleOptions } from '../types/options';
 
@@ -93,17 +92,6 @@ export async function setupRobots({ enabledModules }: RequiredModuleOptions, nux
 
 export async function setupSecurity({ enabledModules }: RequiredModuleOptions, nuxt: Nuxt) {
     if (!enabledModules || !enabledModules.security) return;
-    nuxt.options.security = defu(
-        nuxt.options.security,
-        <SecurityModuleOptions>{
-            corsHandler: { origin: process.env.WEB_HOST },
-            headers: {
-                crossOriginEmbedderPolicy: nuxt.options.dev ? 'unsafe-none' : 'require-corp',
-                xFrameOptions: nuxt.options.dev ? 'SAMEORIGIN' : 'DENY',
-            },
-        },
-    );
-
     await installModule('nuxt-security', {}, nuxt);
 }
 
