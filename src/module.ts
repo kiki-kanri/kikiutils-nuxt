@@ -88,6 +88,11 @@ export default defineNuxtModule<ModuleOptions>({
         const moduleOptions = options as RequiredModuleOptions;
         const resolver = createResolver(import.meta.url);
 
+        // Add packages to vite optimizeDeps
+        nuxt.options.vite.optimizeDeps ??= {};
+        nuxt.options.vite.optimizeDeps.include ??= [];
+        if (moduleOptions.enabledComposables && moduleOptions.enabledComposables.clipboard) nuxt.options.vite.optimizeDeps.include.push('copy-to-clipboard');
+
         // Composables
         setupComposables(moduleOptions, resolver);
         if (options.importAllComposablesDirTSFiles) addImportsDir(`${nuxt.options.rootDir}/composables/**/*.ts`);
