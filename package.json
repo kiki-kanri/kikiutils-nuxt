@@ -37,10 +37,10 @@
     "@kikiutils/types": "^3.2.2",
     "@nuxt/kit": "^3.15.4",
     "@unocss/nuxt": "^66.0.0",
-    "@vueuse/nuxt": "^12.7.0",
+    "@vueuse/nuxt": "^12.8.1",
     "defu": "^6.1.4",
     "sass": "^1.85.1",
-    "type-fest": "^4.36.0",
+    "type-fest": "^4.37.0",
     "vite-plugin-remove-console": "^2.2.0",
     "vue-tsc": "^2.2.8"
   },
@@ -54,7 +54,6 @@
     "copy-to-clipboard": "^3.3.3",
     "element-plus": "^2.9.5",
     "nuxt-purgecss": "^2.0.0",
-    "nuxt-security": "^2.1.5",
     "typescript": "^5.8.2"
   },
   "prettier": "@kikiutils/prettierrc",
