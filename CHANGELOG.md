@@ -1,5 +1,21 @@
 # Changelog
 
+## v2.0.2
+
+[compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.1...v2.0.2)
+
+### 🩹 Fixes
+
+- Automatically add `copy-to-clipboard` dependency to `vite.optimizeDeps` ([bb3def3](https://github.com/kiki-kanri/kikiutils-nuxt/commit/bb3def3))
+
+### 🏡 Chore
+
+- Upgrade dependencies ([8266557](https://github.com/kiki-kanri/kikiutils-nuxt/commit/8266557))
+
+### ❤️ Contributors
+
+- kiki-kanri
+
 ## v2.0.1
 
 [compare changes](https://github.com/kiki-kanri/kikiutils-nuxt/compare/v2.0.0...v2.0.1)
